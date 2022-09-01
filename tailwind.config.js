@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -11,6 +12,10 @@ module.exports = {
                 success: colors.green,
                 warning: colors.yellow,
             },
+        },
+        fontFamily: {
+            sans: ["Inter", ...fontFamily.sans],
+            serif: ["serif"],
         },
     },
     plugins: [require("flowbite/plugin")],

@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css','node_modules/flowbite/dist/flowbite.js'])
 </head>
 
-<body>
+<body class="font-sans antialiased bg-gray-50">
     {{ $slot }}
 
 </body>
