@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Careish</title>
     @vite(['resources/css/app.css','node_modules/flowbite/dist/flowbite.js'])
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="font-sans antialiased bg-gray-50">
