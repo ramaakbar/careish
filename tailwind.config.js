@@ -12,18 +12,14 @@ module.exports = {
                 success: colors.green,
                 warning: colors.yellow,
             },
+            backgroundImage:{
+                'elder': "asset('/assets/elder.png')"
+            }
         },
         fontFamily: {
             sans: ["Inter", ...fontFamily.sans],
             serif: ["serif"],
         },
     },
-    plugins: [require("flowbite/plugin")],
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ["./resources/**/*.blade.php"],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
-};
+    plugins: [require("flowbite/plugin")]
+}
