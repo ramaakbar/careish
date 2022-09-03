@@ -16,7 +16,7 @@
                 </svg>
 
             </button>
-            <h1 class="text-2xl font-extrabold text-gray-900">Careish</h1>
+            <a href="/" class="text-2xl font-extrabold text-gray-900">Careish</a>
         </div>
 
         <div class="flex items-center space-x-4">
@@ -27,8 +27,35 @@
                         d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                 </svg>
             </div>
-            <img src="assets/placeholder_man.jpeg" class="w-8 h-8 rounded-full" alt="">
-            <p>Admin</p>
+            <button data-dropdown-toggle="dropdownAvatarName"
+                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 "
+                type="button">
+                <span class="sr-only">Open user menu</span>
+                <img class="w-8 h-8 mr-2 rounded-full" src="/assets/placeholder_man.jpeg" alt="user photo">
+                Admin
+                <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownAvatarName"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
+                <ul class="py-1 text-sm text-gray-700 "
+                    aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                    <li>
+                        <a href="/"
+                            class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
+                    </li>
+            </div>
+
         </div>
     </div>
 </nav>
