@@ -12,11 +12,6 @@
 
 <body class="font-sans antialiased bg-gray-50">
     {{ $slot }}
-    @vite('resources/css/app.css')
-</head>
-
-<body>
-    {{ $slot }}
 </body>
 
 </html>
