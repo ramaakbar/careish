@@ -1,5 +1,5 @@
 <nav class="fixed z-30 w-full bg-white border-b border-gray-200">
-    <div class="flex justify-between px-4 py-3 lg:px-6">
+    <div class="flex justify-between px-2 py-3 lg:px-6">
         <div class="flex items-center">
             <button x-data @click="$store.sidebar.toggle()"
                 class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100">
@@ -85,7 +85,7 @@
         :class="{ '': $store.sidebar.open, 'hidden': !($store.sidebar.open) }" @click="$store.sidebar.toggle()"></div>
     <div id="main-content" class="w-full h-full overflow-y-auto bg-gray-50 lg:ml-64">
         {{ $slot }}
-        <footer class="my-10 text-sm text-center text-gray-500">
+        <footer class="mt-10 mb-5 text-sm text-center text-gray-500">
             © 2022 Careish. All rights reserved.</footer>
     </div>
 </div>
