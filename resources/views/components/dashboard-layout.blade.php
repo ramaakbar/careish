@@ -28,8 +28,7 @@
                 </svg>
             </div>
             <button data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 "
-                type="button">
+                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 " type="button">
                 <span class="sr-only">Open user menu</span>
                 <img class="w-8 h-8 mr-2 rounded-full" src="/assets/placeholder_man.jpeg" alt="user photo">
                 Admin
@@ -42,17 +41,14 @@
             </button>
 
             <!-- Dropdown menu -->
-            <div id="dropdownAvatarName"
-                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
+            <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
                 <ul class="py-1 text-sm text-gray-700 "
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
-                        <a href="/"
-                            class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
+                        <a href="/" class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
                     </li>
             </div>
 
@@ -68,12 +64,24 @@
                 <div class="flex-1 space-y-1 bg-white divide-y">
                     <ul class="pb-2 space-y-2">
                         @foreach ($sidebar as $name => $test)
-                            <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                            @if (request()->is('dashboard'))
+                                <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                                @else
+                                <li class="{{ request()->is('dashboard/' . Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                            @endif
+                            @if (request()->is('dashboard'))
                                 <a href="{{ $test[0] }}"
                                     class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
+                            @else
+                                <a href="{{ $test[0] }}"
+                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
+                                    {{ svg($test[1], 'w-6 h-6') }}
+                                    <span class="ml-3">{{ $name }}</span>
+                                </a>
+                            @endif
                             </li>
                         @endforeach
                     </ul>
