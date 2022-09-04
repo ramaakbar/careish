@@ -17,4 +17,8 @@ class DashboardController extends Controller
     public function transactions(){
         return view('dashboard.transactions');
     }
+
+    public function nurses(){
+        return view('dashboard.nurses');
+    }
 }

@@ -34,3 +34,6 @@ Route::get('/dashboard',[DashboardController::class,'index']);
 Route::get('/dashboard/users',[DashboardController::class,'users']);
 
 Route::get('/dashboard/transactions',[DashboardController::class,'transactions']);
+
+Route::get('/dashboard/nurses',[DashboardController::class,'nurses']);
+
