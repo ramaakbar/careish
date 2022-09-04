@@ -55,9 +55,9 @@
                     </div>
 
                     <div class="overflow-x-auto rounded h-[32rem]">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <table class="w-full text-sm text-left text-gray-500">
                             <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                class="text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Id
@@ -77,9 +77,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         T12321
                                     </th>
                                     <td class="px-6 py-4">
@@ -94,12 +94,12 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         T12321
                                     </th>
                                     <td class="px-6 py-4">
@@ -114,12 +114,12 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         T1222
                                     </th>
                                     <td class="px-6 py-4">
@@ -134,12 +134,12 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         T332
                                     </th>
                                     <td class="px-6 py-4">
@@ -155,7 +155,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
 
@@ -174,9 +174,9 @@
                     </div>
 
                     <div class="overflow-x-auto rounded h-[32rem]">
-                        <table class="w-full text-sm text-left text-gray-500 table-auto dark:text-gray-400">
+                        <table class="w-full text-sm text-left text-gray-500 table-auto">
                             <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                class="text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Id
@@ -196,9 +196,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N169
                                     </th>
                                     <td class="px-6 py-4">
@@ -213,12 +213,12 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N821
                                     </th>
                                     <td class="px-6 py-4">
@@ -233,12 +233,12 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <tr class="bg-white border-b">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N691
                                     </th>
                                     <td class="px-6 py-4">
@@ -253,7 +253,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a href="#"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                               
