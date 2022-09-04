@@ -57,7 +57,7 @@
 </nav>
 <div class="flex pt-16 overflow-hidden">
     <aside id="sidebar"
-        class="fixed top-0 left-0 z-20  flex-col flex-shrink-0  flex w-64 h-full pt-[3.6rem] duration-75 lg:flex transition-width"
+        class="fixed top-0 left-0 z-20  flex-col flex-shrink-0  flex w-64 h-full pt-[3.6rem] lg:flex"
         x-data :class="{ '': $store.sidebar.open, 'hidden': !($store.sidebar.open) }">
         <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200">
             <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">

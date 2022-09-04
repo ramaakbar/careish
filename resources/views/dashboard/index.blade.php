@@ -45,8 +45,8 @@
 
                 </div>
             </div>
-            <div class="flex flex-col space-y-5 lg:flex-row lg:space-x-10 lg:space-y-0">
-                <div class="w-full bg-white border rounded lg:w-1/2">
+            <div class="flex flex-col space-y-5 lg:flex-row lg:space-x-10 lg:space-y-0 ">
+                <div class="w-full bg-white border rounded lg:w-1/2 max-h-[100vh]">
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Latest Transaction</h2>
                         <a href="#"
@@ -54,10 +54,9 @@
                             all</a>
                     </div>
 
-                    <div class="overflow-x-auto rounded h-[32rem]">
-                        <table class="w-full text-sm text-left text-gray-500">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <div class="overflow-x-auto rounded max-h-96">
+                        <table class="w-full h-full text-sm text-left text-gray-500">
+                            <thead class="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Id
@@ -78,12 +77,11 @@
                             </thead>
                             <tbody>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         T12321
                                     </th>
                                     <td class="px-6 py-4">
-                                        26-2-2022
+                                        7/14/2049
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
@@ -93,17 +91,15 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         T12321
                                     </th>
                                     <td class="px-6 py-4">
-                                        26-2-2022
+                                        9/24/2091
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
@@ -113,17 +109,15 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         T1222
                                     </th>
                                     <td class="px-6 py-4">
-                                        23-2-2022
+                                        5/19/2102
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
@@ -133,17 +127,15 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                         T332
                                     </th>
                                     <td class="px-6 py-4">
-                                        23-2-2022
+                                        3/13/2050
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
@@ -154,8 +146,153 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        T12321
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        7/27/2078
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        T12321
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        5/22/2097
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        T1222
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        6/16/2025
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        T332
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        3/5/2034
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                            going</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        T12321
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        11/21/2065
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        T12321
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        6/22/2034
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        T1222
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        6/30/2053
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        T332
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        9/24/2058
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                            going</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
 
@@ -165,7 +302,7 @@
                     </div>
 
                 </div>
-                <div class="w-full overflow-x-auto bg-white border rounded lg:w-1/2">
+                <div class="w-full overflow-x-auto bg-white border rounded lg:w-1/2 max-h-[100vh]">
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Nurses Availability</h2>
                         <a href="#"
@@ -173,10 +310,9 @@
                             all</a>
                     </div>
 
-                    <div class="overflow-x-auto rounded h-[32rem]">
-                        <table class="w-full text-sm text-left text-gray-500 table-auto">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <div class="overflow-x-auto rounded max-h-96">
+                        <table class="w-full h-full text-sm text-left text-gray-500">
+                            <thead class="sticky top-0 text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Id
@@ -197,8 +333,7 @@
                             </thead>
                             <tbody>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N169
                                     </th>
                                     <td class="px-6 py-4">
@@ -212,13 +347,11 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N821
                                     </th>
                                     <td class="px-6 py-4">
@@ -232,13 +365,11 @@
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
                                 <tr class="bg-white border-b">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         N691
                                     </th>
                                     <td class="px-6 py-4">
@@ -246,17 +377,128 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
-                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On Duty</span>
+                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                            Duty</span>
                                     </td>
                                     <td class="px-6 py-4">
                                         $2999
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
                                     </td>
                                 </tr>
-                              
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N169
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Sarah
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N821
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Lee
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N691
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Elijah
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                            Duty</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N169
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Sarah
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N821
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Lee
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        N691
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        Elijah
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off
+                                            Duty</span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        $2999
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    </td>
+                                </tr>
+
+
 
 
                             </tbody>
