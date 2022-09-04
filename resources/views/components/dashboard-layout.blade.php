@@ -1,5 +1,5 @@
 <nav class="fixed z-30 w-full bg-white border-b border-gray-200">
-    <div class="flex justify-between px-4 py-3 lg:px-6">
+    <div class="flex justify-between px-2 py-3 lg:px-6">
         <div class="flex items-center">
             <button x-data @click="$store.sidebar.toggle()"
                 class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100">
@@ -28,8 +28,7 @@
                 </svg>
             </div>
             <button data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 "
-                type="button">
+                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 " type="button">
                 <span class="sr-only">Open user menu</span>
                 <img class="w-8 h-8 mr-2 rounded-full" src="/assets/placeholder_man.jpeg" alt="user photo">
                 Admin
@@ -42,17 +41,14 @@
             </button>
 
             <!-- Dropdown menu -->
-            <div id="dropdownAvatarName"
-                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
+            <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
                 <ul class="py-1 text-sm text-gray-700 "
                     aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                     <li>
-                        <a href="/"
-                            class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
+                        <a href="/" class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
                     </li>
             </div>
 
@@ -61,19 +57,31 @@
 </nav>
 <div class="flex pt-16 overflow-hidden">
     <aside id="sidebar"
-        class="fixed top-0 left-0 z-20  flex-col flex-shrink-0  flex w-64 h-full pt-[3.6rem] duration-75 lg:flex transition-width"
+        class="fixed top-0 left-0 z-20  flex-col flex-shrink-0  flex w-64 h-full pt-[3.6rem] lg:flex"
         x-data :class="{ '': $store.sidebar.open, 'hidden': !($store.sidebar.open) }">
         <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200">
             <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                 <div class="flex-1 space-y-1 bg-white divide-y">
                     <ul class="pb-2 space-y-2">
                         @foreach ($sidebar as $name => $test)
-                            <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                            @if (request()->is('dashboard'))
+                                <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                                @else
+                                <li class="{{ request()->is('dashboard/' . Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                            @endif
+                            @if (request()->is('dashboard'))
                                 <a href="{{ $test[0] }}"
                                     class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
+                            @else
+                                <a href="{{ $test[0] }}"
+                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
+                                    {{ svg($test[1], 'w-6 h-6') }}
+                                    <span class="ml-3">{{ $name }}</span>
+                                </a>
+                            @endif
                             </li>
                         @endforeach
                     </ul>
@@ -85,7 +93,7 @@
         :class="{ '': $store.sidebar.open, 'hidden': !($store.sidebar.open) }" @click="$store.sidebar.toggle()"></div>
     <div id="main-content" class="w-full h-full overflow-y-auto bg-gray-50 lg:ml-64">
         {{ $slot }}
-        <footer class="my-10 text-sm text-center text-gray-500">
+        <footer class="mt-10 mb-5 text-sm text-center text-gray-500">
             © 2022 Careish. All rights reserved.</footer>
     </div>
 </div>

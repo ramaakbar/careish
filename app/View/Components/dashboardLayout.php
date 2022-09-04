@@ -25,9 +25,9 @@ class dashboardLayout extends Component
     {
         $sidebar = [
             'Dashboard' => ['/dashboard','heroicon-s-home'],
-            'Users' => ['/users','heroicon-s-user'],
-            'Transactions' => ['/transactions','heroicon-s-shopping-bag'],
-            'Nurses' => ['/nurses','heroicon-s-user-group']
+            'Users' => ['/dashboard/users','heroicon-s-user'],
+            'Transactions' => ['/dashboard/transactions','heroicon-s-shopping-bag'],
+            'Nurses' => ['/dashboard/nurses','heroicon-s-user-group']
         ];
         return view('components.dashboard-layout',compact('sidebar'));
     }
