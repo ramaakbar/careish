@@ -13,4 +13,8 @@ class DashboardController extends Controller
     public function users(){
         return view('dashboard.users');
     }
+
+    public function transactions(){
+        return view('dashboard.transactions');
+    }
 }
