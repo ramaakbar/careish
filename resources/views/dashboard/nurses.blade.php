@@ -93,7 +93,7 @@
                               </td>
                               <td class="px-6 py-4">
                                   <span
-                                      class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                                      class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
                               </td>
                               <td class="flex flex-wrap gap-1 px-6 py-4">
                                   <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -138,7 +138,7 @@
                           </td>
                           <td class="px-6 py-4">
                               <span
-                                  class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                                  class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
                           </td>
                           <td class="flex flex-wrap gap-1 px-6 py-4">
                               <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -160,7 +160,7 @@
                         </td>
                         <td class="px-6 py-4">
                           <span
-                          class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                          class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
                         </td>
                         <td class="flex flex-wrap gap-1 px-6 py-4">
                             <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -182,7 +182,7 @@
                       </td>
                       <td class="px-6 py-4">
                           <span
-                              class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                              class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
                       </td>
                       <td class="flex flex-wrap gap-1 px-6 py-4">
                           <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -227,7 +227,7 @@
                   </td>
                   <td class="px-6 py-4">
                       <span
-                          class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                          class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
                   </td>
                   <td class="flex flex-wrap gap-1 px-6 py-4">
                       <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -249,7 +249,7 @@
                 </td>
                 <td class="px-6 py-4">
                   <span
-                  class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+                  class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
                 </td>
                 <td class="flex flex-wrap gap-1 px-6 py-4">
                     <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -271,7 +271,7 @@
               </td>
               <td class="px-6 py-4">
                   <span
-                      class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                      class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
               </td>
               <td class="flex flex-wrap gap-1 px-6 py-4">
                   <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -316,7 +316,7 @@
           </td>
           <td class="px-6 py-4">
               <span
-                  class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off Duty</span>
+                  class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
           </td>
           <td class="flex flex-wrap gap-1 px-6 py-4">
               <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
@@ -338,7 +338,7 @@
         </td>
         <td class="px-6 py-4">
           <span
-          class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Done</span>
+          class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
         </td>
         <td class="flex flex-wrap gap-1 px-6 py-4">
             <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>

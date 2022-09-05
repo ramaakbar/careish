@@ -487,8 +487,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <span
-                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Off
-                                            Duty</span>
+                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
                                     </td>
                                     <td class="px-6 py-4">
                                         $2999
