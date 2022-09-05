@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
-            $table->string('name',20);
+            $table->string('availability',20);
             $table->timestamps();
         });
     }
