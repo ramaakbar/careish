@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Gender extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'gender',
+    ];
+
+    public function nurse() {
+        return $this->hasMany(Nurse::class);
+    }
 }

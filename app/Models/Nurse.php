@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Nurse extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'age',
+        'gender_id',
+        'address',
+        'picture',
+        'availability_id',
+    ];
+
+    public function availability() {
+        return $this->belongsTo(Availability::class);
+    }
+
+    public function gender() {
+        return $this->belongsTo(Gender::class);
+    }
 }
