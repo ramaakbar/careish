@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,8 @@ class DatabaseSeeder extends Seeder
             AvailabilitySeeder::class,
             GenderSeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
+            NurseSeeder::class,
         ]);
     }
 }
