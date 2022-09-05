@@ -78,264 +78,48 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2278
-                                </th>
-                                <td class="px-6 py-4">
-                                    Laura Mann
-                                </td>
-                                <td class="px-6 py-4">
-                                    susoozo@vipteh.ke
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    5/22/2105
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T1713
-                                </th>
-                                <td class="px-6 py-4">
-                                    Jonathan Massey
-                                </td>
-                                <td class="px-6 py-4">
-                                    da@segumron.td
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    11/27/2105
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2938
-                                </th>
-                                <td class="px-6 py-4">
-                                    Myrtle Sharp
-                                </td>
-                                <td class="px-6 py-4">
-                                    oz@siseg.ml
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    5/5/2036
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2489
-                                </th>
-                                <td class="px-6 py-4">
-                                    Clifford Webster
-                                </td>
-                                <td class="px-6 py-4">
-                                    ezaon@jo.kp
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    3/23/2058
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2896
-                                </th>
-                                <td class="px-6 py-4">
-                                    Addie Valdez
-                                </td>
-                                <td class="px-6 py-4">
-                                    no@bagevwe.mk
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    4/9/2086
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2734
-                                </th>
-                                <td class="px-6 py-4">
-                                    Fannie Myers
-                                </td>
-                                <td class="px-6 py-4">
-                                    giszausu@vujoza.sc
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    12/1/2054
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2489
-                                </th>
-                                <td class="px-6 py-4">
-                                    Clifford Webster
-                                </td>
-                                <td class="px-6 py-4">
-                                    ezaon@jo.kp
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    3/23/2058
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2896
-                                </th>
-                                <td class="px-6 py-4">
-                                    Addie Valdez
-                                </td>
-                                <td class="px-6 py-4">
-                                    no@bagevwe.mk
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    4/9/2086
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2734
-                                </th>
-                                <td class="px-6 py-4">
-                                    Fannie Myers
-                                </td>
-                                <td class="px-6 py-4">
-                                    giszausu@vujoza.sc
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    12/1/2054
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2489
-                                </th>
-                                <td class="px-6 py-4">
-                                    Clifford Webster
-                                </td>
-                                <td class="px-6 py-4">
-                                    ezaon@jo.kp
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    3/23/2058
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2896
-                                </th>
-                                <td class="px-6 py-4">
-                                    Addie Valdez
-                                </td>
-                                <td class="px-6 py-4">
-                                    no@bagevwe.mk
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    4/9/2086
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    T2734
-                                </th>
-                                <td class="px-6 py-4">
-                                    Fannie Myers
-                                </td>
-                                <td class="px-6 py-4">
-                                    giszausu@vujoza.sc
-                                </td>
-                                <td class="px-6 py-4">
-                                    081391392
-                                </td>
-                                <td class="px-6 py-4">
-                                    12/1/2054
-                                </td>
-                                <td class="flex flex-wrap gap-1 px-6 py-4">
-                                    <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
-                                </td>
-                            </tr>
 
+                            @forelse ($users as $user)
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        U{{ $user->id }}
+                                    </th>
+                                    <td class="items-center px-6 py-4">
+                                        <img src="{{ url($user->picture) }}" alt="asdas"
+                                            class="inline w-8 h-8 mr-2 rounded-full"> {{ $user->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $user->email }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $user->phone_number }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $user->created_at }}
+                                    </td>
+                                    <td class="h-full gap-1 px-6 py-4">
+                                        <a href="#"
+                                            class="inline px-3 font-medium text-blue-600 hover:underline">Edit</a>
+                                        <a href="#"
+                                            class="inline px-3 font-medium text-red-600 hover:underline">Delete</a>
+                                    </td>
+                                </tr>
+
+                            @empty
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">No
+                                        users available</th>
+                                </tr>
+                            @endforelse
 
                         </tbody>
                     </table>
                 </div>
-
+                @if ($users->count())
+                    <div class="p-4">
+                        {{ $users->links() }}
+                    </div>
+                @endif
             </div>
         </main>
     </x-dashboard-layout>

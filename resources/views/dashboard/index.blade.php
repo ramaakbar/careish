@@ -323,182 +323,51 @@
                                     <th scope="col" class="px-6 py-3">
                                         Available
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    {{-- <th scope="col" class="px-6 py-3">
                                         Total Price
-                                    </th>
+                                    </th> --}}
                                     <th scope="col" class="px-6 py-3">
                                         Action
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N169
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Sarah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
+                                @forelse ($nurses as $nurse)
+                                    <tr class="bg-white border-b">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            N{{ $nurse->id }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ $nurse->name }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            @if ($nurse->availability->availability == 'Not Available')
+                                                <span
+                                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $nurse->availability->availability }}</span>
+                                            @elseif($nurse->availability->availability == 'On Duty')
+                                                <span
+                                                    class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $nurse->availability->availability }}</span>
+                                            @else
+                                                <span
+                                                    class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $nurse->availability->availability }}</span>
+                                            @endif
+                                        </td>
+                                        {{-- <td class="px-6 py-4">
                                         $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N821
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Lee
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N691
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Elijah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
-                                            Duty</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N169
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Sarah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N821
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Lee
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N691
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Elijah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
-                                            Duty</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N169
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Sarah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N821
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Lee
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                        N691
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Elijah
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span
-                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Not Available</span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        $2999
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    </td>
-                                </tr>
-
-
-
+                                    </td> --}}
+                                        <td class="px-6 py-4">
+                                            <a href="#"
+                                                class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr class="bg-white border-b">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">No
+                                            nurses available right now</th>
+                                    </tr>
+                                @endforelse
 
                             </tbody>
                         </table>
