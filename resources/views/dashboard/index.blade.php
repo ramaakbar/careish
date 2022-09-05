@@ -49,7 +49,7 @@
                 <div class="w-full bg-white border rounded lg:w-1/2 max-h-[100vh]">
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Latest Transaction</h2>
-                        <a href="#"
+                        <a href="/dashboard/transactions"
                             class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
                             all</a>
                     </div>
@@ -305,7 +305,7 @@
                 <div class="w-full overflow-x-auto bg-white border rounded lg:w-1/2 max-h-[100vh]">
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Nurses Availability</h2>
-                        <a href="#"
+                        <a href="/dashboard/nurses"
                             class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
                             all</a>
                     </div>
