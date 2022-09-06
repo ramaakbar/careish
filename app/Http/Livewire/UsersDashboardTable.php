@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Barryvdh\Debugbar\Facades\Debugbar;
+use App\Traits\WithSorting as TraitsWithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,26 +11,7 @@ class UsersDashboardTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
-    public $search = '';
-    public $sort = 'id';
-    public $sortOrder = 'asc';
-
-    public function SetClicked($head)
-    {
-        if($head == $this->sort){
-            $this->sortOrder == 'asc' ? $this->sortOrder = 'desc' : $this->sortOrder = 'asc';
-        }else{
-            $this->sortOrder= 'asc';
-        }
-        $this->sort = $head;
-    }
-
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
- 
+    use TraitsWithSorting;
     
     public function render()
     {

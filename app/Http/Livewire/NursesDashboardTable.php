@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Nurse;
+use App\Traits\WithSorting as TraitsWithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -10,25 +11,7 @@ class NursesDashboardTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
-    public $search = '';
-    public $sort = 'id';
-    public $sortOrder = 'asc';
-
-    public function SetClicked($head)
-    {
-        if($head == $this->sort){
-            $this->sortOrder == 'asc' ? $this->sortOrder = 'desc' : $this->sortOrder = 'asc';
-        }else{
-            $this->sortOrder= 'asc';
-        }
-        $this->sort = $head;
-    }
-
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+    use TraitsWithSorting;
     
     public function render()
     {
