@@ -48,4 +48,9 @@ class User extends Authenticatable
     public function role() {
         return $this->belongsTo(Role::class);
     }
+
+    public static function search($search){
+        return empty($search) ? static::query() 
+        : static::query()->where('id','like','%'.$search.'%')->orWhere('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('phone_number','like','%'.$search.'%')->orWhere('created_at','like','%'.$search.'%');
+    }
 }

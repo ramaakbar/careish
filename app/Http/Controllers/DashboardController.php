@@ -15,9 +15,7 @@ class DashboardController extends Controller
     }
 
     public function users(){
-        return view('dashboard.users',[
-            'users' => User::paginate(10),
-        ]);
+        return view('dashboard.users');
     }
 
     public function transactions(){
@@ -25,8 +23,6 @@ class DashboardController extends Controller
     }
 
     public function nurses(){
-        return view('dashboard.nurses',[
-            'nurses' => Nurse::with(['gender','availability'])->paginate(10),
-        ]);
+        return view('dashboard.nurses');
     }
 }

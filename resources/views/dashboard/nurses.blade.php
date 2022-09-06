@@ -2,8 +2,8 @@
     <x-dashboard-layout>
         <main class="min-h-[70vh] px-4 pt-6 max-w-[90rem] mx-auto">
             <h1 class="mb-5 text-3xl font-bold">Nurses</h1>
-
-            <div class="flex flex-wrap gap-5 mb-5">
+            <livewire:nurses-dashboard-table>
+            {{-- <div class="flex flex-wrap gap-5 mb-5">
                 <div class="w-full lg:w-2/6">
                     <label for="" class="block mb-2 text-sm font-medium text-gray-900">Search</label>
                     <div class="relative ">
@@ -127,7 +127,7 @@
                     </div>
                 @endif
 
-            </div>
+            </div> --}}
         </main>
     </x-dashboard-layout>
 </x-layout>
