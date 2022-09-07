@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             NurseSeeder::class,
+            DurationSeeder::class,
+            StatusSeeder::class,
+            PaymentTypeSeeder::class,
+            ProvinceCitySeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
