@@ -54,7 +54,7 @@
                 <thead class="sticky top-0 w-full text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('id')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('id')">
                                 Id
                                 @if ($sort == 'id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -74,7 +74,7 @@
                                 @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('name')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('name')">
                                 Name
                                 @if ($sort == 'name' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -94,7 +94,7 @@
                                 @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('email')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('email')">
                                 Email
                                 @if ($sort == 'email' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -114,7 +114,7 @@
                                 @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('phone_number')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('phone_number')">
                                 Phone
                                 @if ($sort == 'phone_number' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -134,7 +134,7 @@
                                 @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('created_at')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('created_at')">
                                 Registered Date
                                 @if ($sort == 'created_at' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"

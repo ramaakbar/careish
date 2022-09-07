@@ -54,7 +54,7 @@
                 <thead class="sticky top-0 w-full text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('id')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('id')">
                                 Id
                                 @if ($sort == 'id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -74,7 +74,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('user')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('user')">
                                 User
                                 @if ($sort == 'user' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -94,7 +94,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('nurse')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('nurse')">
                                 Nurse
                                 @if ($sort == 'nurse' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -114,7 +114,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('total_price')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('total_price')">
                                 Total Price
                                 @if ($sort == 'total_price' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -134,7 +134,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('start_date')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('start_date')">
                                 Start Date
                                 @if ($sort == 'start_date' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -154,7 +154,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('end_date')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('end_date')">
                                 End Date
                                 @if ($sort == 'end_date' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -174,7 +174,7 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center" wire:click="SetClicked('status_id')">
+                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('status_id')">
                                 Status
                                 @if ($sort == 'status_id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
