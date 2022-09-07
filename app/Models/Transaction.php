@@ -45,4 +45,9 @@ class Transaction extends Model
     public function payment_type() {
         return $this->hasMany(PaymentType::class);
     }
+
+    public static function search($search){
+        return empty($search) ? static::query() 
+        : static::query()->where('id','like','%'.$search.'%');
+    }
 }
