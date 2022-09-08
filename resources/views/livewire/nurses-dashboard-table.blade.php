@@ -44,7 +44,7 @@
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                 id="">
                 <option value="" selected>All</option>
-                <option value="2" selected>Female</option>
+                <option value="2">Female</option>
                 <option value="1">Male</option>
             </select>
         </div>
