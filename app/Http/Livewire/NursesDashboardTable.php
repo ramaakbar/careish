@@ -20,8 +20,6 @@ class NursesDashboardTable extends Component
     public function render()
     {
 
-        // $nurses = $this->status == '' ? Nurse::search($this->search)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage): Nurse::search($this->search)->where('availability_id','=',$this->status)->orWhere('gender_id','=',$this->gender)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
-
         if($this->status == '' && $this->gender == ''){
             $nurses = Nurse::search($this->search)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
         }elseif($this->gender == ''){
