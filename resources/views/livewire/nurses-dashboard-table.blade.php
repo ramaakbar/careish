@@ -48,6 +48,15 @@
                 <option value="desc">Desc</option>
             </select>
         </div>
+
+        <div class="w-1/4 lg:w-1/6">
+            <!-- Modal toggle -->
+            <button
+                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button" data-modal-toggle="add-nurse-modal">
+                Add Nurse
+            </button>
+        </div>
     </div>
 
     <div class="w-full bg-white border rounded">
@@ -76,7 +85,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('name')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('name')">
                                 Name
                                 @if ($sort == 'name' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -96,7 +106,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('address')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('address')">
                                 Address
                                 @if ($sort == 'address' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -116,7 +127,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('gender_id')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('gender_id')">
                                 Gender
                                 @if ($sort == 'gender_id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -136,7 +148,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('availability_id')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('availability_id')">
                                 Status
                                 @if ($sort == 'availability_id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -194,7 +207,7 @@
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
                                 <a href="#" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                <a href="#" class="px-3 font-medium text-red-600 hover:underline">Delete</a>
+                                <button wire:click="delete" class="px-3 font-medium text-red-600 hover:underline">Delete</button>
                             </td>
                         </tr>
                     @empty

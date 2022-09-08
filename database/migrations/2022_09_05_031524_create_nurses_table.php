@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignIdFor(Gender::class)->constrained();
             $table->string('address');
             $table->string('picture');
-            $table->foreignIdFor(Availability::class)->constrained();
+            $table->foreignIdFor(Availability::class)->default(3)->constrained();
             $table->timestamps();
         });
     }
