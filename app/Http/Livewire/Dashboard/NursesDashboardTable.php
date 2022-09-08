@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Nurse;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -27,7 +27,7 @@ class NursesDashboardTable extends Component
     
     public function render()
     {
-        return view('livewire.nurses-dashboard-table',[
+        return view('livewire.dashboard.nurses-dashboard-table',[
             'nurses' => Nurse::search($this->search)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage),
         ]);
     }

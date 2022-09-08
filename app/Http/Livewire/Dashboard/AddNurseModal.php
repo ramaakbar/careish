@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Nurse;
 use Livewire\Component;
@@ -59,6 +59,6 @@ class AddNurseModal extends Component
 
     public function render()
     {
-        return view('livewire.add-nurse-modal');
+        return view('livewire.dashboard.add-nurse-modal');
     }
 }

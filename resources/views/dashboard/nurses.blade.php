@@ -4,8 +4,8 @@
 
             <x-alert/>
             <h1 class="mb-5 text-3xl font-bold">Nurses</h1>
-            <livewire:nurses-dashboard-table>
-            <livewire:add-nurse-modal>
+            <livewire:dashboard.nurses-dashboard-table>
+            <livewire:dashboard.add-nurse-modal>
 
         </main>
     </x-dashboard-layout>

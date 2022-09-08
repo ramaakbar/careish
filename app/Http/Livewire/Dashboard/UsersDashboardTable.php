@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\User;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -15,7 +15,7 @@ class UsersDashboardTable extends Component
     
     public function render()
     {
-        return view('livewire.users-dashboard-table',[
+        return view('livewire.dashboard.users-dashboard-table',[
             'users' => User::search($this->search)->orderBy($this->sort,$this->sortOrder)->paginate($this->perPage),
         ]);
     }

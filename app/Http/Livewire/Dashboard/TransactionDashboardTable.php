@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Transaction;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -36,7 +36,7 @@ class TransactionDashboardTable extends Component
         ->orderBy($this->sort,$this->sortOrder)
         ->paginate($this->perPage);
 
-        return view('livewire.transaction-dashboard-table',[
+        return view('livewire.dashboard.transaction-dashboard-table',[
             'transactions' => $transactions
         ]);
     }
