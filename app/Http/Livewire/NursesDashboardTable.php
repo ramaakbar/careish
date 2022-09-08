@@ -12,6 +12,18 @@ class NursesDashboardTable extends Component
     use WithPagination;
 
     use TraitsWithSorting;
+
+    public $deleteId = '';
+
+    public function getDeleteId($id) {
+        $this->deleteId = $id;
+    }
+
+    public function delete() {
+        Nurse::destroy($this->deleteId);
+        session()->flash('error', 'Nurse no ' .$this->deleteId. ' has successfully been added');
+        return redirect()->to('/dashboard/nurses');
+    }
     
     public function render()
     {

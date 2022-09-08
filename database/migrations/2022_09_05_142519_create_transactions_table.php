@@ -22,7 +22,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(Nurse::class)->constrained();
+            $table->foreignIdFor(Nurse::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Status::class)->constrained();
             $table->foreignIdFor(City::class)->constrained();
             $table->foreignIdFor(Duration::class)->constrained();
