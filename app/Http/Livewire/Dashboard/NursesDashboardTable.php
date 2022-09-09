@@ -21,7 +21,7 @@ class NursesDashboardTable extends Component
 
     public function delete() {
         Nurse::destroy($this->deleteId);
-        session()->flash('error', 'Nurse no ' .$this->deleteId. ' has successfully been added');
+        session()->flash('success', 'Nurse no ' .$this->deleteId. ' has successfully been deleted');
         return redirect()->to('/dashboard/nurses');
     }
     

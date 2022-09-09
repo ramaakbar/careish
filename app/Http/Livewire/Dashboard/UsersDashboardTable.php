@@ -21,7 +21,7 @@ class UsersDashboardTable extends Component
 
     public function delete() {
         User::destroy($this->deleteId);
-        session()->flash('error', 'User no ' .$this->deleteId. ' has successfully been added');
+        session()->flash('success', 'User no ' .$this->deleteId. ' has successfully been deleted');
         return redirect()->to('/dashboard/users');
     }
     

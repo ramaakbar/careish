@@ -21,7 +21,7 @@ class TransactionDashboardTable extends Component
 
     public function delete() {
         Transaction::destroy($this->deleteId);
-        session()->flash('alert', 'Transaction no '. $this->deleteId. ' has successfully been deleted');
+        session()->flash('success', 'Transaction no '. $this->deleteId. ' has successfully been deleted');
         return redirect()->to('/dashboard/transactions');
     }
 

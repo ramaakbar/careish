@@ -53,7 +53,7 @@ class AddNurseModal extends Component
         ]);
 
         $this->reset(['name', 'age','gender_id','address','photo']);
-        session()->flash('alert', 'Nurse has successfully been added');
+        session()->flash('success', 'Nurse has successfully been added');
         return redirect()->to('/dashboard/nurses');
     }
 

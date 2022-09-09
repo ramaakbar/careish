@@ -1,4 +1,4 @@
-@if (session()->has('alert'))
+@if (session()->has('success'))
     <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg" role="alert">
         <svg aria-hidden="true" class="flex-shrink-0 w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
@@ -8,7 +8,7 @@
         </svg>
         <span class="sr-only">Success</span>
         <div class="ml-3 text-sm font-medium text-green-700">
-            {{ session('alert') }}
+            {{ session('success') }}
         </div>
         <button type="button"
             class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8"
