@@ -13,6 +13,18 @@ class TransactionDashboardTable extends Component
     use WithPagination;
     use TraitsWithSorting;
 
+    public $deleteId = '';
+
+    public function getDeleteId($id) {
+        $this->deleteId = $id;
+    }
+
+    public function delete() {
+        Transaction::destroy($this->deleteId);
+        session()->flash('alert', 'Transaction no '. $this->deleteId. ' has successfully been deleted');
+        return redirect()->to('/dashboard/transactions');
+    }
+
     public function render()
     {
         $transactions = empty($this->search) ? DB::table('transactions')
