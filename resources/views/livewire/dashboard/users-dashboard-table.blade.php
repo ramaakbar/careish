@@ -25,27 +25,6 @@
                 <option value=50>50</option>
             </select>
         </div>
-
-        <div class="w-1/3 lg:w-1/6">
-            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Sort By</label>
-            <select wire:model="sort"
-                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-                id="">
-                <option value="id" selected>Id</option>
-                <option value="name">Name</option>
-                <option value="created_at">Date</option>
-            </select>
-        </div>
-
-        <div class="w-1/4 lg:w-1/6">
-            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Sort Order</label>
-            <select wire:model="sortOrder"
-                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-                id="">
-                <option value="asc" selected>Ascending</option>
-                <option value="desc">Descending</option>
-            </select>
-        </div>
     </div>
 
     <div class="w-full bg-white border rounded">
