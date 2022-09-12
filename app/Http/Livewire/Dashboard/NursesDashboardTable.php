@@ -13,6 +13,10 @@ class NursesDashboardTable extends Component
 
     use TraitsWithSorting;
 
+    public $status='';
+
+    public $gender='';
+
     public $deleteId = '';
 
     public function getDeleteId($id) {
@@ -27,8 +31,19 @@ class NursesDashboardTable extends Component
     
     public function render()
     {
+
+        if($this->status == '' && $this->gender == ''){
+            $nurses = Nurse::search($this->search)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
+        }elseif($this->gender == ''){
+            $nurses = Nurse::search($this->search)->where('availability_id','=',$this->status)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
+        }elseif($this->status == ''){
+            $nurses = Nurse::search($this->search)->Where('gender_id','=',$this->gender)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
+        }else{
+            $nurses = Nurse::search($this->search)->where('availability_id','=',$this->status)->where('gender_id','=',$this->gender)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
+        }
+
         return view('livewire.dashboard.nurses-dashboard-table',[
-            'nurses' => Nurse::search($this->search)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage),
+            'nurses' => $nurses,
         ]);
     }
 }
