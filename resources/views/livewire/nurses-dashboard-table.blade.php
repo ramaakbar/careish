@@ -27,25 +27,25 @@
         </div>
 
         <div class="w-1/3 lg:w-1/6">
-            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Sort By</label>
-            <select wire:model="sort"
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
+            <select wire:model="status"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                 id="">
-                <option value="id" selected>Id</option>
-                <option value="name">Name</option>
-                <option value="address">Address</option>
-                <option value="gender_id">Gender</option>
-                <option value="availability_id">Status</option>
+                <option value="" selected>All</option>
+                <option value="3">Available</option>
+                <option value="2">On Duty</option>
+                <option value="1">Not Available</option>
             </select>
         </div>
 
         <div class="w-1/4 lg:w-1/6">
-            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Sort Order</label>
-            <select wire:model="sortOrder"
+            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+            <select wire:model="gender"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                 id="">
-                <option value="asc" selected>Asc</option>
-                <option value="desc">Desc</option>
+                <option value="" selected>All</option>
+                <option value="2">Female</option>
+                <option value="1">Male</option>
             </select>
         </div>
     </div>
