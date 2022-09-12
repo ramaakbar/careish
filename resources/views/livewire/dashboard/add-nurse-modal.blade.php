@@ -25,7 +25,7 @@
                             <input wire:model="name" type="text" name="name" id="name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             @error('name')
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
@@ -35,7 +35,7 @@
                                 <input wire:model="age" type="number" name="age" id="age"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @error('age')
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                             snapp!</span> {{ $message }}</p>
                                 @enderror
                             </div>
@@ -49,7 +49,7 @@
                                     <option value="2">Female</option>
                                 </select>
                                 @error('gender_id')
-                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                             snapp!</span> {{ $message }}</p>
                                 @enderror
                             </div>
@@ -60,7 +60,7 @@
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                                 placeholder=""></textarea>
                             @error('address')
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
@@ -74,7 +74,7 @@
                             <p class="mt-1 text-sm text-gray-500 " id="file_input_help">
                                 SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
                             @error('photo')
-                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh,
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
 
