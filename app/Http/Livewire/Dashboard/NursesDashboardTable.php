@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Nurse;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -16,6 +16,18 @@ class NursesDashboardTable extends Component
     public $status='';
 
     public $gender='';
+
+    public $deleteId = '';
+
+    public function getDeleteId($id) {
+        $this->deleteId = $id;
+    }
+
+    public function delete() {
+        Nurse::destroy($this->deleteId);
+        session()->flash('success', 'Nurse no ' .$this->deleteId. ' has successfully been deleted');
+        return redirect()->to('/dashboard/nurses');
+    }
     
     public function render()
     {
@@ -30,7 +42,7 @@ class NursesDashboardTable extends Component
             $nurses = Nurse::search($this->search)->where('availability_id','=',$this->status)->where('gender_id','=',$this->gender)->orderBy($this->sort,$this->sortOrder)->with(['gender','availability'])->paginate($this->perPage);
         }
 
-        return view('livewire.nurses-dashboard-table',[
+        return view('livewire.dashboard.nurses-dashboard-table',[
             'nurses' => $nurses,
         ]);
     }

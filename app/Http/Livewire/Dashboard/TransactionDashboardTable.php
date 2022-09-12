@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Transaction;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -14,6 +14,18 @@ class TransactionDashboardTable extends Component
     use TraitsWithSorting;
 
     public $status='';
+    
+    public $deleteId = '';
+
+    public function getDeleteId($id) {
+        $this->deleteId = $id;
+    }
+
+    public function delete() {
+        Transaction::destroy($this->deleteId);
+        session()->flash('success', 'Transaction no '. $this->deleteId. ' has successfully been deleted');
+        return redirect()->to('/dashboard/transactions');
+    }
 
     public function render()
     {
@@ -64,7 +76,7 @@ class TransactionDashboardTable extends Component
         }
         
 
-        return view('livewire.transaction-dashboard-table',[
+        return view('livewire.dashboard.transaction-dashboard-table',[
             'transactions' => $transactions
         ]);
     }
