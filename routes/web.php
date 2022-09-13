@@ -32,6 +32,9 @@ Route::get('/register',[RegisterController::class,'index']);
 Route::get('/dashboard',[DashboardController::class,'index']);
 
 Route::get('/dashboard/users',[DashboardController::class,'users']);
+Route::get('/dashboard/users/{user:id}',[DashboardController::class,'userDetail']);
+Route::put('/dashboard/users/{user:id}',[DashboardController::class,'update']);
+Route::delete('/dashboard/users/{user:id}',[DashboardController::class,'delete']);
 
 Route::get('/dashboard/transactions',[DashboardController::class,'transactions']);
 

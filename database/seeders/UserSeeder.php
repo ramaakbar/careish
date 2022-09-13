@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'phone_number' => '081323223',
             'role_id' => 2,
-            'picture' => 'assets/placeholder_man.jpeg'
+            'picture' => 'assets/placeholder_profile.jpeg'
         ]);
         
         User::factory()->count(20)->create();
