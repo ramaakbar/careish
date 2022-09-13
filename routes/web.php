@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\dashboard\DashboardNurseController;
+use App\Http\Controllers\dashboard\DashboardTransactionController;
+use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -27,16 +30,19 @@ Route::get('/login',[LoginController::class,'index']);
 // register
 Route::get('/register',[RegisterController::class,'index']);
 
-
 // dashboard
-Route::get('/dashboard',[DashboardController::class,'index']);
+// Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']]
+Route::group(['prefix' => 'dashboard'], function(){
+    Route::get('/',[DashboardController::class,'index']);
 
-Route::get('/dashboard/users',[DashboardController::class,'users']);
-Route::get('/dashboard/users/{user:id}',[DashboardController::class,'userDetail']);
-Route::put('/dashboard/users/{user:id}',[DashboardController::class,'update']);
-Route::delete('/dashboard/users/{user:id}',[DashboardController::class,'delete']);
+    Route::controller(DashboardUserController::class)->group(function () {
+        Route::get('/users','users');
+        Route::get('/users/{user:id}','detail');
+        Route::put('/users/{user:id}','update');
+        Route::delete('/users/{user:id}','delete');
+    });
 
-Route::get('/dashboard/transactions',[DashboardController::class,'transactions']);
+    Route::get('/transactions',[DashboardTransactionController::class,'transactions']);
 
-Route::get('/dashboard/nurses',[DashboardController::class,'nurses']);
-
+    Route::get('/nurses',[DashboardNurseController::class,'nurses']);
+});
