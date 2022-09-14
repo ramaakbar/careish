@@ -8,7 +8,8 @@
             </a>
             <h1 class="my-4 mb-5 text-3xl font-bold">Nurse {{ $nurse->name }}</h1>
             <div>
-                <img src="{{ $nurse->picture == 'assets/placeholder_man.jpeg' ? asset($nurse->picture) : asset('/storage/' . $nurse->picture) }}" alt="" class="w-48">
+                <img src="{{ $nurse->picture == 'assets/placeholder_man.jpeg' ? asset($nurse->picture) : asset('/storage/' . $nurse->picture) }}"
+                    alt="" class="w-48">
             </div>
             <div class="flex justify-between mb-5">
                 <div class="flex space-x-4">
@@ -141,8 +142,9 @@
 
                 </form>
             </div>
-            {{-- <h2 class="mb-3 text-xl font-bold">Transactions</h2>
-        <livewire:dashboard.user-transaction-dashboard-table :user="$user"/> --}}
+
+            <h2 class="mb-3 text-xl font-bold">Transactions</h2>
+            <livewire:dashboard.nurse-transaction-dashboard-table :nurse="$nurse" />
 
             {{-- confirm modal --}}
             <div id="confirm-modal" tabindex="-1"
