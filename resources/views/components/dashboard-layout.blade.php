@@ -64,17 +64,17 @@
                             @if (request()->is('dashboard'))
                                 <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
                                 @else
-                                <li class="{{ request()->is('dashboard/' . Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                                <li class="{{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'bg-purple-500' : '' }}">
                             @endif
                             @if (request()->is('dashboard'))
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name). '*') ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
                             @else
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name)) ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name). '*') ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
