@@ -30,7 +30,7 @@ Route::get('/login',[LoginController::class,'index']);
 // register
 Route::get('/register',[RegisterController::class,'index']);
 
-// dashboard
+// dashboard route
 // Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']]
 Route::group(['prefix' => 'dashboard'], function(){
     Route::get('/',[DashboardController::class,'index']);
@@ -48,5 +48,9 @@ Route::group(['prefix' => 'dashboard'], function(){
         Route::delete('/transactions/{transaction:id}','delete');
     });
 
-    Route::get('/nurses',[DashboardNurseController::class,'nurses']);
+    Route::controller(DashboardNurseController::class)->group(function() {
+        Route::get('/nurses','nurses');
+        Route::get('/nurses/{nurse:id}','detail');
+        Route::delete('/nurses/{nurse:id}','delete');
+    });
 });
