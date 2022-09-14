@@ -208,7 +208,7 @@
                                 {{ $transaction->nurse }}
                             </td>
                             <td class="px-6 py-4">
-                                Rp. {{ $transaction->total_price }}
+                                Rp{{ number_format($transaction->total_price,2,',','.') }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ Carbon\Carbon::parse($transaction->start_date)->format('d-m-Y') }}
