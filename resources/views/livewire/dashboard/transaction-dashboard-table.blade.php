@@ -211,10 +211,10 @@
                                 Rp. {{ $transaction->total_price }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $transaction->start_date }}
+                                {{ Carbon\Carbon::parse($transaction->start_date)->format('d-m-Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $transaction->end_date }}
+                                {{ Carbon\Carbon::parse($transaction->end_date)->format('d-m-Y') }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($transaction->status == 'Cancelled')
