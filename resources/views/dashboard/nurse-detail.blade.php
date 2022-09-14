@@ -8,7 +8,7 @@
             </a>
             <h1 class="my-4 mb-5 text-3xl font-bold">Nurse {{ $nurse->name }}</h1>
             <div>
-              <img src="{{ asset($nurse->picture) }}" alt="" class="w-48">
+                <img src="{{ $nurse->picture == 'assets/placeholder_man.jpeg' ? asset($nurse->picture) : asset('/storage/' . $nurse->picture) }}" alt="" class="w-48">
             </div>
             <div class="flex justify-between mb-5">
                 <div class="flex space-x-4">
@@ -28,7 +28,7 @@
                 </button>
             </div>
             <div class="w-full p-5 mb-8 bg-white border rounded">
-                <form action="/dashboard/nurses/{{ $nurse->id }}" method="POST">
+                <form action="/dashboard/nurses/{{ $nurse->id }}" method="POST" enctype="multipart/form-data">
                     @method('put')
                     @csrf
                     <div class="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-3">
@@ -65,8 +65,7 @@
                             @enderror
                         </div>
                         <div class="">
-                            <label for="age" class="block mb-2 text-sm font-medium text-gray-900 ">Age
-                                Number</label>
+                            <label for="age" class="block mb-2 text-sm font-medium text-gray-900 ">Age</label>
                             <input type="number" name="age" id="age"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $nurse->age }}">
@@ -79,7 +78,8 @@
                         <div class="">
                             <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
                             <input type="address" name="address" id="address"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $nurse->address }}">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $nurse->address }}">
                             @error('address')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -87,14 +87,26 @@
                         </div>
 
                         <div class="">
-                          <label for="availability_id" class="block mb-2 text-sm font-medium text-gray-900 ">Availability</label>
-                          <input type="availability_id" name="availability_id" id="availability_id"
-                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $nurse->availability->availability }}">
-                          @error('availability_id')
-                              <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                      snapp!</span> {{ $message }}</p>
-                          @enderror
-                      </div>
+                            <label for="availability_id"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Availability</label>
+                            <select type="availability_id" name="availability_id" id="availability_id"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                @foreach ($availabilities as $availability)
+                                    @if (old('availability_id', $nurse->availability_id) == $availability->id)
+                                        <option value="{{ $availability->id }}" selected>
+                                            {{ $availability->availability }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $availability->id }}">{{ $availability->availability }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('availability_id')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
 
                         <div class="">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"

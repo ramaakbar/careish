@@ -51,6 +51,7 @@ Route::group(['prefix' => 'dashboard'], function(){
     Route::controller(DashboardNurseController::class)->group(function() {
         Route::get('/nurses','nurses');
         Route::get('/nurses/{nurse:id}','detail');
+        Route::put('/nurses/{nurse:id}','update');
         Route::delete('/nurses/{nurse:id}','delete');
     });
 });
