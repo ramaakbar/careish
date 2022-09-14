@@ -42,7 +42,11 @@ Route::group(['prefix' => 'dashboard'], function(){
         Route::delete('/users/{user:id}','delete');
     });
 
-    Route::get('/transactions',[DashboardTransactionController::class,'transactions']);
+    Route::controller(DashboardTransactionController::class)->group(function() {
+        Route::get('/transactions','transactions');
+        Route::get('/transactions/{transaction:id}','detail');
+        Route::delete('/transactions/{transaction:id}','delete');
+    });
 
     Route::get('/nurses',[DashboardNurseController::class,'nurses']);
 });
