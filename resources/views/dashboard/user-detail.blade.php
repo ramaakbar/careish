@@ -65,7 +65,7 @@
 
                         <div class="">
                             <label for="role"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Role</label>
+                                class="block mb-2 text-sm font-medium text-gray-900">Role</label>
                             <select id="role" name="role_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @if (old('role_id', $user->role_id) == $user->role_id)
@@ -86,7 +86,7 @@
                             @enderror
                         </div>
                         <div class="">
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            <label class="block mb-2 text-sm font-medium text-gray-900"
                                 for="file_input">Upload Profile picture</label>
                             <input
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
