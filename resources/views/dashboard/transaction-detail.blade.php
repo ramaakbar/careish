@@ -121,17 +121,6 @@
                         </div>
 
                         <div class="xl:col-span-2">
-                            <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
-                            <input name="city_id" type="text" id="city_id"
-                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                value="{{ $transaction->city->name }}">
-                            @error('city_id')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="xl:col-span-2">
                             <label for="province_id"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
                             <livewire:component.province-select :value="$transaction->city->province_id">
@@ -140,6 +129,17 @@
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
+
+                        <div class="xl:col-span-2">
+                            <label for="city_id"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
+                            <livewire:component.city-select :value="$transaction->city_id">
+                            @error('city_id')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+                        
                         
 
                     </div>

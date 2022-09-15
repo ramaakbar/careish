@@ -45,6 +45,7 @@ Route::group(['prefix' => 'dashboard'], function(){
     Route::controller(DashboardTransactionController::class)->group(function() {
         Route::get('/transactions','transactions');
         Route::get('/transactions/{transaction:id}','detail');
+        Route::put('/transactions/{transaction:id}','update');
         Route::delete('/transactions/{transaction:id}','delete');
     });
 
