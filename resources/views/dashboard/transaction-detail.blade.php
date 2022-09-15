@@ -52,8 +52,11 @@
                         </div>
 
                         <div class="xl:col-span-2">
-                            <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 ">Start Date</label>
-                            <input name="start_date" type="date" id="start_date" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->start_date->format('Y-m-d') }}">
+                            <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 ">Start
+                                Date</label>
+                            <input name="start_date" type="date" id="start_date"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->start_date->format('Y-m-d') }}">
                             @error('start_date')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -61,7 +64,9 @@
                         </div>
                         <div class="xl:col-span-2">
                             <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 ">End Date</label>
-                            <input name="end_date" type="date" id="end_date" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->end_date->format('Y-m-d') }}">
+                            <input name="end_date" type="date" id="end_date"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->end_date->format('Y-m-d') }}">
                             @error('end_date')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -69,8 +74,11 @@
                         </div>
 
                         <div class="xl:col-span-2">
-                            <label for="duration_id" class="block mb-2 text-sm font-medium text-gray-900 ">Duration</label>
-                            <input name="duration_id" type="text" id="duration_id" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->duration->duration }}">
+                            <label for="duration_id"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Duration</label>
+                            <input name="duration_id" type="text" id="duration_id"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->duration->duration }}">
                             @error('duration_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -78,8 +86,11 @@
                         </div>
 
                         <div class="xl:col-span-3">
-                            <label for="payment_type_id" class="block mb-2 text-sm font-medium text-gray-900 ">Payment Type</label>
-                            <input name="payment_type_id" type="text" id="payment_type_id" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->payment_type->type}}">
+                            <label for="payment_type_id" class="block mb-2 text-sm font-medium text-gray-900 ">Payment
+                                Type</label>
+                            <input name="payment_type_id" type="text" id="payment_type_id"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->payment_type->type }}">
                             @error('payment_type_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -87,8 +98,11 @@
                         </div>
 
                         <div class="xl:col-span-3">
-                            <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 ">Total Price</label>
-                            <input name="total_price" type="text" id="total_price" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->total_price}}">
+                            <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 ">Total
+                                Price</label>
+                            <input name="total_price" type="text" id="total_price"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->total_price }}">
                             @error('total_price')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -97,7 +111,9 @@
 
                         <div class="xl:col-span-6">
                             <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
-                            <input name="address" type="text" id="address" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->address}}">
+                            <input name="address" type="text" id="address"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->address }}">
                             @error('address')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -106,21 +122,25 @@
 
                         <div class="xl:col-span-2">
                             <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
-                            <input name="city_id" type="text" id="city_id" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->city->name}}">
+                            <input name="city_id" type="text" id="city_id"
+                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->city->name }}">
                             @error('city_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="xl:col-span-2">
-                            <label for="province_id" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
-                            <input name="province_id" type="text" id="province_id" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $transaction->city->province->name}}">
+                            <label for="province_id"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
+                            <livewire:component.province-select :value="$transaction->city->province_id">
                             @error('province_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
+                        
 
                     </div>
                     <div class="flex space-x-4">
