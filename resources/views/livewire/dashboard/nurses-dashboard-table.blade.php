@@ -1,6 +1,6 @@
 <div>
-    <div class="flex flex-wrap gap-5 mb-5">
-        <div class="w-full lg:w-2/6">
+    <div class="grid grid-cols-12 gap-5 mb-5 ">
+        <div class="col-span-12 lg:col-span-4">
             <label for="" class="block mb-2 text-sm font-medium text-gray-900">Search</label>
             <div class="relative ">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -15,7 +15,7 @@
                     placeholder="Search" required>
             </div>
         </div>
-        <div class="w-1/3 lg:w-1/6">
+        <div class="col-span-12 lg:col-span-2">
             <label for="" class="block mb-2 text-sm font-medium text-gray-900">Data Per Page</label>
             <select wire:model="perPage"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
@@ -26,7 +26,7 @@
             </select>
         </div>
 
-        <div class="w-1/3 lg:w-1/6">
+        <div class="col-span-12 lg:col-span-2">
             <label for="" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
             <select wire:model="status"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
@@ -38,7 +38,7 @@
             </select>
         </div>
 
-        <div class="w-1/4 lg:w-1/6">
+        <div class="col-span-12 lg:col-span-2">
             <label for="" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
             <select wire:model="gender"
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
@@ -49,8 +49,9 @@
             </select>
         </div>
 
-        <div class="w-1/4 lg:w-1/6">
+        <div class="col-span-12 lg:col-span-2">
             <!-- Modal toggle -->
+            <label for="" class="block mb-2 text-sm font-medium text-white">Button</label>
             <button
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="button" data-modal-toggle="add-nurse-modal">
