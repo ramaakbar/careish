@@ -77,17 +77,17 @@
                             <label for="duration_id"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Duration</label>
                             <select type="duration_id" name="duration_id" id="duration_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            @foreach ($durations as $duration)
-                                @if (old('duration_id', $transaction->duration_id) == $duration->id)
-                                    <option value="{{ $duration->id }}" selected>
-                                        {{ $duration->duration }}
-                                    </option>
-                                @else
-                                    <option value="{{ $duration->id }}">{{ $duration->duration }}
-                                    </option>
-                                @endif
-                            @endforeach
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                @foreach ($durations as $duration)
+                                    @if (old('duration_id', $transaction->duration_id) == $duration->id)
+                                        <option value="{{ $duration->id }}" selected>
+                                            {{ $duration->duration }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $duration->id }}">{{ $duration->duration }}
+                                        </option>
+                                    @endif
+                                @endforeach
                             </select>
                             @error('duration_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -98,7 +98,7 @@
                         <div class="xl:col-span-2">
                             <label for="payment_type_id" class="block mb-2 text-sm font-medium text-gray-900 ">Payment
                                 Type</label>
-                                <select type="payment_type_id" name="payment_type_id" id="payment_type_id"
+                            <select type="payment_type_id" name="payment_type_id" id="payment_type_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @foreach ($payment_types as $payment_type)
                                     @if (old('payment_type_id', $transaction->payment_type_id) == $payment_type->id)
@@ -110,7 +110,7 @@
                                         </option>
                                     @endif
                                 @endforeach
-                                </select>
+                            </select>
                             @error('payment_type_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -131,7 +131,7 @@
 
                         <div class="xl:col-span-2">
                             <label for="status_id" class="block mb-2 text-sm font-medium text-gray-900 ">Status</label>
-                                <select type="status_id" name="status_id" id="status_id"
+                            <select type="status_id" name="status_id" id="status_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @foreach ($statuses as $status)
                                     @if (old('status_id', $transaction->status_id) == $status->id)
@@ -143,7 +143,7 @@
                                         </option>
                                     @endif
                                 @endforeach
-                                </select>
+                            </select>
                             @error('payment_type_id')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -151,7 +151,8 @@
                         </div>
 
                         <div class="xl:col-span-6">
-                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
+                            <label for="address"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
                             <input name="address" type="text" id="address"
                                 class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->address }}">
@@ -165,23 +166,22 @@
                             <label for="province_id"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
                             <livewire:component.province-select :value="$transaction->city->province_id">
-                            @error('province_id')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
+                                @error('province_id')
+                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                            snapp!</span> {{ $message }}</p>
+                                @enderror
                         </div>
 
                         <div class="xl:col-span-2">
-                            <label for="city_id"
-                                class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
+                            <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
                             <livewire:component.city-select :value="$transaction->city_id">
-                            @error('city_id')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
+                                @error('city_id')
+                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                            snapp!</span> {{ $message }}</p>
+                                @enderror
                         </div>
-                        
-                        
+
+
 
                     </div>
                     <div class="flex space-x-4">
