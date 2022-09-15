@@ -28,11 +28,11 @@
                 <form action="/dashboard/transactions/{{ $transaction->id }}" method="POST">
                     @method('put')
                     @csrf
-                    <div class="grid grid-cols-1 gap-5 mb-4 md:grid-cols-2 xl:grid-cols-6">
+                    <div class="grid grid-cols-1 gap-5 mb-5 md:grid-cols-2 xl:grid-cols-6">
                         <div class="xl:col-span-3">
                             <label for="user" class="block mb-2 text-sm font-medium text-gray-900 ">User</label>
                             <input name="user" type="text" id="user" aria-label="disabled input"
-                                class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
+                                class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
                                 value="{{ $transaction->user->name }}" disabled>
                             @error('name')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -43,7 +43,7 @@
                         <div class="xl:col-span-3">
                             <label for="nurse" class="block mb-2 text-sm font-medium text-gray-900 ">Nurse</label>
                             <input name="nurse" type="text" id="nurse" aria-label="disabled input"
-                                class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
+                                class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
                                 value="{{ $transaction->nurse->name }}" disabled>
                             @error('nurse')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -55,7 +55,7 @@
                             <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 ">Start
                                 Date</label>
                             <input name="start_date" type="date" id="start_date"
-                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->start_date->format('Y-m-d') }}">
                             @error('start_date')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -65,7 +65,7 @@
                         <div class="xl:col-span-2">
                             <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 ">End Date</label>
                             <input name="end_date" type="date" id="end_date"
-                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->end_date->format('Y-m-d') }}">
                             @error('end_date')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -121,7 +121,7 @@
                             <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 ">Total
                                 Price</label>
                             <input name="total_price" type="text" id="total_price"
-                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->total_price }}">
                             @error('total_price')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -154,36 +154,17 @@
                             <label for="address"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
                             <input name="address" type="text" id="address"
-                                class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->address }}">
                             @error('address')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
-
-                        <div class="xl:col-span-2">
-                            <label for="province_id"
-                                class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
-                            <livewire:component.province-select :value="$transaction->city->province_id">
-                                @error('province_id')
-                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                            snapp!</span> {{ $message }}</p>
-                                @enderror
                         </div>
+                        <livewire:component.province-city-select :province_id="$transaction->city->province_id" :city_id="$transaction->city_id">
 
-                        <div class="xl:col-span-2">
-                            <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
-                            <livewire:component.city-select :value="$transaction->city_id">
-                                @error('city_id')
-                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                            snapp!</span> {{ $message }}</p>
-                                @enderror
-                        </div>
-
-
-
-                    </div>
+                    
                     <div class="flex space-x-4">
                         <button
                             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
