@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Duration;
+use App\Models\PaymentType;
+use App\Models\Status;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,30 +19,26 @@ class DashboardTransactionController extends Controller
     public function detail(Transaction $transaction){
         return view('dashboard.transaction-detail',[
             'transaction' => $transaction,
+            'durations' => Duration::all(),
+            'payment_types' => PaymentType::all(),
+            'statuses' => Status::all(),
         ]);
     }
 
-    public function update(Request $request,User $user){
-        dd($request->all());
-        // $validated = $request->validate([
-        //     'name' => ['required','min:3','max:100'],
-        //     'email' => ['required','email',Rule::unique('users')->ignore($user)],
-        //     'password' => ['required','min:8','max:200','confirmed'],
-        //     'phone_number' => ['required','min:4','max:20'],
-        //     'role_id' => ['required'],
-        //     'picture' => ['image'],
-        // ]);
-        // $validated['password'] = Hash::make($validated['password']);
+    public function update(Request $request,Transaction $transaction){
+        $validated = $request->validate([
+            'start_date' => ['required'],
+            'end_date' => ['required'],
+            'duration_id' => ['required'],
+            'payment_type_id' => ['required'],
+            'total_price' => ['required','gte:1'],
+            'status_id' => ['required'],
+            'address' => ['required','min:4' , 'max:50'],
+            'city_id' => ['required'],
+        ]);
 
-        // if($request->file('picture')){
-        //     if($request->oldPicture){
-
-        //     }
-        //     $validated['picture'] = $request->file('picture')->store('images');
-        // }
-
-        // User::where('id',$user->id)->update($validated);
-        // return back()->with('success','User has been updated');
+        Transaction::where('id',$transaction->id)->update($validated);
+        return back()->with('success','Transaction has been updated');
 
     }
 
