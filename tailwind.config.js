@@ -3,7 +3,15 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./resources/**/*.blade.php", "./node_modules/flowbite/**/*.js"],
+    presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
+    content: [
+        "./resources/**/*.blade.php",
+        "./node_modules/flowbite/**/*.js",
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./vendor/wireui/wireui/resources/**/*.blade.php",
+        "./vendor/wireui/wireui/ts/**/*.ts",
+        "./vendor/wireui/wireui/src/View/**/*.php",
+    ],
     theme: {
         extend: {
             colors: {
@@ -12,14 +20,18 @@ module.exports = {
                 success: colors.green,
                 warning: colors.yellow,
             },
-            backgroundImage:{
-                'elder': "asset('/assets/elder.png')"
-            }
+            backgroundImage: {
+                elder: "asset('/assets/elder.png')",
+            },
         },
         fontFamily: {
             sans: ["Inter", ...fontFamily.sans],
             serif: ["serif"],
         },
     },
-    plugins: [require("flowbite/plugin")]
-}
+    plugins: [
+        require("flowbite/plugin"),
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/typography"),
+    ],
+};
