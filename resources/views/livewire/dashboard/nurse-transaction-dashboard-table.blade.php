@@ -229,7 +229,7 @@
                                 @endif
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
-                                <a href="transactions/{{ $transaction->id }}" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
+                                <a href="/dashboard/transactions/{{ $transaction->id }}" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="getDeleteId({{ $transaction->id }})"
                                     data-modal-toggle="confirm-modal"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>

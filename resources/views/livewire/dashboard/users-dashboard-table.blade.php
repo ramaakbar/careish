@@ -153,7 +153,7 @@
                                 U{{ $user->id }}
                             </th>
                             <td class="items-center px-6 py-4">
-                                <img src="{{ url($user->picture) }}" alt="asdas"
+                                <img src="{{ $user->picture == 'assets/placeholder_profile.jpeg' ? asset($user->picture) : asset('/storage/'.$user->picture) }}" alt="asdas"
                                     class="inline w-8 h-8 mr-2 rounded-full"> {{ $user->name }}
                             </td>
                             <td class="px-6 py-4">
@@ -163,10 +163,10 @@
                                 {{ $user->phone_number }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $user->created_at }}
+                                {{ $user->created_at->format('d-m-Y') }}
                             </td>
                             <td class="h-full gap-1 px-6 py-4">
-                                <a href="#"
+                                <a href="/dashboard/users/{{ $user->id }}"
                                     class="inline px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="getDeleteId({{ $user->id }})"
                                     data-modal-toggle="confirm-modal"

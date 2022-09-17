@@ -9,6 +9,8 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $dates = ['start_date','end_date'];
+
     protected $fillable = [
         'user_id',
         'nurse_id',
@@ -43,7 +45,7 @@ class Transaction extends Model
     }
 
     public function payment_type() {
-        return $this->hasMany(PaymentType::class);
+        return $this->belongsTo(PaymentType::class);
     }
 
     public static function search($search){
