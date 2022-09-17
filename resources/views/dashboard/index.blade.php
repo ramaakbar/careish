@@ -83,7 +83,7 @@
                                             T{{ $transaction->id }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $transaction->created_at }}
+                                            {{ $transaction->created_at->format('d-m-Y') }}
                                         </td>
                                         <td class="px-6 py-4">
                                             @if ($transaction->status->status == 'Cancelled')
