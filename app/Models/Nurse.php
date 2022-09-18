@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nurse extends Model
-{
+class Nurse extends Model {
     use HasFactory;
 
     protected $fillable = [
         'name',
         'age',
         'gender_id',
-        'address',
+        'city_id',
         'picture',
         'availability_id',
     ];
@@ -26,12 +25,16 @@ class Nurse extends Model
         return $this->belongsTo(Gender::class);
     }
 
+    public function city() {
+        return $this->belongsTo(City::class);
+    }
+
     public function transaction() {
         return $this->hasMany(Transaction::class);
     }
 
-    public static function search($search){
-        return empty($search) ? static::query() 
-        : static::query()->where('id','like','%'.$search.'%')->orWhere('name','like','%'.$search.'%')->orWhere('address','like','%'.$search.'%');
+    public static function search($search) {
+        return empty($search) ? static::query()
+            : static::query()->where('id', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%');
     }
 }

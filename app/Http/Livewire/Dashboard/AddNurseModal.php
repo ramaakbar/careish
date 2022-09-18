@@ -6,8 +6,7 @@ use App\Models\Nurse;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class AddNurseModal extends Component
-{
+class AddNurseModal extends Component {
 
     use WithFileUploads;
 
@@ -17,21 +16,22 @@ class AddNurseModal extends Component
 
     public $gender_id;
 
-    public $address;
+    public $city_id;
+
+    public $province_id;
 
     public $photo;
 
-    public function clear()
-    {
+    public function clear() {
         $this->resetErrorBag();
-        $this->reset(['name', 'age','gender_id','address','photo']);
+        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'photo']);
     }
 
     protected $rules = [
         'name' => 'required',
         'age' => 'required',
         'gender_id' => 'required',
-        'address' => 'required|max:100',
+        'city_id' => 'required',
         'photo' => 'required|image',
     ];
 
@@ -48,17 +48,16 @@ class AddNurseModal extends Component
             'name' => $this->name,
             'age' => $this->age,
             'gender_id' => $this->gender_id,
-            'address' => $this->address,
+            'city_id' => $this->city_id,
             'picture' => $storedImage,
         ]);
 
-        $this->reset(['name', 'age','gender_id','address','photo']);
+        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'photo']);
         session()->flash('success', 'Nurse has successfully been added');
         return redirect()->to('/dashboard/nurses');
     }
 
-    public function render()
-    {
+    public function render() {
         return view('livewire.dashboard.add-nurse-modal');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Availability;
+use App\Models\City;
 use App\Models\Gender;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('age');
             $table->foreignIdFor(Gender::class)->constrained();
-            $table->string('address');
+            $table->foreignIdFor(City::class)->constrained();
             $table->string('picture');
             $table->foreignIdFor(Availability::class)->default(3)->constrained();
             $table->timestamps();

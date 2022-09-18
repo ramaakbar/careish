@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class City extends Model
-{
+class City extends Model {
     use HasFactory;
 
     protected $fillable = [
@@ -20,5 +19,9 @@ class City extends Model
 
     public function transaction() {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function nurse() {
+        return $this->hasMany(Nurse::class);
     }
 }
