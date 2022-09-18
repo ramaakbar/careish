@@ -31,13 +31,25 @@ class NursesDashboardTable extends Component {
     public function render() {
 
         if ($this->status == '' && $this->gender == '') {
-            $nurses = Nurse::search($this->search)->select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
+            $nurses = Nurse::select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->where('nurses.id', 'like', '%' . $this->search . '%')->orWhere('nurses.name', 'like', '%' . $this->search . '%')->orWhere('cities.name', 'like', '%' . $this->search . '%')->orWhere('provinces.name', 'like', '%' . $this->search . '%')->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
         } elseif ($this->gender == '') {
-            $nurses = Nurse::search($this->search)->select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->where('availability_id', '=', $this->status)->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
+            $nurses = Nurse::select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->where('availability_id', '=', $this->status)->where(function ($query) {
+                $query->where('nurses.id', 'like', '%' . $this->search . '%')
+                    ->orWhere('nurses.name', 'like', '%' . $this->search . '%')->orWhere('cities.name', 'like', '%' . $this->search . '%')
+                    ->orWhere('provinces.name', 'like', '%' . $this->search . '%');
+            })->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
         } elseif ($this->status == '') {
-            $nurses = Nurse::search($this->search)->select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->Where('gender_id', '=', $this->gender)->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
+            $nurses = Nurse::select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->Where('gender_id', '=', $this->gender)->where(function ($query) {
+                $query->where('nurses.id', 'like', '%' . $this->search . '%')
+                    ->orWhere('nurses.name', 'like', '%' . $this->search . '%')->orWhere('cities.name', 'like', '%' . $this->search . '%')
+                    ->orWhere('provinces.name', 'like', '%' . $this->search . '%');
+            })->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
         } else {
-            $nurses = Nurse::search($this->search)->select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->where('availability_id', '=', $this->status)->where('gender_id', '=', $this->gender)->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
+            $nurses = Nurse::select('nurses.*', 'cities.province_id')->join('cities', 'nurses.city_id', '=', 'cities.id')->join('provinces', 'cities.province_id', '=', 'provinces.id')->where('availability_id', '=', $this->status)->where('gender_id', '=', $this->gender)->where(function ($query) {
+                $query->where('nurses.id', 'like', '%' . $this->search . '%')
+                    ->orWhere('nurses.name', 'like', '%' . $this->search . '%')->orWhere('cities.name', 'like', '%' . $this->search . '%')
+                    ->orWhere('provinces.name', 'like', '%' . $this->search . '%');
+            })->orderBy($this->sort, $this->sortOrder)->with(['gender', 'availability', 'city', 'city.province'])->paginate($this->perPage);
         }
 
         return view('livewire.dashboard.nurses-dashboard-table', [
