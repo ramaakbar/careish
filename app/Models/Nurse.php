@@ -35,6 +35,6 @@ class Nurse extends Model {
 
     public static function search($search) {
         return empty($search) ? static::query()
-            : static::query()->where('id', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%');
+            : static::query()->where('nurses.id', 'like', '%' . $search . '%')->orWhere('nurses.name', 'like', '%' . $search . '%')->orWhere('cities.name', 'like', '%' . $search . '%')->orWhere('provinces.name', 'like', '%' . $search . '%');
     }
 }
