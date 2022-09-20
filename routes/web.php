@@ -26,15 +26,19 @@ Route::get('/', function () {
 // Login and Register route
 // login
 Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'index');
-    Route::post('/login', 'authenticate');
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/login', 'index');
+        Route::post('/login', 'authenticate');
+    });
     Route::post('/logout', 'logout');
 });
 
 // register
 Route::controller(RegisterController::class)->group(function () {
-    Route::get('/register', 'index');
-    Route::post('/register', 'store');
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/register', 'index');
+        Route::post('/register', 'store');
+    });
 });
 
 // dashboard route
