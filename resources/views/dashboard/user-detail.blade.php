@@ -6,9 +6,16 @@
                 class="inline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Back
             </a>
-            <h1 class="my-4 mb-5 text-3xl font-bold">{{ $user->name }} <img
-                    src="{{ $user->picture == 'assets/placeholder_profile.jpeg' ? asset($user->picture) : asset('/storage/' . $user->picture) }}"
-                    alt="picture" class="inline w-8 h-8 mr-2 rounded-full"></h1>
+            <h1 class="my-4 mb-5 text-3xl font-bold">{{ $user->name }}
+                @if ($user->picture == 'assets/placeholder_profile.jpeg')
+                    <img src="{{ asset($user->picture) }}" alt="asdas" class="inline w-8 h-8 mr-2 rounded-full">
+                @elseif(Str::contains($user->picture, '/storage/'))
+                    <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas"
+                        class="inline w-8 h-8 mr-2 rounded-full">
+                @else
+                    <img src="{{ $user->picture }}" alt="asdas" class="inline w-8 h-8 mr-2 rounded-full">
+                @endif
+            </h1>
             <div class="flex justify-between mb-5">
                 <div class="flex space-x-4">
                     <div>
@@ -64,8 +71,7 @@
                         </div>
 
                         <div class="">
-                            <label for="role"
-                                class="block mb-2 text-sm font-medium text-gray-900">Role</label>
+                            <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Role</label>
                             <select id="role" name="role_id"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @if (old('role_id', $user->role_id) == $user->role_id)
@@ -86,8 +92,8 @@
                             @enderror
                         </div>
                         <div class="">
-                            <label class="block mb-2 text-sm font-medium text-gray-900"
-                                for="file_input">Upload Profile picture</label>
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Upload Profile
+                                picture</label>
                             <input
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
                                 aria-describedby="file_input_help" id="file_input" type="file" name="picture">
@@ -139,8 +145,8 @@
             </div>
 
             <h2 class="mb-3 text-xl font-bold">Transactions</h2>
-            <livewire:dashboard.user-transaction-dashboard-table :user="$user"/>
-            
+            <livewire:dashboard.user-transaction-dashboard-table :user="$user" />
+
 
 
             {{-- confirm modal --}}
