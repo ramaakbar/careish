@@ -4,8 +4,8 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\dashboard\DashboardNurseController;
 use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
