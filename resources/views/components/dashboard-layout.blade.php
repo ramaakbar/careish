@@ -1,7 +1,8 @@
 <nav class="fixed z-30 w-full bg-white border-b border-gray-200">
     <div class="flex justify-between px-2 py-3 lg:px-6">
         <div class="flex items-center">
-            <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation"
+            <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+                aria-controls="drawer-navigation"
                 class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -28,8 +29,10 @@
             <button data-dropdown-toggle="dropdownAvatarName"
                 class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 " type="button">
                 <span class="sr-only">Open user menu</span>
+                {{-- Untuk sementara --}}
+                {{-- <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset(auth()->user()->picture) }}" alt="user photo"> --}}
                 <img class="w-8 h-8 mr-2 rounded-full" src="/assets/placeholder_man.jpeg" alt="user photo">
-                Admin
+                {{ Auth::user()->name ?? 'test' }}
                 <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -46,7 +49,11 @@
                         <a href="/" class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sign Out</a>
+                        <form action="/logout" method="POST" class="">
+                            @csrf
+                            <button type="submit" class="w-full px-4 py-2 text-left hover:bg-gray-100">Sign
+                                Out</button>
+                        </form>
                     </li>
             </div>
 
@@ -64,17 +71,18 @@
                             @if (request()->is('dashboard'))
                                 <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
                                 @else
-                                <li class="{{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'bg-purple-500' : '' }}">
+                                <li
+                                    class="{{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'bg-purple-500' : '' }}">
                             @endif
                             @if (request()->is('dashboard'))
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name). '*') ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name) . '*') ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
                             @else
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name). '*') ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'text-white' : 'text-gray-900 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
@@ -93,23 +101,32 @@
     </div>
 </div>
 
- <!-- drawer component -->
- <div id="drawer-navigation" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80" tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
+<!-- drawer component -->
+<div id="drawer-navigation"
+    class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80"
+    tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
     <h5 id="drawer-label" class="inline-flex items-center text-base font-semibold text-gray-500">Menu</h5>
-    <button type="button" data-drawer-dismiss="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center">
-       <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-       <span class="sr-only">Close menu</span>
+    <button type="button" data-drawer-dismiss="drawer-navigation" aria-controls="drawer-navigation"
+        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <span class="sr-only">Close menu</span>
     </button>
     <div class="py-4 overflow-y-auto">
         <ul class="space-y-2">
-          @foreach ($sidebar as $name => $test)
-           <li>
-              <a href="{{ $test[0] }}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
-                 {{ svg($test[1], 'w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900') }}
-                 <span class="ml-3">{{ $name }}</span>
-              </a>
-           </li>
-          @endforeach
+            @foreach ($sidebar as $name => $test)
+                <li>
+                    <a href="{{ $test[0] }}"
+                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
+                        {{ svg($test[1], 'w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900') }}
+                        <span class="ml-3">{{ $name }}</span>
+                    </a>
+                </li>
+            @endforeach
         </ul>
-     </div>
- </div>
+    </div>
+</div>
