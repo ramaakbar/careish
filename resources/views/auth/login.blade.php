@@ -38,12 +38,12 @@
                         <p class="text-center text-[#6B7280]">or</p>
                     </div>
                     <div class="block mb-[29px]">
-                        <button id="signGoogleBtn" name="signGoogleBtn" type="button"
+                        <a href="/login/google" id="signGoogleBtn"
                             class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
                             <img class="w-6 h-6 mr-2"
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
-                            Sign up with Google
-                        </button>
+                            Sign in with Google
+                        </a>
                     </div>
                     <div class="text-center text-[#6B7280]">
                         Dont have an account yet? <a href="/register"

@@ -29,6 +29,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::middleware(['guest'])->group(function () {
         Route::get('/login', 'index');
         Route::post('/login', 'authenticate');
+        Route::get('/login/google', 'google');
+        Route::get('/login/google/redirect', 'googleRedirect');
     });
     Route::post('/logout', 'logout');
 });

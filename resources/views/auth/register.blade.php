@@ -17,7 +17,7 @@
                         <label for="name" class="block mb-2.5 text-base font-medium text-gray-900">Name</label>
                         <input id="name" name="name" type="text"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="Your name" value="{{ old('name') }}" required >
+                            placeholder="Your name" value="{{ old('name') }}" required>
                         @error('name')
                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                     snapp!</span> {{ $message }}</p>
@@ -63,12 +63,12 @@
                         <p class="text-center text-[#6B7280]">or</p>
                     </div>
                     <div class="block mb-[29px]">
-                        <button id="signGoogleBtn"
+                        <a href="/login/google" id="signGoogleBtn"
                             class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
                             <img class="w-6 h-6 mr-2"
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
                             Sign up with Google
-                        </button>
+                        </a>
                     </div>
                     <div class="text-center text-[#6B7280]">
                         Dont have an account yet? <a href="/login"
