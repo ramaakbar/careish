@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller {
     public function index() {
@@ -18,6 +19,8 @@ class LoginController extends Controller {
 
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
+            // Alert::success('Success Title', 'Success Message');
+            Alert::toast('You are now logged in!', 'success');
             return redirect('/dashboard');
         }
 
@@ -33,6 +36,6 @@ class LoginController extends Controller {
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Successfully Logout!');
     }
 }
