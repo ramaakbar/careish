@@ -37,19 +37,19 @@
                             placeholder="Confirm Password" required>
                     </div>
                     <div class="block mb-[21px]">
-                        <button id="createBtn" name="createBtn" class="w-full p-3 text-white transition duration-300 ease-in-out bg-[#4950BA] border-indigo-600 rounded hover:bg-blue-900 text-[16px]">Create Account</button>
+                        <button id="createBtn" name="createBtn" class="w-full p-3 text-white transition duration-500 ease-in-out bg-[#4950BA] border-indigo-600 rounded hover:bg-blue-900 text-[16px]">Create Account</button>
                     </div>
                     <div class="mb-5">
                         <p class="text-center text-[#6B7280]">or</p>
                     </div>
                     <div class="block mb-[29px]">
-                        <button type="button" id="signGoogleBtn" name="signGoogleBtn" class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-300 ease-in-out">
+                        <button type="button" id="signGoogleBtn" name="signGoogleBtn" class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
                             <img class="w-6 h-6 mr-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
                             Sign up with Google
                         </button>
                     </div>
                     <div class="text-center text-[#6B7280]">
-                        Dont have an account yet? <a href="/login" class="text-[#4950BA] font-medium hover:underline transition ease-in-out duration-300">Sign In here</a>
+                        Dont have an account yet? <a href="/login" class="text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">Sign In here</a>
                     </div>
                 </form>
             </div>
