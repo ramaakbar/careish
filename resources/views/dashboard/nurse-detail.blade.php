@@ -77,17 +77,6 @@
                         </div>
 
                         <div class="">
-                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
-                            <input type="address" name="address" id="address"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                value="{{ $nurse->address }}">
-                            @error('address')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="">
                             <label for="availability_id"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Availability</label>
                             <select type="availability_id" name="availability_id" id="availability_id"
@@ -127,6 +116,8 @@
                         </div>
 
                     </div>
+
+                    <livewire:component.province-city-select :province_id="$nurse->city->province_id" :city_id="$nurse->city_id">
                     <div class="flex space-x-4">
                         <button
                             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

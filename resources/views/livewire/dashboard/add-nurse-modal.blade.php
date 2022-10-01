@@ -54,16 +54,24 @@
                                 @enderror
                             </div>
                         </div>
-                        <div>
-                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
-                            <textarea wire:model="address" id="address" name="address" rows="4"
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder=""></textarea>
-                            @error('address')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
-                        </div>
+                        <div class="flex space-x-5">
+                            <div class="w-full">
+                                <label for="province_id" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
+                                <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')" option-label="name"
+                                    option-value="id" value="{{ $province_id }}" />
+                                @error('province_id')
+                                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                            snapp!</span> {{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="w-full">
+                                <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
+                                <x-select wire:model="city_id" placeholder="Select city" :async-data="route('cities', ['provinces_id' => $province_id])" option-label="name" option-value="id"
+                                    value="{{ $city_id }}" />
+
+                            </div>
+                        </div>      
+                        
                         <div>
 
                             <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload
