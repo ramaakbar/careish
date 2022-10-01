@@ -28,6 +28,9 @@ module.exports = {
             sans: ["Inter", ...fontFamily.sans],
             serif: ["serif"],
         },
+        dropShadow:{
+            'xl': '0 15px 15px #00000040'
+        }
     },
     plugins: [
         require("flowbite/plugin"),
