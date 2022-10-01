@@ -10,3 +10,7 @@ input[type="text"] {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
 }
+ 
+html{
+    scroll-behavior: smooth;
+}
