@@ -57,7 +57,8 @@
                 <div class="flex flex-col items-center justify-center p-10 space-y-5">
                     <img class="opacity-50" src="{{ asset('assets/easy_to_use.png') }}" alt="">
                     <p class="text-xl font-bold sm:text-2xl">Easy To Use</p>
-                    <p class="font-light text-center text-md sm:text-lg">By using our service, ordering a home care service would
+                    <p class="font-light text-center text-md sm:text-lg">By using our service, ordering a home care
+                        service would
                         be much
                         <span class="text-[#504BE5] font-bold">easier</span> than
                         before.
@@ -120,14 +121,18 @@
     </div>
     <div class="px-5 mx-auto mt-24 max-w-7xl">
         <div class="relative box-border flex flex-col items-center justify-center bg-[#504BE5] rounded-xl">
-            <img class="absolute bottom-0 left-0 w-20 sm:w-24 md:w-max" src="{{ asset('assets/boxLeftBottomPattern.svg') }}" alt="">
-            <img class="absolute top-0 right-0 w-20 sm:w-24 md:w-max" src="{{ asset('assets/boxRightTopPattern.svg') }}" alt="">
+            <img class="absolute bottom-0 left-0 w-20 sm:w-24 md:w-max"
+                src="{{ asset('assets/boxLeftBottomPattern.svg') }}" alt="">
+            <img class="absolute top-0 right-0 w-20 sm:w-24 md:w-max" src="{{ asset('assets/boxRightTopPattern.svg') }}"
+                alt="">
             <div class="pt-20 pb-10">
-                <p class="text-xl font-semibold text-white sm:text-2xl md:text-4xl ">What are you waiting for?<p>
+                <p class="text-xl font-semibold text-white sm:text-2xl md:text-4xl ">What are you waiting for?
+                <p>
             </div>
             <div class="pb-16">
                 <a href="/register" class="text-sm font-medium text-white hover:text-gray-300"><button
-                    class="rounded-[10px] bg-gray-800 pt-[17px] pb-[17px] pr-[60px] pl-[60px] hover:bg-gray-900 transition ease-in-out duration-500">Register Now</button></a>
+                        class="rounded-[10px] bg-gray-800 pt-[17px] pb-[17px] pr-[60px] pl-[60px] hover:bg-gray-900 transition ease-in-out duration-500">Register
+                        Now</button></a>
             </div>
         </div>
     </div>
@@ -148,7 +153,8 @@
                 <h1 class="text-3xl sm:text-5xl">CareIsh</h1>
             </div>
         </div>
-        <div class="flex flex-wrap items-center justify-between gap-4 py-5 mt-5 text-xs border-t border-gray-200 sm:text-sm md:text-base">
+        <div
+            class="flex flex-wrap items-center justify-between gap-4 py-5 mt-5 text-xs border-t border-gray-200 sm:text-sm md:text-base">
             <div class="flex font-medium space-x-11">
                 <a class="transition duration-300 ease-in-out hover:text-gray-700" href="#feature">Feature</a>
                 <a class="transition duration-300 ease-in-out hover:text-gray-700" href="#aboutUs">About</a>
@@ -161,7 +167,7 @@
     </div>
 
     {{-- untuk menu di atas kanan pas tampilan mobile --}}
-    <div id="drawer-navigation" class="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
+    <div id="drawer-navigation" class="fixed z-40 hidden h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-navigation-label">
         <h5 id="drawer-navigation-label"
             class="pl-2 text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu
