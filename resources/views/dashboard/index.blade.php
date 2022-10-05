@@ -101,7 +101,8 @@
                                             Rp. {{ $transaction->total_price }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <a href="/dashboard/transactions/{{ $transaction->id }}"
+                                                class="font-medium text-blue-600 hover:underline">Edit</a>
                                         </td>
                                     </tr>
                                 @empty
@@ -174,7 +175,8 @@
                                         $2999
                                     </td> --}}
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <a href="/dashboard/nurses/{{ $nurse->id }}"
+                                                class="font-medium text-blue-600 hover:underline">Edit</a>
                                         </td>
                                     </tr>
                                 @empty
