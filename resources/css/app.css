@@ -4,13 +4,13 @@
 @tailwind utilities;
 
 input[type="text"] {
-    background-color: #f8fafc;
+    background-color: white;
     box-shadow: 0 0 #0000;
     border-radius: 0.5rem; /* 8px */
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
 }
- 
-html{
+
+html {
     scroll-behavior: smooth;
 }

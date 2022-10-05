@@ -50,7 +50,7 @@
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Latest Transaction</h2>
                         <a href="/dashboard/transactions"
-                            class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
+                            class="text-sm font-medium text-blue-600 transition duration-500 ease-in-out hover:underline">View
                             all</a>
                     </div>
 
@@ -123,7 +123,7 @@
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Nurses Availability</h2>
                         <a href="/dashboard/nurses"
-                            class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
+                            class="text-sm font-medium text-blue-600 transition duration-500 ease-in-out hover:underline">View
                             all</a>
                     </div>
 

@@ -17,7 +17,7 @@
                     <div class="mb-5">
                         <label for="email" class="block mb-2.5 text-base font-medium text-gray-900">Email</label>
                         <input id="email" name="email" type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Email" value="{{ old('email') }}" required>
                         @error('email')
                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -28,7 +28,7 @@
                         <label for="password" class="block mb-2.5 text-base font-medium text-gray-900">Password</label>
                         <div x-data="{ show: false }" class="relative w-full">
                             <input id="password" name="password" :type="show ? 'text' : 'password'"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="Password" required>
                             <button @click="show = !show" type="button"
                                 class="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="block mb-[29px]">
                         <a href="/login/google" id="signGoogleBtn"
-                            class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
+                            class="w-full p-3 bg-white border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
                             <img class="w-6 h-6 mr-2"
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
                             Sign in with Google

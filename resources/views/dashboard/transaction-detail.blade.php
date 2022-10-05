@@ -32,7 +32,7 @@
                         <div class="xl:col-span-3">
                             <label for="user" class="block mb-2 text-sm font-medium text-gray-900 ">User</label>
                             <input name="user" type="text" id="user" aria-label="disabled input"
-                                class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
                                 value="{{ $transaction->user->name }}" disabled>
                             @error('name')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -43,7 +43,7 @@
                         <div class="xl:col-span-3">
                             <label for="nurse" class="block mb-2 text-sm font-medium text-gray-900 ">Nurse</label>
                             <input name="nurse" type="text" id="nurse" aria-label="disabled input"
-                                class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed"
                                 value="{{ $transaction->nurse->name }}" disabled>
                             @error('nurse')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -161,22 +161,22 @@
                                         snapp!</span> {{ $message }}</p>
                             @enderror
                         </div>
-                        </div>
-                        <livewire:component.province-city-select :province_id="$transaction->city->province_id" :city_id="$transaction->city_id">
-
-                    
-                    <div class="flex space-x-4">
-                        <button
-                            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                            type="submit">
-                            Save
-                        </button>
-                        <a href="/dashboard/transactions/{{ $transaction->id }}"
-                            class="block text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                            type="button">
-                            Cancel
-                        </a>
                     </div>
+                    <livewire:component.province-city-select :province_id="$transaction->city->province_id" :city_id="$transaction->city_id">
+
+
+                        <div class="flex space-x-4">
+                            <button
+                                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                type="submit">
+                                Save
+                            </button>
+                            <a href="/dashboard/transactions/{{ $transaction->id }}"
+                                class="block text-gray-900 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                type="button">
+                                Cancel
+                            </a>
+                        </div>
 
                 </form>
             </div>
@@ -215,7 +215,7 @@
                                     Yes, I'm sure
                                 </button>
                                 <button data-modal-toggle="confirm-modal" href="" type="button"
-                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
+                                    class="text-gray-500 bg-white hover:bg-white focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
                                     cancel</button>
                             </form>
                         </div>
