@@ -32,7 +32,7 @@
                                 placeholder="Password" required>
                             <button @click="show = !show" type="button"
                                 class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -40,7 +40,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
