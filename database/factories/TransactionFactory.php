@@ -18,6 +18,7 @@ class TransactionFactory extends Factory {
     public function definition() {
         $startDate = Carbon::createFromTimeStamp(fake()->dateTimeThisYear()->getTimestamp());
         $endDate = Carbon::createFromFormat('Y-m-d H:i:s', $startDate)->addDays(fake()->numberBetween(6, 90));
+        $createdAt = fake()->dateTimeThisYear()->getTimestamp();
         return [
             'user_id' => fake()->numberBetween(2, 21),
             'nurse_id' => fake()->numberBetween(1, 50),
@@ -29,6 +30,8 @@ class TransactionFactory extends Factory {
             'start_date' => $startDate,
             'end_date' => $endDate, // start_date + durasi duration_id
             'address' => fake()->streetAddress(),
+            'created_at' => $createdAt,
+            'updated_at' => $createdAt
         ];
     }
 }
