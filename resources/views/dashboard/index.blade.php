@@ -83,7 +83,7 @@
                                             T{{ $transaction->id }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $transaction->created_at->format('d-m-Y') }}
+                                            {{ $transaction->created_at->format('d M Y') }}
                                         </td>
                                         <td class="px-6 py-4">
                                             @if ($transaction->status->status == 'Cancelled')
@@ -139,11 +139,11 @@
                                         Name
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Province
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Available
                                     </th>
-                                    {{-- <th scope="col" class="px-6 py-3">
-                                        Total Price
-                                    </th> --}}
                                     <th scope="col" class="px-6 py-3">
                                         Action
                                     </th>
@@ -158,6 +158,9 @@
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $nurse->name }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $nurse->city->province->name }}
                                         </td>
                                         <td class="px-6 py-4">
                                             @if ($nurse->availability->availability == 'Not Available')

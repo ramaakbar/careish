@@ -20,11 +20,11 @@
                 <div class="flex space-x-4">
                     <div>
                         <p class="text-gray-700">Created at</p>
-                        <p>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</p>
+                        <p>{{ Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</p>
                     </div>
                     <div>
                         <p class="text-gray-700">Updated at</p>
-                        <p>{{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</p>
+                        <p>{{ Carbon\Carbon::parse($user->updated_at)->format('d M Y') }}</p>
                     </div>
                 </div>
                 <button data-modal-toggle="confirm-modal"
