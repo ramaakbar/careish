@@ -16,7 +16,7 @@
                     <div class="mb-5">
                         <label for="name" class="block mb-2.5 text-base font-medium text-gray-900">Name</label>
                         <input id="name" name="name" type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Your name" value="{{ old('name') }}" required>
                         @error('name')
                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -26,7 +26,7 @@
                     <div class="mb-5">
                         <label for="email" class="block mb-2.5 text-base font-medium text-gray-900">Email</label>
                         <input id="email" name="email" type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             placeholder="Email" value="{{ old('email') }}" required>
                         @error('email')
                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -37,11 +37,11 @@
                         <label for="password" class="block mb-2.5 text-base font-medium text-gray-900">Password</label>
                         <div x-data="{ show: false }" class="relative w-full">
                             <input id="password" name="password" :type="show ? 'text' : 'password'"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="Password" required>
                             <button @click="show = !show" type="button"
                                 class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -49,7 +49,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,11 +68,11 @@
                         <div x-data="{ show: false }" class="relative w-full">
                             <input id="password_confirmation" name="password_confirmation"
                                 :type="show ? 'text' : 'password'"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 placeholder="Confirm Password" required>
                             <button @click="show = !show" type="button"
                                 class="absolute inset-y-0 right-0 flex items-center pr-3">
-                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -80,7 +80,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                <svg :class="show ? 'hidden' : ''" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                <svg :class="show ? '' : 'hidden'" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                     class="w-4 h-4 text-gray-500 hover:text-gray-900">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -103,7 +103,7 @@
                     </div>
                     <div class="block mb-[29px]">
                         <a href="/login/google" id="signGoogleBtn"
-                            class="w-full p-3 border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
+                            class="w-full p-3 bg-white border-gray-300 border rounded text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-100 transition duration-500 ease-in-out">
                             <img class="w-6 h-6 mr-2"
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
                             Sign up with Google

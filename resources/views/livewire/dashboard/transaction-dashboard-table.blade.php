@@ -66,7 +66,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('user')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('user')">
                                 User
                                 @if ($sort == 'user' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -86,7 +87,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('nurse')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('nurse')">
                                 Nurse
                                 @if ($sort == 'nurse' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -106,7 +108,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('total_price')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('total_price')">
                                 Total Price
                                 @if ($sort == 'total_price' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -126,16 +129,17 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('start_date')">
-                                Start Date
-                                @if ($sort == 'start_date' && $sortOrder == 'asc')
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('created_at')">
+                                Date
+                                @if ($sort == 'created_at' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-3 h-3 ml-1">
                                         <path fill-rule="evenodd"
                                             d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                @elseif($sort == 'start_date' && $sortOrder == 'desc')
+                                @elseif($sort == 'created_at' && $sortOrder == 'desc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-3 h-3 ml-1">
                                         <path fill-rule="evenodd"
@@ -146,27 +150,8 @@
                             @endif
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('end_date')">
-                                End Date
-                                @if ($sort == 'end_date' && $sortOrder == 'asc')
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-3 h-3 ml-1">
-                                        <path fill-rule="evenodd"
-                                            d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                @elseif($sort == 'end_date' && $sortOrder == 'desc')
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-3 h-3 ml-1">
-                                        <path fill-rule="evenodd"
-                                            d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                            </div>
-                            @endif
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            <div href="" class="flex items-center cursor-pointer" wire:click="SetClicked('status_id')">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('status_id')">
                                 Status
                                 @if ($sort == 'status_id' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -208,13 +193,10 @@
                                 {{ $transaction->nurse }}
                             </td>
                             <td class="px-6 py-4">
-                                Rp{{ number_format($transaction->total_price,2,',','.') }}
+                                Rp{{ number_format($transaction->total_price, 2, ',', '.') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ Carbon\Carbon::parse($transaction->start_date)->format('d-m-Y') }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ Carbon\Carbon::parse($transaction->end_date)->format('d-m-Y') }}
+                                {{ Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($transaction->status == 'Cancelled')
@@ -229,7 +211,8 @@
                                 @endif
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
-                                <a href="transactions/{{ $transaction->id }}" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
+                                <a href="transactions/{{ $transaction->id }}"
+                                    class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="getDeleteId({{ $transaction->id }})"
                                     data-modal-toggle="confirm-modal"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>

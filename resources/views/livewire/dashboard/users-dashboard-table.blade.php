@@ -171,7 +171,7 @@
                                 {{ $user->phone_number }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $user->created_at->format('d-m-Y') }}
+                                {{ $user->created_at->format('d M Y') }}
                             </td>
                             <td class="h-full gap-1 px-6 py-4">
                                 <a href="/dashboard/users/{{ $user->id }}"
