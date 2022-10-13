@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\user\UserTransactionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,12 @@ Route::controller(RegisterController::class)->group(function () {
         Route::get('/register', 'index');
         Route::post('/register', 'store');
     });
+});
+
+// profile route
+// Route::group(['prefix' => 'user', 'middleware' => ['auth']]
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/transaction-list', [UserTransactionsController::class, 'index']);
 });
 
 // dashboard route
