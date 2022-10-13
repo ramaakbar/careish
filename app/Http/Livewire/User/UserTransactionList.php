@@ -30,13 +30,13 @@ class UserTransactionList extends Component {
         if ($this->show) {
             if ($this->status == '') {
                 $data = [
-                    'transactions' => Transaction::where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
+                    'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
                     'trans' => Transaction::find($this->transId)
                 ];
                 $this->resetPage();
             } else {
                 $data = [
-                    'transactions' => Transaction::where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
+                    'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
                     'trans' => Transaction::find($this->transId)
                 ];
                 $this->resetPage();
@@ -44,12 +44,12 @@ class UserTransactionList extends Component {
         } else {
             if ($this->status == '') {
                 $data = [
-                    'transactions' => Transaction::where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
+                    'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
                 ];
                 $this->resetPage();
             } else {
                 $data = [
-                    'transactions' => Transaction::where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
+                    'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
                 ];
                 $this->resetPage();
             }

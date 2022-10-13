@@ -30,7 +30,15 @@
             <x-user-layout>
                 <h1 class="mb-5 text-2xl font-bold">Profile Setting</h1>
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-                    <div class=""><img src="/assets/placeholder_man.jpeg" class="rounded" alt=""></div>
+                    <div class="">
+                        @if ($user->picture == 'assets/placeholder_profile.jpeg')
+                            <img src="{{ asset($user->picture) }}" alt="asdas" class="rounded">
+                        @elseif(Str::contains($user->picture, '/storage/'))
+                            <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas" class="rounded">
+                        @else
+                            <img src="{{ $user->picture }}" alt="asdas" class="rounded">
+                        @endif
+                    </div>
 
                     <form class="md:col-span-2" action="/user/profile-setting" method="POST"
                         enctype="multipart/form-data">
