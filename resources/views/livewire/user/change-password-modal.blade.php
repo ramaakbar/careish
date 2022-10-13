@@ -19,10 +19,11 @@
                 <div class="px-6 py-6 lg:px-8">
                     <h3 class="mb-4 text-xl font-medium text-gray-900 ">Change Password</h3>
                     <hr class="h-px mt-3 mb-5 bg-gray-200 border-0 ">
-                    <form wire:submit.prevent="submit">
+                    <form x-data="{ show: false }" wire:submit.prevent="submit">
                         <div class="mb-4">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
-                            <input wire:model="password" type="password" name="password" id="password"
+                            <input :type="show ? 'text' : 'password'" wire:model="password" type="password"
+                                name="password" id="password"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             @error('password')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -33,13 +34,20 @@
                             <label for="password_confirmation"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
                                 Password</label>
-                            <input wire:model="password_confirmation" type="password" name="password_confirmation"
-                                id="password_confirmation"
+                            <input :type="show ? 'text' : 'password'" wire:model="password_confirmation" type="password"
+                                name="password_confirmation" id="password_confirmation"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             @error('password_confirmation')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
                             @enderror
+                        </div>
+
+                        <div class="flex items-center mb-4">
+                            <input x-model="show" id="show-password" type="checkbox" value=""
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+                            <label for="show-password"
+                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show Password</label>
                         </div>
 
                         <button type="submit"
