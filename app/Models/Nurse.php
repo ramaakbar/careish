@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nurse extends Model {
+class Nurse extends Model
+{
     use HasFactory;
 
     protected $fillable = [
@@ -17,23 +18,33 @@ class Nurse extends Model {
         'availability_id',
     ];
 
-    public function availability() {
+    public function availability()
+    {
         return $this->belongsTo(Availability::class);
     }
 
-    public function gender() {
+    public function gender()
+    {
         return $this->belongsTo(Gender::class);
     }
 
-    public function city() {
+    public function city()
+    {
         return $this->belongsTo(City::class);
     }
 
-    public function transaction() {
+    public function transaction()
+    {
         return $this->hasMany(Transaction::class);
     }
 
-    public static function search($search) {
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public static function search($search)
+    {
         return empty($search) ? static::query()
             : static::query()->where('nurses.id', 'like', '%' . $search . '%')->orWhere('nurses.name', 'like', '%' . $search . '%')->orWhere('cities.name', 'like', '%' . $search . '%')->orWhere('provinces.name', 'like', '%' . $search . '%');
     }
