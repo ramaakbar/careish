@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
-{
+class Review extends Model {
     use HasFactory;
     protected $fillable = [
         'user_id',
@@ -15,13 +14,11 @@ class Review extends Model
         'review'
     ];
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function nurse()
-    {
+    public function nurse() {
         return $this->belongsTo(Nurse::class);
     }
 }
