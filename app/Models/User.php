@@ -8,8 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -53,8 +52,12 @@ class User extends Authenticatable
         return $this->hasMany(Transaction::class);
     }
 
-    public static function search($search){
-        return empty($search) ? static::query() 
-        : static::query()->where('id','like','%'.$search.'%')->orWhere('name','like','%'.$search.'%')->orWhere('email','like','%'.$search.'%')->orWhere('phone_number','like','%'.$search.'%')->orWhere('created_at','like','%'.$search.'%');
+    public function review() {
+        return $this->hasMany(Review::class);
+    }
+
+    public static function search($search) {
+        return empty($search) ? static::query()
+            : static::query()->where('id', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%')->orWhere('email', 'like', '%' . $search . '%')->orWhere('phone_number', 'like', '%' . $search . '%')->orWhere('created_at', 'like', '%' . $search . '%');
     }
 }

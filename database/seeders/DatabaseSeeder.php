@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder {
             StatusSeeder::class,
             PaymentTypeSeeder::class,
             TransactionSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }
