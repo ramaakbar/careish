@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\NurseController;
 use App\Http\Controllers\user\UserFavoritesController;
 use App\Http\Controllers\user\UserProfileSettingController;
 use App\Http\Controllers\user\UserReviewsController;
@@ -25,6 +26,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
+});
+
+Route::get('/nurses', function () {
+    return view('browseNurses');
+});
+
+Route::controller(NurseController::class)->group(function () {
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/nurses', 'viewNurse');
+    });
+    Route::post('/logout', 'logout');
 });
 
 // Login and Register route

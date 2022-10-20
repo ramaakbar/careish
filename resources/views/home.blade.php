@@ -9,6 +9,7 @@
                 <div class="hidden space-x-5 sm:block">
                     <a href="#feature" class="transition duration-300 ease-in-out hover:text-gray-200">Feature</a>
                     <a href="#aboutUs" class="transition duration-300 ease-in-out hover:text-gray-200">About</a>
+                    <a href="/nurses" class="transition duration-300 ease-in-out hover:text-gray-200">Nurses</a>
                     <a href="/login" class="transition duration-300 ease-in-out hover:text-gray-200">Login</a>
                     <a href="/register" class="hover:text-gray-200"><button
                             class="rounded-[6px] bg-gray-800 pt-[9px] pb-[9px] pr-[18px] pl-[18px] hover:bg-gray-900 transition ease-in-out duration-300">Register</button></a>
@@ -33,7 +34,7 @@
                         <h2>all you need is just one click away.</h2>
                     </div>
                     <div class="mt-[45px]">
-                        <a href="/" class="text-[16px] font-medium hover:text-gray-300"><button
+                        <a href="/nurses" class="text-[16px] font-medium hover:text-gray-300"><button
                                 class="rounded-[10px] bg-gray-800 pt-[17px] pb-[17px] pr-[24px] pl-[24px] hover:bg-gray-900 transition ease-in-out duration-500">Browse
                                 our
                                 agents</button></a>
@@ -136,35 +137,7 @@
             </div>
         </div>
     </div>
-    <div class="px-5 mx-auto mt-24 max-w-7xl">
-        <div class="flex flex-wrap gap-4 text-xs font-medium sm:space-x-10 sm:text-sm">
-            <a class="transition duration-300 ease-in-out hover:text-gray-700" href="">Instagram</a>
-            <a class="transition duration-300 ease-in-out hover:text-gray-700" href="">Twitter</a>
-            <a class="transition duration-300 ease-in-out hover:text-gray-700" href="">Youtube</a>
-            <a class="transition duration-300 ease-in-out hover:text-gray-700" href="">Email</a>
-        </div>
-        <div class="flex flex-wrap items-center justify-between gap-4 pt-8">
-            <div class="text-xs sm:text-sm font-medium text-[#848484]">
-                <p class="">Jl. Perikani Raya No. 1B Rawamangun - Jakarta Timur</p>
-                <p class="pt-2">Telp: 021(489-4415)</p>
-                <p class="pt-2">Fax: 021(4786-9417)</p>
-            </div>
-            <div class="font-bold text-black">
-                <h1 class="text-3xl sm:text-5xl">CareIsh</h1>
-            </div>
-        </div>
-        <div
-            class="flex flex-wrap items-center justify-between gap-4 py-5 mt-5 text-xs border-t border-gray-200 sm:text-sm md:text-base">
-            <div class="flex font-medium space-x-11">
-                <a class="transition duration-300 ease-in-out hover:text-gray-700" href="#feature">Feature</a>
-                <a class="transition duration-300 ease-in-out hover:text-gray-700" href="#aboutUs">About</a>
-                <a class="transition duration-300 ease-in-out hover:text-gray-700" href="/login">Login</a>
-            </div>
-            <div class="">
-                <p>Made by <b>CareIsh Team</b> | All rights reserved. ©</p>
-            </div>
-        </div>
-    </div>
+    <x-footer />
 
     {{-- untuk menu di atas kanan pas tampilan mobile --}}
     <div id="drawer-navigation" class="fixed z-40 hidden h-screen p-4 overflow-y-auto bg-white w-80" tabindex="-1"
@@ -220,8 +193,7 @@
                                 d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
                                 clip-rule="evenodd"></path>
                         </svg> --}}
-                        <span class="flex-1
-                        whitespace-nowrap">Login</span>
+                        <span class="flex-1 whitespace-nowrap">Login</span>
                     </a>
                 </li>
                 <li>
