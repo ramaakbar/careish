@@ -1,4 +1,4 @@
-<div class="sticky top-0 z-10 w-full py-5 mb-10 bg-white border-b max-h-fit">
+<nav class="sticky top-0 z-10 w-full py-5 mb-10 bg-white border-b max-h-fit">
     <div class="px-5 mx-auto max-w-7xl">
         <div class="flex items-center justify-between text-gray-700">
             <div class="">
@@ -27,7 +27,7 @@
             </button>
         </div>
     </div>
-</div>
+</nav>
 {{-- untuk menu di atas kanan pas tampilan mobile --}}
 <div id="drawer-navigation" class="fixed z-40 hidden h-screen p-4 overflow-y-auto bg-white w-80" tabindex="-1"
     aria-labelledby="drawer-navigation-label">
