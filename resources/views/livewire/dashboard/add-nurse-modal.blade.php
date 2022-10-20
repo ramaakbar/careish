@@ -23,7 +23,7 @@
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
                             <input wire:model="name" type="text" name="name" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             @error('name')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -33,7 +33,7 @@
                             <div class="w-full">
                                 <label for="age" class="block mb-2 text-sm font-medium text-gray-900 ">Age</label>
                                 <input wire:model="age" type="number" name="age" id="age"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @error('age')
                                     <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                             snapp!</span> {{ $message }}</p>
@@ -43,7 +43,7 @@
                                 <label for="gender"
                                     class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
                                 <select wire:model="gender_id" id="gender"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     <option value="" selected>Choose gender</option>
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
@@ -56,9 +56,10 @@
                         </div>
                         <div class="flex space-x-5">
                             <div class="w-full">
-                                <label for="province_id" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
-                                <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')" option-label="name"
-                                    option-value="id" value="{{ $province_id }}" />
+                                <label for="province_id"
+                                    class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
+                                <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')"
+                                    option-label="name" option-value="id" value="{{ $province_id }}" />
                                 @error('province_id')
                                     <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                             snapp!</span> {{ $message }}</p>
@@ -66,18 +67,18 @@
                             </div>
                             <div class="w-full">
                                 <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
-                                <x-select wire:model="city_id" placeholder="Select city" :async-data="route('cities', ['provinces_id' => $province_id])" option-label="name" option-value="id"
-                                    value="{{ $city_id }}" />
+                                <x-select wire:model="city_id" placeholder="Select city" :async-data="route('cities', ['provinces_id' => $province_id])"
+                                    option-label="name" option-value="id" value="{{ $city_id }}" />
 
                             </div>
-                        </div>      
-                        
+                        </div>
+
                         <div>
 
                             <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload
                                 file</label>
                             <input wire:model="photo"
-                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                class="block w-full text-sm text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none"
                                 aria-describedby="file_input_help" id="file_input" type="file">
                             <p class="mt-1 text-sm text-gray-500 " id="file_input_help">
                                 SVG, PNG, JPG or GIF (MAX. 800x400px).</p>

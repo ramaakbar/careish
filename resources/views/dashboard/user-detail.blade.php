@@ -20,11 +20,11 @@
                 <div class="flex space-x-4">
                     <div>
                         <p class="text-gray-700">Created at</p>
-                        <p>{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}</p>
+                        <p>{{ Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</p>
                     </div>
                     <div>
                         <p class="text-gray-700">Updated at</p>
-                        <p>{{ Carbon\Carbon::parse($user->updated_at)->diffForHumans() }}</p>
+                        <p>{{ Carbon\Carbon::parse($user->updated_at)->format('d M Y') }}</p>
                     </div>
                 </div>
                 <button data-modal-toggle="confirm-modal"
@@ -41,7 +41,7 @@
                         <div class="">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
                             <input type="text" name="name" id="name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $user->name }}">
                             @error('name')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -51,7 +51,7 @@
                         <div class="">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
                             <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $user->email }}">
                             @error('email')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -62,7 +62,7 @@
                             <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 ">Phone
                                 Number</label>
                             <input type="text" name="phone_number" id="phone"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $user->phone_number }}">
                             @error('phone_number')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
@@ -73,7 +73,7 @@
                         <div class="">
                             <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Role</label>
                             <select id="role" name="role_id"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                 @if (old('role_id', $user->role_id) == $user->role_id)
                                     <option value="{{ $user->role_id }}">{{ $user->role->role }}</option>
                                     @if ($user->role_id == 1)
@@ -95,7 +95,7 @@
                             <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Upload Profile
                                 picture</label>
                             <input
-                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                                class="block w-full text-sm text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer"
                                 aria-describedby="file_input_help" id="file_input" type="file" name="picture">
                             <input aria-describedby="file_input_help" id="oldPicture" type="hidden" name="oldPicture"
                                 value="{{ $user->picture }}">
@@ -110,7 +110,7 @@
                         <div class="">
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
                             <input type="password" name="password" id="password"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             @error('password')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -120,7 +120,7 @@
                             <label for="password_confirmation"
                                 class="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
                             <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             @error('password_confirmation')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>

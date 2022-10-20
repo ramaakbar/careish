@@ -50,7 +50,7 @@
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Latest Transaction</h2>
                         <a href="/dashboard/transactions"
-                            class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
+                            class="text-sm font-medium text-blue-600 transition duration-500 ease-in-out hover:underline">View
                             all</a>
                     </div>
 
@@ -83,7 +83,7 @@
                                             T{{ $transaction->id }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $transaction->created_at->format('d-m-Y') }}
+                                            {{ $transaction->created_at->format('d M Y') }}
                                         </td>
                                         <td class="px-6 py-4">
                                             @if ($transaction->status->status == 'Cancelled')
@@ -101,7 +101,8 @@
                                             Rp. {{ $transaction->total_price }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <a href="/dashboard/transactions/{{ $transaction->id }}"
+                                                class="font-medium text-blue-600 hover:underline">Edit</a>
                                         </td>
                                     </tr>
                                 @empty
@@ -123,7 +124,7 @@
                     <div class="flex items-center justify-between p-4">
                         <h2 class="text-xl font-bold">Nurses Availability</h2>
                         <a href="/dashboard/nurses"
-                            class="text-sm text-[#4950BA] font-medium hover:underline transition ease-in-out duration-500">View
+                            class="text-sm font-medium text-blue-600 transition duration-500 ease-in-out hover:underline">View
                             all</a>
                     </div>
 
@@ -138,11 +139,11 @@
                                         Name
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Province
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Available
                                     </th>
-                                    {{-- <th scope="col" class="px-6 py-3">
-                                        Total Price
-                                    </th> --}}
                                     <th scope="col" class="px-6 py-3">
                                         Action
                                     </th>
@@ -157,6 +158,9 @@
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $nurse->name }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $nurse->city->province->name }}
                                         </td>
                                         <td class="px-6 py-4">
                                             @if ($nurse->availability->availability == 'Not Available')
@@ -174,7 +178,8 @@
                                         $2999
                                     </td> --}}
                                         <td class="px-6 py-4">
-                                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                            <a href="/dashboard/nurses/{{ $nurse->id }}"
+                                                class="font-medium text-blue-600 hover:underline">Edit</a>
                                         </td>
                                     </tr>
                                 @empty

@@ -1,5 +1,5 @@
-<nav class="fixed z-30 w-full bg-white border-b border-gray-200">
-    <div class="flex justify-between px-2 py-3 lg:px-6">
+<nav class="fixed z-10 w-full bg-white border-b border-gray-200">
+    <div class="flex justify-between px-2 py-1 lg:px-6">
         <div class="flex items-center">
             <button data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
                 aria-controls="drawer-navigation"
@@ -18,16 +18,20 @@
             <a href="/" class="text-2xl font-extrabold text-gray-900">Careish</a>
         </div>
 
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
             <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                </svg>
+                <button
+                    class="p-2 text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                </button>
             </div>
             <button data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center text-sm font-medium text-gray-900 rounded-full md:mr-0 " type="button">
+                class="flex items-center p-2 text-sm font-medium text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 md:mr-0 "
+                type="button">
                 <span class="sr-only">Open user menu</span>
                 {{-- Untuk sementara --}}
                 {{-- <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset(auth()->user()->picture) }}" alt="user photo"> --}}
@@ -61,28 +65,29 @@
     </div>
 </nav>
 <div class="flex pt-16 overflow-hidden">
-    <aside id="sidebar"
-        class="fixed top-0 left-0 z-20  flex-col flex-shrink-0  w-64 h-full pt-[3.6rem] lg:flex hidden">
+    <aside id="sidebar" class="fixed top-0 left-0 z-20 flex-col flex-shrink-0 hidden w-64 h-full lg:flex">
         <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200">
-            <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-                <div class="flex-1 space-y-1 bg-white divide-y">
+            <div class="flex flex-col flex-1 pb-4 overflow-y-auto">
+                <a href="/" class="px-2 py-3 mb-5 text-2xl font-extrabold text-gray-900 lg:px-6">Careish</a>
+                <div class="flex-1 px-2 space-y-1 divide-y ">
                     <ul class="pb-2 space-y-2">
                         @foreach ($sidebar as $name => $test)
                             @if (request()->is('dashboard'))
-                                <li class="{{ request()->is(Str::lower($name)) ? 'bg-purple-500' : '' }}">
+                                <li
+                                    class="{{ request()->is(Str::lower($name)) ? 'bg-blue-100 rounded hover:bg-gray-100' : 'rounded hover:bg-gray-100' }}">
                                 @else
                                 <li
-                                    class="{{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'bg-purple-500' : '' }}">
+                                    class="{{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'bg-blue-100 rounded hover:bg-gray-100' : 'rounded hover:bg-gray-100' }}">
                             @endif
                             @if (request()->is('dashboard'))
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is(Str::lower($name) . '*') ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-2 py-2 font-medium {{ request()->is(Str::lower($name) . '*') ? 'text-blue-700 ' : 'text-gray-600 ' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
                             @else
                                 <a href="{{ $test[0] }}"
-                                    class="flex items-center px-5 py-2 {{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'text-white' : 'text-gray-900 ' }}">
+                                    class="flex items-center px-2 py-2 font-medium {{ request()->is('dashboard/' . Str::lower($name) . '*') ? 'text-blue-700' : 'text-gray-600' }}">
                                     {{ svg($test[1], 'w-6 h-6') }}
                                     <span class="ml-3">{{ $name }}</span>
                                 </a>
@@ -96,8 +101,7 @@
     </aside>
     <div id="main-content" class="w-full h-full overflow-y-auto bg-gray-50 lg:ml-64">
         {{ $slot }}
-        <footer class="mt-10 mb-5 text-sm text-center text-gray-500">
-            © 2022 Careish. All rights reserved.</footer>
+
     </div>
 </div>
 
