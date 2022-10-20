@@ -9,6 +9,7 @@
                 <div class="hidden space-x-5 sm:block">
                     <a href="#feature" class="transition duration-300 ease-in-out hover:text-gray-200">Feature</a>
                     <a href="#aboutUs" class="transition duration-300 ease-in-out hover:text-gray-200">About</a>
+                    <a href="/nurses" class="transition duration-300 ease-in-out hover:text-gray-200">Nurses</a>
                     <a href="/login" class="transition duration-300 ease-in-out hover:text-gray-200">Login</a>
                     <a href="/register" class="hover:text-gray-200"><button
                             class="rounded-[6px] bg-gray-800 pt-[9px] pb-[9px] pr-[18px] pl-[18px] hover:bg-gray-900 transition ease-in-out duration-300">Register</button></a>

@@ -1,5 +1,3 @@
-<x-layout>
-    <x-navbar></x-navbar>
+<x-main-layout>
     <livewire:nurses-table>
-        <x-footer></x-footer>
-</x-layout>
+</x-main-layout>
