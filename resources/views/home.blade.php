@@ -33,7 +33,7 @@
                         <h2>all you need is just one click away.</h2>
                     </div>
                     <div class="mt-[45px]">
-                        <a href="/" class="text-[16px] font-medium hover:text-gray-300"><button
+                        <a href="/nurses" class="text-[16px] font-medium hover:text-gray-300"><button
                                 class="rounded-[10px] bg-gray-800 pt-[17px] pb-[17px] pr-[24px] pl-[24px] hover:bg-gray-900 transition ease-in-out duration-500">Browse
                                 our
                                 agents</button></a>
@@ -220,8 +220,7 @@
                                 d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
                                 clip-rule="evenodd"></path>
                         </svg> --}}
-                        <span class="flex-1
-                        whitespace-nowrap">Login</span>
+                        <span class="flex-1 whitespace-nowrap">Login</span>
                     </a>
                 </li>
                 <li>
