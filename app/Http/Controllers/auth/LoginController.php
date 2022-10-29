@@ -26,7 +26,7 @@ class LoginController extends Controller {
             $request->session()->regenerate();
             // Alert::success('Success Title', 'Success Message');
             Alert::toast('You are now logged in!', 'success');
-            return redirect('/dashboard');
+            return redirect('/');
         }
 
         return back()->withErrors([
@@ -54,7 +54,7 @@ class LoginController extends Controller {
 
         Auth::login($user);
         Alert::toast('You are now logged in!', 'success');
-        return redirect('/dashboard');
+        return redirect('/');
     }
 
     public function logout(Request $request) {

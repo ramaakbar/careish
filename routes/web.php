@@ -33,7 +33,7 @@ Route::get('/nurses', function () {
 });
 
 Route::controller(NurseController::class)->group(function () {
-    Route::middleware(['guest'])->group(function () {
+    Route::middleware([])->group(function () {
         Route::get('/nurses', 'viewNurse');
     });
     Route::post('/logout', 'logout');
@@ -43,7 +43,7 @@ Route::controller(NurseController::class)->group(function () {
 // login
 Route::controller(LoginController::class)->group(function () {
     Route::middleware(['guest'])->group(function () {
-        Route::get('/login', 'index');
+        Route::get('/login', 'index')->name('login');
         Route::post('/login', 'authenticate');
         Route::get('/login/google', 'google');
         Route::get('/login/google/redirect', 'googleRedirect');
@@ -61,7 +61,7 @@ Route::controller(RegisterController::class)->group(function () {
 
 // profile route
 // Route::group(['prefix' => 'user', 'middleware' => ['auth']]
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/transaction-list', [UserTransactionsController::class, 'index']);
 
     Route::get('/profile-setting', [UserProfileSettingController::class, 'index']);
