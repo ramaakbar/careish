@@ -7,15 +7,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('nurses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -24,6 +22,8 @@ return new class extends Migration
             $table->foreignIdFor(City::class)->constrained();
             $table->string('picture');
             $table->foreignIdFor(Availability::class)->default(3)->constrained();
+            $table->text('description');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -33,8 +33,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('nurses');
     }
 };

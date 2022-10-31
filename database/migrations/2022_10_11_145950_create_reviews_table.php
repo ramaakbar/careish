@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Nurse;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +18,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
             $table->foreignIdFor(Nurse::class)->constrained();
+            $table->foreignIdFor(Transaction::class)->constrained();
             $table->integer('rating');
             $table->string('review');
             $table->timestamps();

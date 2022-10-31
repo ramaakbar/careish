@@ -10,8 +10,9 @@ class Review extends Model {
     protected $fillable = [
         'user_id',
         'nurse_id',
+        'transaction_id',
         'rating',
-        'review'
+        'review',
     ];
 
     public function user() {
@@ -20,5 +21,9 @@ class Review extends Model {
 
     public function nurse() {
         return $this->belongsTo(Nurse::class);
+    }
+
+    public function transaction() {
+        return $this->belongsTo(Transaction::class);
     }
 }

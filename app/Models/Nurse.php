@@ -15,6 +15,8 @@ class Nurse extends Model {
         'city_id',
         'picture',
         'availability_id',
+        'description',
+        'price'
     ];
 
     public function availability() {

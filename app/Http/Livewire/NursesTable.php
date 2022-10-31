@@ -23,7 +23,7 @@ class NursesTable extends Component {
                 ->when($this->city_id != '', function ($query) {
                     $query->where('nurses.city_id', '=', $this->city_id);
                 })
-                ->groupBy(DB::raw('nurses.id, nurses.name, nurses.age, nurses.gender_id, nurses.city_id, nurses.picture, nurses.availability_id, nurses.created_at, nurses.updated_at, genders.gender, cities.name'))
+                ->groupBy(DB::raw('nurses.id, nurses.name, nurses.age, nurses.gender_id, nurses.city_id, nurses.picture, nurses.availability_id, nurses.created_at, nurses.updated_at, genders.gender, cities.name, nurses.description, nurses.price'))
                 ->paginate(6)
         ]);
     }
