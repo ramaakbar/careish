@@ -21,6 +21,8 @@ class NurseFactory extends Factory {
             'city_id' => fake()->numberBetween(1, 300), // password
             'picture' => 'assets/placeholder_man.jpeg',
             'availability_id' => fake()->numberBetween(1, 3),
+            'description' => fake()->realText(900),
+            'price' => fake()->numberBetween(1000000, 5000000)
         ];
     }
 }

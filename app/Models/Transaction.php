@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
-{
+class Transaction extends Model {
     use HasFactory;
 
-    protected $dates = ['start_date','end_date'];
+    protected $dates = ['start_date', 'end_date'];
 
     protected $fillable = [
         'user_id',
@@ -48,8 +47,12 @@ class Transaction extends Model
         return $this->belongsTo(PaymentType::class);
     }
 
-    public static function search($search){
-        return empty($search) ? static::query() 
-        : static::query()->where('id','like','%'.$search.'%');
+    public function review() {
+        return $this->hasOne(Review::class);
+    }
+
+    public static function search($search) {
+        return empty($search) ? static::query()
+            : static::query()->where('id', 'like', '%' . $search . '%');
     }
 }

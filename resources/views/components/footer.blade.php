@@ -4,7 +4,7 @@
             <div>
                 <h2 class="mb-3 text-3xl font-bold text-white">CareIsh</h2>
                 <p class="text-[#848484]">Your trusted home care service companion. Looking for a high quality nurses?
-                    all you need is just on
+                    All you need is just on
                     click away.</p>
             </div>
             <div>
