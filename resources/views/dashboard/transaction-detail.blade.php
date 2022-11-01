@@ -121,8 +121,8 @@
                             <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 ">Total
                                 Price</label>
                             <input name="total_price" type="text" id="total_price"
-                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                value="{{ $transaction->total_price }}">
+                                class="bg-white cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->nurse->price }}" disabled>
                             @error('total_price')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>

@@ -10,14 +10,13 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class DashboardTransactionController extends Controller
-{
-    public function transactions(){
+class DashboardTransactionController extends Controller {
+    public function transactions() {
         return view('dashboard.transactions');
     }
 
-    public function detail(Transaction $transaction){
-        return view('dashboard.transaction-detail',[
+    public function detail(Transaction $transaction) {
+        return view('dashboard.transaction-detail', [
             'transaction' => $transaction,
             'durations' => Duration::all(),
             'payment_types' => PaymentType::all(),
@@ -25,26 +24,24 @@ class DashboardTransactionController extends Controller
         ]);
     }
 
-    public function update(Request $request,Transaction $transaction){
+    public function update(Request $request, Transaction $transaction) {
         $validated = $request->validate([
             'start_date' => ['required'],
             'end_date' => ['required'],
             'duration_id' => ['required'],
             'payment_type_id' => ['required'],
-            'total_price' => ['required','gte:1'],
+            // 'total_price' => ['required','gte:1'],
             'status_id' => ['required'],
-            'address' => ['required','min:4' , 'max:50'],
+            'address' => ['required', 'min:4', 'max:50'],
             'city_id' => ['required'],
         ]);
 
-        Transaction::where('id',$transaction->id)->update($validated);
-        return back()->with('success','Transaction has been updated');
-
+        Transaction::where('id', $transaction->id)->update($validated);
+        return back()->with('success', 'Transaction has been updated');
     }
 
-    public function delete(Request $request,Transaction $transaction){
+    public function delete(Request $request, Transaction $transaction) {
         Transaction::destroy($transaction->id);
-        return redirect('/dashboard/transactions')->with('success','Transaction '. 'T'.$transaction->id .' has been deleted');
+        return redirect('/dashboard/transactions')->with('success', 'Transaction ' . 'T' . $transaction->id . ' has been deleted');
     }
-
 }

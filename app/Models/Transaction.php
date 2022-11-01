@@ -17,7 +17,6 @@ class Transaction extends Model {
         'city_id',
         'duration_id',
         'payment_type_id',
-        'total_price',
         'start_date',
         'end_date',
         'address',

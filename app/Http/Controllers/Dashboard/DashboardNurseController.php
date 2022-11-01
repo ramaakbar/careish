@@ -25,6 +25,8 @@ class DashboardNurseController extends Controller {
             'age' => ['required', 'gte:15', 'lte:80'],
             'gender_id' => ['required', 'gte:1', 'lte:2'],
             'city_id' => ['required', 'gte:1', 'lte:300'],
+            'price' => ['required', 'gte:1'],
+            'description' => ['required', 'min:3'],
             'availability_id' => ['required', 'gte:1', 'lte:3'],
             'picture' => ['image'],
         ]);
