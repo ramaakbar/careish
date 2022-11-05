@@ -70,6 +70,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/favorites', [UserFavoritesController::class, 'index']);
 
     Route::get('/reviews', [UserReviewsController::class, 'index']);
+    Route::delete('/reviews/{review:id}', [UserReviewsController::class, 'delete']);
 });
 
 // dashboard route
