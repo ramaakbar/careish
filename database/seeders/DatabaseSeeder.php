@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder {
             PaymentTypeSeeder::class,
             TransactionSeeder::class,
             ReviewSeeder::class,
+            SavedNursesSeeder::class,
         ]);
     }
 }

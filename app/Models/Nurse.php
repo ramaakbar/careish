@@ -39,6 +39,10 @@ class Nurse extends Model {
         return $this->hasMany(Review::class);
     }
 
+    public function savedNurse() {
+        return $this->hasMany(SavedNurse::class);
+    }
+
     public static function search($search) {
         return empty($search) ? static::query()
             : static::query()->where('nurses.id', 'like', '%' . $search . '%')->orWhere('nurses.name', 'like', '%' . $search . '%')->orWhere('cities.name', 'like', '%' . $search . '%')->orWhere('provinces.name', 'like', '%' . $search . '%');
