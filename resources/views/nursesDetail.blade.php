@@ -65,12 +65,10 @@
                     <p><span class="text-gray-600">Price:
                         </span><br><span class="text-xl font-semibold">Rp.
                             {{ number_format($nurseElo->price, 2, ',', '.') }}</span></p>
-                    @auth
-                        <a href="/trans/{{ $nurseElo->id }}"><button
-                                class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3">
-                                Order
-                                Now</button></a>
-                    @endauth
+                    <a href="/trans/{{ $nurseElo->id }}"><button
+                            class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3">
+                            Order
+                            Now</button></a>
                 </div>
             </div>
         </div>
@@ -369,11 +367,14 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    $nursesPaginate = $nurseElo->transaction()->paginate(5);
+                @endphp
                 <div
                     class="w-full md:w-3/5 border h-max shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white rounded-lg">
                     <div class="p-8 space-y-5">
                         @if ($nurseElo->transaction()->get()->count() != 0)
-                            @foreach ($nurseElo->transaction()->get() as $trans)
+                            @foreach ($nursesPaginate as $trans)
                                 <div class="flex">
                                     <img class="w-20 h-20 mr-5 rounded-full"
                                         src="{{ asset($trans->review()->first()->user()->first()->picture) }}"
@@ -445,6 +446,9 @@
                                     <hr>
                                 @endif
                             @endforeach
+                            <div class="mt-8">
+                                {{ $nursesPaginate->links() }}
+                            </div>
                         @else
                             <div class="flex flex-col items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
