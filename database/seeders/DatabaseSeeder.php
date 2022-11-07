@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder {
             CustomerWithReviewAndTransSeeder::class,
             // ReviewSeeder::class,
             ExperienceSeeder::class,
-            SkillSeeder::class
+            SkillSeeder::class,
+            SavedNursesSeeder::class,
         ]);
     }
 }

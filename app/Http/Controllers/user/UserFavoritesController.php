@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\Nurse;
+use App\Models\SavedNurses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserFavoritesController extends Controller {
     public function index() {
         return view('user.favorites', [
-            // 'nurses' => Nurse::where('user_id', Auth::id())->paginate(4),
+            'favorites' => SavedNurses::where('user_id', Auth::id())->paginate(6),
         ]);
     }
 }
