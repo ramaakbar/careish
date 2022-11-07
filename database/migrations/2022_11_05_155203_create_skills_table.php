@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Nurse;
-use App\Models\Transaction;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +11,9 @@ return new class extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(Transaction::class)->constrained();
-            $table->integer('rating');
-            $table->string('review');
+            $table->string('skill');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('skills');
     }
 };

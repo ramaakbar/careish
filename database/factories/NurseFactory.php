@@ -22,7 +22,8 @@ class NurseFactory extends Factory {
             'picture' => 'assets/placeholder_man.jpeg',
             'availability_id' => fake()->numberBetween(1, 3),
             'description' => fake()->realText(900),
-            'price' => fake()->numberBetween(1000000, 5000000)
+            'skills' => fake()->word(1) . ';' . fake()->word(1) . ';' . fake()->word(1),
+            'price' => fake()->numberBetween(1000000, 5000000),
         ];
     }
 }

@@ -4,14 +4,14 @@
             <div>
                 <h2 class="mb-3 text-3xl font-bold text-white">CareIsh</h2>
                 <p class="text-[#848484]">Your trusted home care service companion. Looking for a high quality nurses?
-                    All you need is just on
+                    All you need is just one
                     click away.</p>
             </div>
             <div>
                 <h3 class="mb-3 text-xl font-bold text-white">Quick Links</h3>
                 <div class="flex flex-col space-y-2">
                     <a class="text-[#848484] hover:text-gray-300" href="/#feature">Feature</a>
-                    <a class="text-[#848484] hover:text-gray-300" href="/#about">About</a>
+                    <a class="text-[#848484] hover:text-gray-300" href="/#aboutUs">About</a>
                     <a class="text-[#848484] hover:text-gray-300" href="/nurses">Nurses</a>
                     <a class="text-[#848484] hover:text-gray-300" href="/login">Login</a>
                 </div>

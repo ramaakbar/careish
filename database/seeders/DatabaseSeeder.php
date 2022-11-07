@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Experience;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -23,8 +24,11 @@ class DatabaseSeeder extends Seeder {
             DurationSeeder::class,
             StatusSeeder::class,
             PaymentTypeSeeder::class,
-            TransactionSeeder::class,
-            ReviewSeeder::class,
+            // TransactionSeeder::class,
+            CustomerWithReviewAndTransSeeder::class,
+            // ReviewSeeder::class,
+            ExperienceSeeder::class,
+            SkillSeeder::class,
             SavedNursesSeeder::class,
         ]);
     }

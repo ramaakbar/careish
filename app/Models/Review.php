@@ -9,7 +9,6 @@ class Review extends Model {
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'nurse_id',
         'transaction_id',
         'rating',
         'review',
@@ -17,10 +16,6 @@ class Review extends Model {
 
     public function user() {
         return $this->belongsTo(User::class);
-    }
-
-    public function nurse() {
-        return $this->belongsTo(Nurse::class);
     }
 
     public function transaction() {

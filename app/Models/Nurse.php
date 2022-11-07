@@ -16,6 +16,7 @@ class Nurse extends Model {
         'picture',
         'availability_id',
         'description',
+        'skills',
         'price'
     ];
 
@@ -46,5 +47,9 @@ class Nurse extends Model {
     public static function search($search) {
         return empty($search) ? static::query()
             : static::query()->where('nurses.id', 'like', '%' . $search . '%')->orWhere('nurses.name', 'like', '%' . $search . '%')->orWhere('cities.name', 'like', '%' . $search . '%')->orWhere('provinces.name', 'like', '%' . $search . '%');
+    }
+
+    public function experience() {
+        return $this->hasMany(Experience::class);
     }
 }

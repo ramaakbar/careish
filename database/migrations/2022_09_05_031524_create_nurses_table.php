@@ -24,6 +24,7 @@ return new class extends Migration {
             $table->foreignIdFor(Availability::class)->default(3)->constrained();
             $table->text('description');
             $table->integer('price');
+            $table->string('skills');
             $table->timestamps();
         });
     }
