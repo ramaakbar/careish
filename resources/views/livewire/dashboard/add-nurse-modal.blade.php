@@ -69,8 +69,29 @@
                                 <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
                                 <x-select wire:model="city_id" placeholder="Select city" :async-data="route('cities', ['provinces_id' => $province_id])"
                                     option-label="name" option-value="id" value="{{ $city_id }}" />
-
                             </div>
+                        </div>
+
+                        <div class="w-full">
+                            <label for="price" class="block mb-2 text-sm font-medium text-gray-900 ">Price</label>
+                            <input wire:model="price" type="number" name="price" id="price"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            @error('price')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="w-full">
+                            <label for="description"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
+                            <textarea wire:model="description" id="description" name="description" rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Nurse's description"></textarea>
+                            @error('description')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div>

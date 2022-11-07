@@ -98,7 +98,7 @@
                                             @endif
                                         </td>
                                         <td class="px-6 py-4">
-                                            Rp. {{ $transaction->total_price }}
+                                            Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <a href="/dashboard/transactions/{{ $transaction->id }}"

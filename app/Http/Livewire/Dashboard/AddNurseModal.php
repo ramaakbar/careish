@@ -20,11 +20,15 @@ class AddNurseModal extends Component {
 
     public $province_id;
 
+    public $price;
+
+    public $description;
+
     public $photo;
 
     public function clear() {
         $this->resetErrorBag();
-        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'photo']);
+        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'price', 'description', 'photo']);
     }
 
     protected $rules = [
@@ -32,6 +36,8 @@ class AddNurseModal extends Component {
         'age' => 'required',
         'gender_id' => 'required',
         'city_id' => 'required',
+        'price' => 'required',
+        'description' => 'required',
         'photo' => 'required|image',
     ];
 
@@ -49,10 +55,12 @@ class AddNurseModal extends Component {
             'age' => $this->age,
             'gender_id' => $this->gender_id,
             'city_id' => $this->city_id,
+            'price' => $this->price,
+            'description' => $this->description,
             'picture' => $storedImage,
         ]);
 
-        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'photo']);
+        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'price', 'description', 'photo']);
         session()->flash('success', 'Nurse has successfully been added');
         return redirect()->to('/dashboard/nurses');
     }
