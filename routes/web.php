@@ -33,11 +33,8 @@ Route::get('/nurses', function () {
 });
 
 Route::controller(NurseController::class)->group(function () {
-    Route::middleware([])->group(function () {
-        Route::get('/nurses', 'viewNurse');
-        Route::get('/nurses/detail/{id}', 'viewNurseDetail');
-    });
-    Route::post('/logout', 'logout');
+    Route::get('/nurses', 'viewNurse');
+    Route::get('/nurses/detail/{id}', 'viewNurseDetail');
 });
 
 // Login and Register route
