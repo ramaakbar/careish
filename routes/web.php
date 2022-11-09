@@ -37,6 +37,12 @@ Route::controller(NurseController::class)->group(function () {
     Route::get('/nurses/detail/{id}', 'viewNurseDetail');
 });
 
+Route::controller(UserTransactionsController::class)->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/trans/{id}', 'doTrans');
+    });
+});
+
 // Login and Register route
 // login
 Route::controller(LoginController::class)->group(function () {
