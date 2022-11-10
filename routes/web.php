@@ -35,6 +35,8 @@ Route::get('/nurses', function () {
 Route::controller(NurseController::class)->group(function () {
     Route::get('/nurses', 'viewNurse');
     Route::get('/nurses/detail/{id}', 'viewNurseDetail');
+    Route::post('/nurses/detail/{nurse:id}', 'saveNurse');
+    Route::delete('/nurses/detail/{nurse:id}', 'deleteSavedNurse');
 });
 
 // Login and Register route
