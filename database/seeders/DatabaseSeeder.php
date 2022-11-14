@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder {
             SkillSeeder::class,
             SavedNursesSeeder::class,
             PostCategorySeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
