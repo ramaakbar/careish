@@ -40,6 +40,7 @@ Route::controller(NurseController::class)->group(function () {
 Route::controller(UserTransactionsController::class)->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/trans/{id}', 'doTrans');
+        Route::post('/trans/confirmation', 'pay');
     });
 });
 
