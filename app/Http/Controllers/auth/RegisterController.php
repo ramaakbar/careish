@@ -22,7 +22,7 @@ class RegisterController extends Controller {
         $validated['phone_number'] = '';
         $validated['role_id'] = 1;
         $validated['password'] = Hash::make($validated['password']);
-        $validated['picture'] = 'assets/placeholder_profile.jpeg';
+        $validated['picture'] = 'user-images/placeholder_profile.jpeg';
 
         User::create($validated);
         return redirect('/login')->with('success', 'Account successfully created! you can now login');

@@ -8,8 +8,7 @@
             </a>
             <h1 class="my-4 mb-5 text-3xl font-bold">Nurse {{ $nurse->name }}</h1>
             <div>
-                <img src="{{ $nurse->picture == 'assets/placeholder_man.jpeg' ? asset($nurse->picture) : asset('/storage/' . $nurse->picture) }}"
-                    alt="" class="w-48">
+                <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="{{ $nurse->name . ' picture' }}" class="w-48">
             </div>
             <div class="flex justify-between mb-5">
                 <div class="flex space-x-4">

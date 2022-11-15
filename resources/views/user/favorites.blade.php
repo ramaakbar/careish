@@ -6,7 +6,7 @@
             @forelse ($favorites as $favorite)
                 <div class="w-full overflow-hidden rounded-lg shadow-lg">
                     <a href="/nurses/detail/{{ $favorite->nurse->id }}">
-                        <img class="w-full h-80" src="/{{ $favorite->nurse->picture }}" alt="">
+                        <img class="w-full h-80"src="{{ asset('/storage/' . $favorite->nurse->picture) }}" alt="">
                         <div class="m-5">
                             <p class="font-bold">{{ $favorite->nurse->name }}</p>
                             <div class="mt-2">

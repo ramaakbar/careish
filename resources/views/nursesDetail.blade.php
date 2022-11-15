@@ -2,7 +2,7 @@
     <div class="px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
         <div class="flex flex-col w-full md:flex-row">
             <div class="w-1/2 mx-auto md:pr-8 md:w-1/3">
-                <img src="{{ asset($nurse->picture) }}" class="w-full h-auto" alt="">
+                <img src="{{ asset('/storage/' . $nurse->picture) }}" class="w-full h-auto" alt="">
             </div>
             <div class="w-full mt-5 md:mt-0 md:w-2/3">
                 <div class="flex items-center">
@@ -406,7 +406,7 @@
                             @foreach ($nursesPaginate as $trans)
                                 <div class="flex">
                                     <img class="w-20 h-20 mr-5 rounded-full"
-                                        src="{{ asset($trans->review()->first()->user()->first()->picture) }}"
+                                        src="{{ asset('/storage/' .$trans->review()->first()->user()->first()->picture) }}"
                                         alt="">
                                     <div class="">
                                         <p class="text-3xl font-medium">

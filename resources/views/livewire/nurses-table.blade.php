@@ -48,7 +48,7 @@
             @foreach ($nurses as $nurse)
                 <div class="w-full overflow-hidden rounded-lg shadow-lg">
                     <a href="/nurses/detail/{{ $nurse->id }}">
-                        <img class="w-full h-80" src="{{ $nurse->picture }}" alt="">
+                        <img class="w-full h-80" src="{{ asset('/storage/' . $nurse->picture) }}" alt="">
                         <div class="m-5">
                             <p class="font-bold">{{ $nurse->name }}</p>
                             <div class="mt-2">

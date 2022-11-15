@@ -153,16 +153,9 @@
                                 U{{ $user->id }}
                             </th>
                             <td class="items-center px-6 py-4">
-                                @if ($user->picture == 'assets/placeholder_profile.jpeg')
-                                    <img src="{{ asset($user->picture) }}" alt="asdas"
-                                        class="inline w-8 h-8 mr-2 rounded-full"> {{ $user->name }}
-                                @elseif(Str::contains($user->picture, '/storage/'))
-                                    <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas"
-                                        class="inline w-8 h-8 mr-2 rounded-full"> {{ $user->name }}
-                                @else
-                                    <img src="{{ $user->picture }}" alt="asdas"
-                                        class="inline w-8 h-8 mr-2 rounded-full"> {{ $user->name }}
-                                @endif
+                                <img src="{{ asset('/storage/' . $user->picture) }}"
+                                    alt="{{ $user->name . ' picture' }}" class="inline w-8 h-8 mr-2 rounded-full">
+                                {{ $user->name }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $user->email }}

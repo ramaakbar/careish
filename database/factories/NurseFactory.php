@@ -19,7 +19,7 @@ class NurseFactory extends Factory {
             'age' => fake()->numberBetween(20, 40),
             'gender_id' => fake()->numberBetween(1, 2),
             'city_id' => fake()->numberBetween(1, 300), // password
-            'picture' => 'assets/placeholder_man.jpeg',
+            'picture' => 'nurse-images/placeholder_man.jpeg',
             'availability_id' => fake()->numberBetween(1, 3),
             'description' => fake()->realText(900),
             'skills' => fake()->word(1) . ';' . fake()->word(1) . ';' . fake()->word(1),

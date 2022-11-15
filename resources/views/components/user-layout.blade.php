@@ -1,7 +1,8 @@
 <div class="flex flex-col items-center px-5 mx-auto space-y-5 lg:items-start lg:flex-row max-w-7xl lg:space-y-0">
     <aside class="flex flex-col w-full lg:mr-5 lg:w-1/4">
         <div class="flex flex-row items-center mb-8">
-            <img class="mr-3 rounded-full w-14 h-14" src="/assets/placeholder_man.jpeg" alt="user photo">
+            <img class="mr-3 rounded-full w-14 h-14"src="{{ asset('/storage/' . Auth::user()->picture) }}"
+                alt="user photo">
             <h3 class="text-base font-medium">Akbar Ramadhan Yusri</h3>
         </div>
         <nav class="flex flex-col space-y-2">

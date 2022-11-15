@@ -44,7 +44,7 @@ class AddNurseModal extends Component {
     public function submit() {
         $this->validate();
 
-        $storedImage = $this->photo->store('images');
+        $storedImage = $this->photo->store('nurse-images');
 
         Nurse::create([
             'name' => $this->name,
