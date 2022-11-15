@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(PostCategory::class)->constrained();
             $table->string('title');
+            $table->string('thumbnail');
             $table->text('body');
             $table->timestamps();
         });

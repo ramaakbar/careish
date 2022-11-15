@@ -9,6 +9,19 @@
         @enderror
     </div>
     <div class="mb-4">
+        <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900 ">Thumbnail</label>
+        <input wire:model="thumbnail"
+            class="block w-full text-sm text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none"
+            aria-describedby="file_input_help" id="thumbnail" type="file">
+        <p class="mt-1 text-sm text-gray-500 " id="thumbnail">
+            PNG, JPG or JPEG</p>
+        <div wire:loading wire:target="thumbnail">Uploading...</div>
+        @error('thumbnail')
+            <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                    snapp!</span> {{ $message }}</p>
+        @enderror
+    </div>
+    <div class="mb-4">
         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">Category</label>
         <select wire:model="category"
             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"

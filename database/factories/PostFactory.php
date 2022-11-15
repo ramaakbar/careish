@@ -17,6 +17,7 @@ class PostFactory extends Factory {
         return [
             'post_category_id' => fake()->numberBetween(1, 3),
             'title' => fake()->text(),
+            'thumbnail' => 'post-thumbs/elderthumb.jpg',
             'body' => fake()->randomHtml(10, 4)
         ];
     }

@@ -6,10 +6,13 @@ use App\Http\Livewire\Component\Trix;
 use App\Models\Post;
 use App\Models\PostCategory;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreatePostForm extends Component {
+    use WithFileUploads;
     public $title;
     public $category = 1;
+    public $thumbnail;
     public $body;
 
     public $listeners = [
@@ -22,25 +25,23 @@ class CreatePostForm extends Component {
 
     public function clear() {
         $this->resetErrorBag();
-        $this->reset(['title', 'category', 'body']);
+        $this->reset(['title', 'category', 'body', 'thumbnail']);
     }
 
     protected $rules = [
         'title' => 'required',
         'category' => 'required|min:1|max:3',
         'body' => 'required',
+        'thumbnail' => 'required|image',
     ];
 
     public function save() {
         $this->validate();
-        // dd([
-        //     'title' => $this->title,
-        //     'category' => $this->category,
-        //     'body' => $this->body
-        // ]);
-        Post::updateOrCreate([
+        $storedImage = $this->thumbnail->store('post-thumbs');
+        Post::Create([
             'title' => $this->title,
             'post_category_id' => $this->category,
+            'thumbnail' => $storedImage,
             'body' => $this->body
         ]);
         $this->clear();
