@@ -22,7 +22,7 @@ class DashboardPostController extends Controller {
     }
 
     public function edit(Request $request, Post $post) {
-        return view('dashboard.create-post', [
+        return view('dashboard.update-post', [
             'post' => $post
         ]);
     }
