@@ -5,7 +5,7 @@
             <div class="px-8 py-10 sm:px-14">
                 <div class="flex flex-col justify-between lg:flex-row">
                     <div class="flex flex-col items-center sm:flex-row sm:items-start">
-                        <img class="w-20 h-20 rounded-full sm:mr-7" src="{{ asset(Auth::user()->picture) }}"
+                        <img class="w-20 h-20 rounded-full sm:mr-7" src="{{ asset('/storage/' . Auth::user()->picture) }}"
                             alt="user photo">
                         <div class="flex flex-col items-center justify-between py-3 mt-3 sm:mt-0 sm:items-start">
                             <h2 class="text-lg font-medium sm:text-xl">{{ Auth::user()->name }}</h2>
