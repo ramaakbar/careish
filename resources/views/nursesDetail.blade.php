@@ -56,7 +56,7 @@
                 <p class="mt-4"><span class="text-gray-600">Location:
                     </span>{{ $nurse->province . ', ' . $nurse->cityName }}</p>
                 <p class="mt-2"><span class="text-gray-600">Age:
-                    </span>{{ $nurse->age }} tahun</p>
+                    </span>{{ $nurse->age }} years old</p>
                 <p class="mt-2"><span class="text-gray-600">Gender:
                     </span>{{ $nurse->gender }}</p>
                 <p class="mt-2 md:min-h-[160px] lg:min-h-[240px]"><span class="text-gray-600">Description:

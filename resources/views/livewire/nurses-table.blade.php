@@ -64,7 +64,7 @@
                                         <p>{{ number_format($nurse->rating, 1, '.', ',') }}/5.0</p>
                                     </div>
                                 </div>
-                                <p>{{ $nurse->age }} Tahun</p>
+                                <p>{{ $nurse->age }} years old</p>
                                 <p>{{ $nurse->cityName }}</p>
                             </div>
                         </div>

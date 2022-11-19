@@ -1,7 +1,7 @@
 <x-main-layout>
     <div class="px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
         <h1 class="text-3xl font-bold">Confirm Order</h1>
-        <form action="/trans/confirmation" method="POST">
+        <form action="/trans/{{ $nurse->id }}/confirmation" method="POST">
             <div class="flex flex-col justify-between w-full mt-5 space-y-7 md:flex-row md:space-y-0">
                 <div
                     class="w-full md:w-2/3 shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white h-max mr-5 rounded-lg ">
@@ -65,6 +65,9 @@
                                                 snapp!</span> {{ $message }}</p>
                                     @enderror
                                 </div>
+                                <div class="mb-5">
+                                    <livewire:component.province-city-select>
+                                </div>
                                 <div class="grid grid-cols-2 gap-5 mb-5">
                                     <div class="">
                                         <label for="start_date"
@@ -97,11 +100,11 @@
                                         class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         @foreach ($paymentMethod as $method)
                                             @if (old('payment_method', $method->type) == $method->type)
-                                                <option value="{{ $method->type }}" selected>
+                                                <option value="{{ $method->id }}" selected>
                                                     {{ $method->type }}
                                                 </option>
                                             @else
-                                                <option value="{{ $method->type }}">{{ $method->type }}
+                                                <option value="{{ $method->id }}">{{ $method->type }}
                                                 </option>
                                             @endif
                                         @endforeach
@@ -122,20 +125,20 @@
                         <div class="">
                             <div class="flex justify-between">
                                 <p class="text-gray-400">Price</p>
-                                <p class="font-medium">Rp{{ number_format($nurse->price, 3, '.', ',') }}</p>
+                                <p class="font-medium">Rp{{ number_format($nurse->price, 2, ',', '.') }}</p>
                             </div>
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Admin Fee</p>
-                                <p class="font-medium">Rp{{ number_format(100000, 3, '.', ',') }}</p>
+                                <p class="font-medium">Rp{{ number_format(100000, 2, ',', '.') }}</p>
                             </div>
                             <hr class="mt-3">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Total Price</p>
-                                <p class="font-medium">Rp{{ number_format($nurse->price + 100000, 3, '.', ',') }}</p>
+                                <p class="font-medium">Rp{{ number_format($nurse->price + 100000, 2, ',', '.') }}</p>
                             </div>
                         </div>
                         <button
-                            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-3 text-center w-full mt-6"
+                            class="block w-full py-3 mt-6 text-sm font-medium text-center text-white bg-[#504BE5] rounded-lg hover:bg-[#3a36a8] focus:ring-4 focus:outline-none focus:ring-blue-300"
                             type="submit">
                             Order Now
                         </button>

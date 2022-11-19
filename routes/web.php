@@ -39,8 +39,9 @@ Route::controller(NurseController::class)->group(function () {
 
 Route::controller(UserTransactionsController::class)->group(function () {
     Route::middleware(['auth'])->group(function () {
-        Route::get('/trans/{id}', 'doTrans');
-        Route::post('/trans/confirmation', 'pay');
+        Route::get('/trans/{nurse:id}', 'doTrans');
+        Route::get('/trans/confirmation/{transaction:id}', 'transConfirm');
+        Route::post('/trans/{nurse:id}/confirmation', 'pay');
     });
 });
 
