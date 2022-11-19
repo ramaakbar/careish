@@ -36,7 +36,7 @@
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="w-24 font-medium">Nurse</h4>
                         <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
-                                src="/assets/placeholder_man.jpeg" alt="user photo">
+                                src="{{ asset('/storage/' . $transaction->nurse->picture) }}" alt="user photo">
                             <span class="text-gray-600">{{ $transaction->nurse->name }}</span>
                         </div>
                     </div>

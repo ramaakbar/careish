@@ -10,7 +10,7 @@
                             <h1 class="mb-8 text-2xl font-bold">Nurse Detail</h1>
                             <div class="grid w-full grid-cols-3 gap-20">
                                 <div class="">
-                                    <img src="{{ asset($nurse->picture) }}" alt="" class="w-max">
+                                    <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="" class="w-max">
                                 </div>
                                 <div class="flex flex-col justify-center col-span-2 text-lg font-medium">
                                     <div class="flex justify-between">
