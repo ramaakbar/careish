@@ -6,17 +6,19 @@ use App\Models\Status;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class StatusSeeder extends Seeder
-{
+class StatusSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         Status::create([
             'status' => 'Cancelled'
+        ]);
+
+        Status::create([
+            'status' => 'Waiting'
         ]);
 
         Status::create([

@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder {
             UserSeeder::class,
             ProvinceCitySeeder::class,
             NurseSeeder::class,
-            DurationSeeder::class,
             StatusSeeder::class,
             PaymentTypeSeeder::class,
             // TransactionSeeder::class,

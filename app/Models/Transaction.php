@@ -15,7 +15,6 @@ class Transaction extends Model {
         'nurse_id',
         'status_id',
         'city_id',
-        'duration_id',
         'payment_type_id',
         'start_date',
         'end_date',

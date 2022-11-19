@@ -23,7 +23,6 @@ return new class extends Migration {
             $table->foreignIdFor(Nurse::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Status::class)->constrained();
             $table->foreignIdFor(City::class)->constrained();
-            $table->foreignIdFor(Duration::class)->constrained();
             $table->foreignIdFor(PaymentType::class)->constrained();
             $table->dateTime('start_date');
             $table->dateTime('end_date');

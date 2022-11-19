@@ -56,15 +56,16 @@
                 <p class="mt-4"><span class="text-gray-600">Location:
                     </span>{{ $nurse->province . ', ' . $nurse->cityName }}</p>
                 <p class="mt-2"><span class="text-gray-600">Age:
-                    </span>{{ $nurse->age }} tahun</p>
+                    </span>{{ $nurse->age }} years old</p>
                 <p class="mt-2"><span class="text-gray-600">Gender:
                     </span>{{ $nurse->gender }}</p>
                 <p class="mt-2 md:min-h-[160px] lg:min-h-[240px]"><span class="text-gray-600">Description:
                     </span>{{ $nurse->description }}</p>
                 <div class="flex items-center justify-between mt-3 lg:mt-0">
                     <p><span class="text-gray-600">Price:
-                        </span><br><span class="text-xl font-semibold">Rp.
-                            {{ number_format($nurseElo->price, 2, ',', '.') }}</span></p>
+                        </span><br><span
+                            class="text-xl font-semibold">Rp{{ number_format($nurseElo->price, 2, ',', '.') }}</span>
+                    </p>
                     <a href="/trans/{{ $nurseElo->id }}"><button
                             class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3">
                             Order
