@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 
 class LoginController extends Controller {
@@ -34,12 +36,21 @@ class LoginController extends Controller {
         ])->onlyInput('email');
     }
 
+    function getSocialAvatar($file, $path) {
+        $fileContents = file_get_contents($file);
+        $filename = Str::random(10) . ".jpg";
+        File::put(public_path() . $path . $filename, $fileContents);
+        return "user-images/" . $filename;
+    }
+
     public function google() {
         return Socialite::driver('google')->with(["prompt" => "select_account"])->redirect();
     }
 
     public function googleRedirect() {
         $googleUser = Socialite::driver('google')->stateless()->user();
+
+        $image = $this->getSocialAvatar($googleUser->getAvatar(), '/storage/user-images/');
 
         $user = User::updateOrCreate([
             'email' => $googleUser->email,
@@ -49,7 +60,7 @@ class LoginController extends Controller {
             'password' => Hash::make(fake()->uuid()),
             'phone_number' => '',
             'role_id' => 1,
-            'picture' => $googleUser->getAvatar() ?? 'assets/placeholder_profile.jpeg',
+            'picture' => $image ?? 'user-images/placeholder_profile.jpeg',
         ]);
 
         Auth::login($user);
