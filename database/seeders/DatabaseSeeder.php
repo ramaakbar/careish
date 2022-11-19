@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder {
             ExperienceSeeder::class,
             SkillSeeder::class,
             SavedNursesSeeder::class,
+            PostCategorySeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

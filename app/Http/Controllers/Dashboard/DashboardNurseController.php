@@ -34,7 +34,7 @@ class DashboardNurseController extends Controller {
         if ($request->file('picture')) {
             if ($request->oldPicture) {
             }
-            $validated['picture'] = $request->file('picture')->store('images');
+            $validated['picture'] = $request->file('picture')->store('nurse-images');
         }
 
         Nurse::where('id', $nurse->id)->update($validated);

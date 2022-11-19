@@ -7,14 +7,8 @@
                 Back
             </a>
             <h1 class="my-4 mb-5 text-3xl font-bold">{{ $user->name }}
-                @if ($user->picture == 'assets/placeholder_profile.jpeg')
-                    <img src="{{ asset($user->picture) }}" alt="asdas" class="inline w-8 h-8 mr-2 rounded-full">
-                @elseif(Str::contains($user->picture, '/storage/'))
-                    <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas"
-                        class="inline w-8 h-8 mr-2 rounded-full">
-                @else
-                    <img src="{{ $user->picture }}" alt="asdas" class="inline w-8 h-8 mr-2 rounded-full">
-                @endif
+                <img src="{{ asset('/storage/' . $user->picture) }}" alt="{{ $user->name . ' picture' }}"
+                    class="inline w-8 h-8 mr-2 rounded-full">
             </h1>
             <div class="flex justify-between mb-5">
                 <div class="flex space-x-4">

@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\user\UserFavoritesController;
 use App\Http\Controllers\user\UserProfileSettingController;
@@ -35,6 +36,8 @@ Route::get('/nurses', function () {
 Route::controller(NurseController::class)->group(function () {
     Route::get('/nurses', 'viewNurse');
     Route::get('/nurses/detail/{id}', 'viewNurseDetail');
+    Route::post('/nurses/detail/{nurse:id}', 'saveNurse');
+    Route::delete('/nurses/detail/{nurse:id}', 'deleteSavedNurse');
 });
 
 Route::controller(UserTransactionsController::class)->group(function () {
@@ -103,5 +106,12 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/nurses/{nurse:id}', 'detail');
         Route::put('/nurses/{nurse:id}', 'update');
         Route::delete('/nurses/{nurse:id}', 'delete');
+    });
+
+    Route::controller(DashboardPostController::class)->group(function () {
+        route::get('/posts', 'posts');
+        route::get('/posts/create', 'createPost');
+        route::get('/posts/{post:id}', 'view');
+        route::get('/posts/{post:id}/edit', 'edit');
     });
 });

@@ -29,7 +29,7 @@ class UserProfileSettingController extends Controller {
         if ($request->file('picture')) {
             if ($request->oldPicture) {
             }
-            $validated['picture'] = $request->file('picture')->store('images');
+            $validated['picture'] = $request->file('picture')->store('user-images');
         }
 
         User::where('id', $user->id)->update($validated);

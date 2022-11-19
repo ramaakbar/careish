@@ -4,7 +4,8 @@
         <div class="space-y-5">
             @forelse ($reviews as $review)
                 <div class="flex flex-col w-full p-3 bg-white border rounded md:flex-row">
-                    <img class="w-16 h-16 mr-3 rounded" src="/assets/placeholder_man.jpeg" alt="user photo">
+                    <img class="w-16 h-16 mr-3 rounded" src="{{ asset('/storage/' . $review->nurse->picture) }}"
+                        alt="user photo">
                     <div class="flex flex-col flex-1 space-y-2">
                         <div class="flex flex-col md:items-center md:space-x-4 md:flex-row">
                             <h3 class="text-xl font-semibold">{{ $review->nurse->name }}</h3>

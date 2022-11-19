@@ -19,3 +19,6 @@ html {
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
+trix-editor {
+    @apply prose max-w-none;
+}

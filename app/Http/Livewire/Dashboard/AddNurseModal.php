@@ -41,14 +41,10 @@ class AddNurseModal extends Component {
         'photo' => 'required|image',
     ];
 
-    public function updated($propertyName) {
-        $this->validateOnly($propertyName);
-    }
-
     public function submit() {
         $this->validate();
 
-        $storedImage = $this->photo->store('images');
+        $storedImage = $this->photo->store('nurse-images');
 
         Nurse::create([
             'name' => $this->name,

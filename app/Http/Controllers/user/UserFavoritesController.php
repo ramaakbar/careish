@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class UserFavoritesController extends Controller {
     public function index() {
         return view('user.favorites', [
-            'favorites' => SavedNurses::where('user_id', Auth::id())->paginate(6),
+            'favorites' => SavedNurses::where('user_id', Auth::id())->orderBy('created_at', 'DESC')->paginate(6),
         ]);
     }
 }
