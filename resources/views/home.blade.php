@@ -10,6 +10,7 @@
                     <a href="#feature" class="transition duration-300 ease-in-out hover:text-gray-200">Feature</a>
                     <a href="#aboutUs" class="transition duration-300 ease-in-out hover:text-gray-200">About</a>
                     <a href="/nurses" class="transition duration-300 ease-in-out hover:text-gray-200">Nurses</a>
+                    <a href="/articles" class="transition duration-300 ease-in-out hover:text-gray-200">Articles</a>
                     @guest
                         <a href="/login" class="transition duration-300 ease-in-out hover:text-gray-200">Login</a>
                         <a href="/register" class="hover:text-gray-200"><button

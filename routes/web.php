@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\user\UserFavoritesController;
 use App\Http\Controllers\user\UserProfileSettingController;
 use App\Http\Controllers\user\UserReviewsController;
@@ -29,9 +30,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/nurses', function () {
-    return view('browseNurses');
-});
+Route::controller(PostController::class)->group((function () {
+    Route::get('/articles', 'index');
+    Route::get('/articles/{post:id}', 'post');
+}));
 
 Route::controller(NurseController::class)->group(function () {
     Route::get('/nurses', 'viewNurse');
