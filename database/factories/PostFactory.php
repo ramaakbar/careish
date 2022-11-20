@@ -14,11 +14,14 @@ class PostFactory extends Factory {
      * @return array<string, mixed>
      */
     public function definition() {
+        $created = fake()->dateTimeThisYear()->getTimestamp();
         return [
             'post_category_id' => fake()->numberBetween(1, 3),
             'title' => fake()->text(),
             'thumbnail' => 'post-thumbs/elderthumb.jpg',
-            'body' => fake()->randomHtml(10, 4)
+            'body' => fake()->randomHtml(10, 4),
+            'created_at' => $created,
+            'updated_at' => $created
         ];
     }
 }
