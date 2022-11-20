@@ -13,7 +13,7 @@
                     <a class="text-[#848484] hover:text-gray-300" href="/#feature">Feature</a>
                     <a class="text-[#848484] hover:text-gray-300" href="/#aboutUs">About</a>
                     <a class="text-[#848484] hover:text-gray-300" href="/nurses">Nurses</a>
-                    <a class="text-[#848484] hover:text-gray-300" href="/posts">Posts</a>
+                    <a class="text-[#848484] hover:text-gray-300" href="/articles">Articles</a>
                     <a class="text-[#848484] hover:text-gray-300" href="/login">Login</a>
                 </div>
             </div>

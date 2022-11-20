@@ -1,7 +1,7 @@
 <div>
     <section class="px-5 mx-auto scroll-m-16 max-w-7xl">
         <div class="max-w-lg mx-auto mb-10 text-center">
-            <h3 class="text-lg text-[#504BE5] mb-2">Posts</h3>
+            <h3 class="text-lg text-[#504BE5] mb-2">Articles</h3>
             <h1 class="mb-5 text-3xl font-bold">Learn more about elderly</h1>
             <div class="flex space-x-4">
                 <div class="relative w-3/4">
@@ -33,7 +33,7 @@
 
         @if ($posts->count())
             {{-- post headline --}}
-            <a href="/posts/{{ $posts[0]->id }}" wire:loading.remove class="block mb-8">
+            <a href="/articles/{{ $posts[0]->id }}" wire:loading.remove class="block mb-8">
                 <img class="w-full h-full md:h-[511px] object-cover" src={{ '/storage/' . $posts[0]->thumbnail }}
                     alt={{ $posts[0]->title . 'image' }}>
                 <div class="mt-3 space-y-1">
@@ -56,7 +56,7 @@
             {{-- post grids --}}
             <div wire:loading.remove class="grid grid-cols-1 gap-8 mb-10 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($posts->skip(1) as $post)
-                    <a href="/posts/{{ $post->id }}" class="block">
+                    <a href="/articles/{{ $post->id }}" class="block">
                         <img class="w-full h-[300px] object-cover" src={{ '/storage/' . $post->thumbnail }}
                             alt={{ $post->title . 'image' }}>
                         <div class="mt-3 space-y-1">

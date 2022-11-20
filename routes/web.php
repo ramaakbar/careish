@@ -31,8 +31,8 @@ Route::get('/', function () {
 });
 
 Route::controller(PostController::class)->group((function () {
-    Route::get('/posts', 'index');
-    Route::get('/posts/{post:id}', 'post');
+    Route::get('/articles', 'index');
+    Route::get('/articles/{post:id}', 'post');
 }));
 
 Route::controller(NurseController::class)->group(function () {

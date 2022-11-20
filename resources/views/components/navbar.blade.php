@@ -12,8 +12,8 @@
                     class="p-2 text-gray-600 transition duration-300 ease-in-out rounded hover:bg-gray-100 hover:text-gray-800">About</a>
                 <a href="/nurses"
                     class="p-2 text-gray-600 transition duration-300 ease-in-out rounded hover:bg-gray-100 hover:text-gray-800">Nurses</a>
-                <a href="/posts"
-                    class="p-2 text-gray-600 transition duration-300 ease-in-out rounded hover:bg-gray-100 hover:text-gray-800">Posts</a>
+                <a href="/articles"
+                    class="p-2 text-gray-600 transition duration-300 ease-in-out rounded hover:bg-gray-100 hover:text-gray-800">Articles</a>
                 @guest
                     <a href="/login"
                         class="text-gray-600 transition duration-300 ease-in-out hover:text-gray-800">Login</a>
