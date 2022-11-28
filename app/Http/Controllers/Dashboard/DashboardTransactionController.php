@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Duration;
 use App\Models\PaymentType;
 use App\Models\Status;
 use App\Models\Transaction;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardTransactionController extends Controller {
@@ -18,7 +16,6 @@ class DashboardTransactionController extends Controller {
     public function detail(Transaction $transaction) {
         return view('dashboard.transaction-detail', [
             'transaction' => $transaction,
-            'durations' => Duration::all(),
             'payment_types' => PaymentType::all(),
             'statuses' => Status::all(),
         ]);
@@ -28,7 +25,6 @@ class DashboardTransactionController extends Controller {
         $validated = $request->validate([
             'start_date' => ['required'],
             'end_date' => ['required'],
-            'duration_id' => ['required'],
             'payment_type_id' => ['required'],
             // 'total_price' => ['required','gte:1'],
             'status_id' => ['required'],

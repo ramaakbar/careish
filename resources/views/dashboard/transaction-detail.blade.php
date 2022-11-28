@@ -74,28 +74,6 @@
                         </div>
 
                         <div class="xl:col-span-2">
-                            <label for="duration_id"
-                                class="block mb-2 text-sm font-medium text-gray-900 ">Duration</label>
-                            <select type="duration_id" name="duration_id" id="duration_id"
-                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                @foreach ($durations as $duration)
-                                    @if (old('duration_id', $transaction->duration_id) == $duration->id)
-                                        <option value="{{ $duration->id }}" selected>
-                                            {{ $duration->duration }}
-                                        </option>
-                                    @else
-                                        <option value="{{ $duration->id }}">{{ $duration->duration }}
-                                        </option>
-                                    @endif
-                                @endforeach
-                            </select>
-                            @error('duration_id')
-                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                        snapp!</span> {{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        <div class="xl:col-span-2">
                             <label for="payment_type_id" class="block mb-2 text-sm font-medium text-gray-900 ">Payment
                                 Type</label>
                             <select type="payment_type_id" name="payment_type_id" id="payment_type_id"
@@ -151,8 +129,7 @@
                         </div>
 
                         <div class="xl:col-span-6">
-                            <label for="address"
-                                class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
+                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
                             <input name="address" type="text" id="address"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->address }}">

@@ -22,6 +22,7 @@ class dashboardLayout extends Component {
     public function render() {
         $sidebar = [
             'Dashboard' => ['/dashboard', 'heroicon-s-home'],
+            'Confirmations' => ['/dashboard/confirmations', 'heroicon-s-clipboard-document-check'],
             'Users' => ['/dashboard/users', 'heroicon-s-user'],
             'Transactions' => ['/dashboard/transactions', 'heroicon-s-shopping-bag'],
             'Nurses' => ['/dashboard/nurses', 'heroicon-s-user-group'],
