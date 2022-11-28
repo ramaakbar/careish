@@ -187,20 +187,26 @@
                                 {{ Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                @if ($transaction->status == 'Cancelled')
+                                @if ($transaction->status_id == '1')
                                     <span
                                         class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                                @elseif($transaction->status == 'On Going')
+                                @elseif($transaction->status_id == '2')
                                     <span
-                                        class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $transaction->status }}</span>
+                                        class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                                @elseif($transaction->status_id == '3')
+                                    <span
+                                        class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                        Going</span>
                                 @else
                                     <span
-                                        class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $transaction->status }}</span>
+                                        class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Done</span>
                                 @endif
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
                                 <button wire:click="accept({{ $transaction->id }})"
                                     class="px-3 font-medium text-blue-600 hover:underline">Accept</button>
+                                <a href="transactions/{{ $transaction->id }}"
+                                    class="px-3 font-medium text-green-600 hover:underline">View</a>
                                 <button wire:click="getCancelId({{ $transaction->id }})"
                                     data-modal-toggle="confirm-modal"
                                     class="px-3 font-medium text-red-600 hover:underline">Cancel</button>
