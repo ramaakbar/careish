@@ -22,7 +22,7 @@ class TransactionFactory extends Factory {
         return [
             'user_id' => fake()->numberBetween(2, 21),
             'nurse_id' => fake()->numberBetween(1, 50),
-            'status_id' => fake()->numberBetween(1, 3),
+            'status_id' => fake()->numberBetween(1, 4),
             'city_id' => fake()->numberBetween(1, 300),
             'payment_type_id' => fake()->numberBetween(1, 5),
             'start_date' => $startDate,

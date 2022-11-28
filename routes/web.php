@@ -33,6 +33,9 @@ Route::get('/', function () {
 Route::controller(PostController::class)->group((function () {
     Route::get('/articles', 'index');
     Route::get('/articles/{post:id}', 'post');
+    Route::middleware(['auth'])->group(function () {
+        Route::post('/articles/{post:id}/comment', 'comment');
+    });
 }));
 
 Route::controller(NurseController::class)->group(function () {
