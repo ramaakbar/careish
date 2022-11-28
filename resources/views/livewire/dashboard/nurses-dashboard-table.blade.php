@@ -32,9 +32,9 @@
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                 id="">
                 <option value="" selected>All</option>
-                <option value="3">Available</option>
-                <option value="2">On Duty</option>
-                <option value="1">Not Available</option>
+                @foreach ($statuses as $status)
+                    <option value={{ $status->id }}>{{ $status->availability }}</option>
+                @endforeach
             </select>
         </div>
 
@@ -231,7 +231,8 @@
                                 @endif
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
-                                <a href="nurses/{{ $nurse->id }}" class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
+                                <a href="nurses/{{ $nurse->id }}"
+                                    class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="getDeleteId({{ $nurse->id }})"
                                     data-modal-toggle="confirm-modal"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>

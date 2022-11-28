@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Availability;
 use App\Models\Nurse;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Livewire\Component;
@@ -54,6 +55,7 @@ class NursesDashboardTable extends Component {
 
         return view('livewire.dashboard.nurses-dashboard-table', [
             'nurses' => $nurses,
+            'statuses' => Availability::get()
         ]);
     }
 }

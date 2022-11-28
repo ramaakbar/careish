@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Status;
 use App\Models\Transaction;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Illuminate\Support\Facades\DB;
@@ -77,7 +78,8 @@ class TransactionDashboardTable extends Component {
 
 
         return view('livewire.dashboard.transaction-dashboard-table', [
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'statuses' => Status::get()
         ]);
     }
 }

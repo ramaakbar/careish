@@ -32,9 +32,9 @@
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                 id="">
                 <option value="" selected>All</option>
-                <option value="3">Done</option>
-                <option value="2">On Going</option>
-                <option value="1">Cancelled</option>
+                @foreach ($statuses as $status)
+                    <option value={{ $status->id }}>{{ $status->status }}</option>
+                @endforeach
             </select>
         </div>
 
