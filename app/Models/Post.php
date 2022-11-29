@@ -13,9 +13,14 @@ class Post extends Model {
         'title',
         'thumbnail',
         'body',
+        'view'
     ];
 
     public function post_category() {
         return $this->belongsTo(PostCategory::class);
+    }
+
+    public function comment() {
+        return $this->hasMany(Comment::class);
     }
 }

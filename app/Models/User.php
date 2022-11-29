@@ -64,4 +64,8 @@ class User extends Authenticatable {
         return empty($search) ? static::query()
             : static::query()->where('id', 'like', '%' . $search . '%')->orWhere('name', 'like', '%' . $search . '%')->orWhere('email', 'like', '%' . $search . '%')->orWhere('phone_number', 'like', '%' . $search . '%')->orWhere('created_at', 'like', '%' . $search . '%');
     }
+
+    public function comment() {
+        return $this->hasMany(Comment::class);
+    }
 }

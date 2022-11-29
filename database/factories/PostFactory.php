@@ -21,7 +21,8 @@ class PostFactory extends Factory {
             'thumbnail' => 'post-thumbs/elderthumb.jpg',
             'body' => fake()->randomHtml(10, 4),
             'created_at' => $created,
-            'updated_at' => $created
+            'updated_at' => $created,
+            'view' => fake()->numberBetween(1, 10)
         ];
     }
 }
