@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller {
     public function index() {
@@ -30,6 +31,7 @@ class PostController extends Controller {
             'post_id' => $post->id,
             'comment' => $validated['comment'],
         ]);
+        Alert::toast('Your comment is successfully posted!', 'success');
         return redirect('/articles/' . $post->id);
     }
 }
