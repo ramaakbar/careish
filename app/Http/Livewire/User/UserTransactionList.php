@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\Status;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,6 +18,14 @@ class UserTransactionList extends Component {
 
     public $status = '';
 
+    public function confirmTrans() {
+        Transaction::where('id', $this->transId)->update([
+            'status_id' => 4
+        ]);
+        session()->flash('success', 'Transaction no ' . $this->transId . ' has been done');
+        return redirect()->to('/user/transaction-list');
+    }
+
     public function getTransId($id) {
         $this->transId = $id;
         $this->show = true;
@@ -31,13 +40,16 @@ class UserTransactionList extends Component {
             if ($this->status == '') {
                 $data = [
                     'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
-                    'trans' => Transaction::find($this->transId)
+                    'trans' => Transaction::find($this->transId),
+                    'statuses' => Status::get(),
+
                 ];
                 $this->resetPage();
             } else {
                 $data = [
                     'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
-                    'trans' => Transaction::find($this->transId)
+                    'trans' => Transaction::find($this->transId),
+                    'statuses' => Status::get(),
                 ];
                 $this->resetPage();
             }
@@ -45,11 +57,13 @@ class UserTransactionList extends Component {
             if ($this->status == '') {
                 $data = [
                     'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(4),
+                    'statuses' => Status::get(),
                 ];
                 $this->resetPage();
             } else {
                 $data = [
                     'transactions' => Transaction::with(['nurse', 'status'])->where('user_id', Auth::id())->where('status_id', '=', $this->status)->orderBy('created_at', 'desc')->paginate(4),
+                    'statuses' => Status::get(),
                 ];
                 $this->resetPage();
             }

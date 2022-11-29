@@ -26,18 +26,6 @@
             </select>
         </div>
 
-        <div class="w-1/3 lg:w-1/6">
-            <label for="" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
-            <select wire:model="status"
-                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-                id="">
-                <option value="" selected>All</option>
-                @foreach ($statuses as $status)
-                    <option value={{ $status->id }}>{{ $status->status }}</option>
-                @endforeach
-            </select>
-        </div>
-
     </div>
 
     <div class="w-full bg-white border rounded">
@@ -199,13 +187,13 @@
                                 {{ Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                @if ($transaction->status == 'Cancelled')
+                                @if ($transaction->status_id == '1')
                                     <span
                                         class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                                @elseif($transaction->status == 'Waiting')
+                                @elseif($transaction->status_id == '2')
                                     <span
                                         class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
-                                @elseif($transaction->status == 'On Going')
+                                @elseif($transaction->status_id == '3')
                                     <span
                                         class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
                                         Going</span>
@@ -215,11 +203,13 @@
                                 @endif
                             </td>
                             <td class="flex flex-wrap gap-1 px-6 py-4">
+                                <button wire:click="accept({{ $transaction->id }})"
+                                    class="px-3 font-medium text-blue-600 hover:underline">Accept</button>
                                 <a href="transactions/{{ $transaction->id }}"
-                                    class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
-                                <button wire:click="getDeleteId({{ $transaction->id }})"
+                                    class="px-3 font-medium text-green-600 hover:underline">View</a>
+                                <button wire:click="getCancelId({{ $transaction->id }})"
                                     data-modal-toggle="confirm-modal"
-                                    class="px-3 font-medium text-red-600 hover:underline">Delete</button>
+                                    class="px-3 font-medium text-red-600 hover:underline">Cancel</button>
                             </td>
                         </tr>
                     @empty
@@ -260,9 +250,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to delete this
+                        <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to cancel this
                             transaction?</h3>
-                        <button wire:click.prevent="delete()" data-modal-toggle="confirm-modal" type="button"
+                        <button wire:click.prevent="cancel()" data-modal-toggle="confirm-modal" type="button"
                             class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                             Yes, I'm sure
                         </button>

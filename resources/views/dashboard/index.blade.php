@@ -86,15 +86,19 @@
                                             {{ $transaction->created_at->format('d M Y') }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            @if ($transaction->status->status == 'Cancelled')
+                                            @if ($transaction->status_id == '1')
                                                 <span
-                                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $transaction->status->status }}</span>
-                                            @elseif($transaction->status->status == 'On Going')
+                                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
+                                            @elseif($transaction->status_id == '2')
                                                 <span
-                                                    class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $transaction->status->status }}</span>
+                                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                                            @elseif($transaction->status_id == '3')
+                                                <span
+                                                    class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                                    Going</span>
                                             @else
                                                 <span
-                                                    class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $transaction->status->status }}</span>
+                                                    class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Done</span>
                                             @endif
                                         </td>
                                         <td class="px-6 py-4">

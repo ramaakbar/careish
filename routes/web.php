@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\dashboard\DashboardConfirmationController;
 use App\Http\Controllers\dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\PostController;
@@ -88,6 +89,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 // Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']]
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/', [DashboardController::class, 'index']);
+
+    Route::get('/confirmations', [DashboardConfirmationController::class, 'index']);
 
     Route::controller(DashboardUserController::class)->group(function () {
         Route::get('/users', 'users');
