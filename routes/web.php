@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\dashboard\DashboardConfirmationController;
 use App\Http\Controllers\dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
@@ -53,6 +54,11 @@ Route::controller(UserTransactionsController::class)->group(function () {
         Route::post('/trans/{nurse:id}/confirmation', 'pay');
     });
 });
+
+// chat
+Route::get('/chats', [ChatController::class, 'index']);
+Route::get('/chats/{id}', [ChatController::class, 'show']);
+
 
 // Login and Register route
 // login
