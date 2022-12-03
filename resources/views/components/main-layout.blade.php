@@ -5,5 +5,6 @@
             {{ $slot }}
         </main>
         <x-footer />
+        <x-chat-button-floating />
     </div>
 </x-layout>

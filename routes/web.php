@@ -56,9 +56,12 @@ Route::controller(UserTransactionsController::class)->group(function () {
 });
 
 // chat
-Route::get('/chats', [ChatController::class, 'index']);
-Route::get('/chats/{id}', [ChatController::class, 'show']);
-
+Route::controller(ChatController::class)->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/chats', 'index');
+        Route::get('/chats/{id}', 'show');
+    });
+});
 
 // Login and Register route
 // login
@@ -96,7 +99,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 // dashboard route
 // Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']]
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/confirmations', [DashboardConfirmationController::class, 'index']);
