@@ -33,13 +33,17 @@ class Chat extends Component {
         if (auth()->user()->role_id == 1) {
             $this->chats = ModelsChat::where('user_id', auth()->id())
                 ->orWhere('receiver', auth()->id())
-                ->orderBy('id', 'ASC')
+                ->orderBy('id', 'DESC')
                 ->get();
         } else {
             $this->chats = ModelsChat::where('user_id', $this->clicked_user)
                 ->orWhere('receiver', $this->clicked_user)
-                ->orderBy('id', 'ASC')
+                ->orderBy('id', 'DESC')
                 ->get();
+            $this->users = User::where('role_id', 1)->orderBy(
+                ModelsChat::select('is_seen')->whereColumn('user_id', 'users.id')
+                    ->orderBy('is_seen')->limit(1)
+            )->orderBy('name', 'ASC')->get();
         }
         $this->admin = User::where('role_id', 2)->first();
     }

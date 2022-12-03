@@ -24,10 +24,12 @@
                                             alt="">
 
                                         <div class="font-medium">{{ $user->name }}</div>
-                                        <span
-                                            class="inline-flex justify-center items-center ml-2 w-4 h-4 text-xs font-semibold text-green-800 bg-green-200 rounded-full">
-
-                                        </span>
+                                        @if (filled($not_seen))
+                                            <span
+                                                class="inline-flex justify-center items-center ml-2 w-4 h-4 text-xs font-semibold text-red-800 bg-red-200 rounded-full">
+                                                {{ $not_seen->count() }}
+                                            </span>
+                                        @endif
                                     </a>
                                 @endif
                             @empty
@@ -53,35 +55,42 @@
                             <h3 class="font-medium text-lg">Admin</h3>
                         @endif
                     </div>
-                    <div class="flex-1 flex px-4 py-2 flex-col space-y-3 overflow-x-auto" wire:poll="mountComponent()">
+                    <div class="flex-1 flex px-4 py-2 flex-col-reverse overflow-x-auto" wire:poll="mountComponent()">
                         @if (!$chats)
                             No messages
                         @else
                             @if (isset($chats))
                                 @foreach ($chats as $chat)
                                     <div
-                                        class="h-full w-fit p-2 rounded-md max-w-[90%] @if ($chat->user_id !== auth()->id()) bg-gray-200 @else bg-blue-500 text-white ml-auto @endif">
+                                        class="h-full w-fit p-2 mb-4 rounded-md max-w-[90%] @if ($chat->user_id !== auth()->id()) bg-gray-200 @else bg-blue-500 text-white ml-auto @endif">
                                         <p class="font-bold">{{ $chat->user->name }}</p>
                                         <p class="">{{ $chat->message }}</p>
-                                        {{-- @if (isPhoto($message->file))``
-                                <div class="w-100 my-2">
-                                    <img class="img-fluid rounded" loading="lazy" style="height: 250px"
-                                        src="{{ $message->file }}">
-                                </div>
-                            @elseif (isVideo($message->file))
-                                <div class="w-100 my-2">
-                                    <video style="height: 250px" class="img-fluid rounded" controls>
-                                        <source src="{{ $message->file }}">
-                                    </video>
-                                </div>
-                            @elseif ($message->file)
-                                <div class="w-100 my-2">
-                                    <a href="{{ $message->file }}" class="bg-light p-2 rounded-pill"
-                                        target="_blank" download><i class="fa fa-download"></i>
-                                        {{ $message->file_name }}
-                                    </a>
-                                </div>
-                            @endif --}}
+                                        @if (preg_match('/(\.jpg|\.png|\.bmp)$/', $chat->file))
+                                            <div class="my-2">
+                                                <img class="rounded" loading="lazy" style="height: 250px"
+                                                    src="{{ $chat->file }}">
+                                            </div>
+                                        @elseif (preg_match('/(\.mp4|\.avi|\.mov)$/', $chat->file))
+                                            <div class="my-2">
+                                                <video style="height: 250px" class="rounded" controls>
+                                                    <source src="{{ $chat->file }}">
+                                                </video>
+                                            </div>
+                                        @elseif ($chat->file)
+                                            <div class="my-2">
+                                                <a href="{{ $chat->file }}"
+                                                    class="p-2 rounded-pill flex bg-gray-50/40 hover:bg-gray-50/20 text-gray-800 rounded-full"
+                                                    target="_blank" download><svg xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                                    </svg>
+
+                                                    {{ $chat->file_name }}
+                                                </a>
+                                            </div>
+                                        @endif
                                         <p class="text-sm">{{ $chat->created_at }}</p>
                                     </div>
                                 @endforeach

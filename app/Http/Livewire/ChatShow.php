@@ -34,14 +34,18 @@ class ChatShow extends Component {
         if (auth()->user()->role_id == 1) {
             $this->chats = ModelsChat::where('user_id', auth()->id())
                 ->orWhere('receiver', auth()->id())
-                ->orderBy('id', 'ASC')
+                ->orderBy('id', 'DESC')
                 ->get();
         } else {
             $this->chats = ModelsChat::where('user_id', $this->sender->id)
                 ->orWhere('receiver', $this->sender->id)
-                ->orderBy('id', 'ASC')
+                ->orderBy('id', 'DESC')
                 ->get();
         }
+        $this->users = User::where('role_id', 1)->orderBy(
+            ModelsChat::select('is_seen')->whereColumn('user_id', 'users.id')
+                ->orderBy('is_seen')->limit(1)
+        )->orderBy('name', 'ASC')->get();
         $not_seen = ModelsChat::where('user_id', $this->sender->id)->where('receiver', auth()->id());
         $not_seen->update(['is_seen' => true]);
     }

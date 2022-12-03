@@ -10,6 +10,10 @@ class Chat extends Model {
 
     protected $fillable = ['message', 'user_id', 'receiver', 'is_seen', 'file'];
 
+    protected $casts = [
+        'is_seen' => 'boolean'
+    ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

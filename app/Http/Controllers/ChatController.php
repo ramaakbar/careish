@@ -26,16 +26,15 @@ class ChatController extends Controller {
 
         $sender = User::findOrFail($id);
 
-        $users = User::with(['chat' => function ($query) {
-            return $query->orderBy('created_at', 'ASC');
-        }])->where('role_id', 1)
-            ->orderBy('id', 'ASC')
-            ->get();
+        $users = User::where('role_id', 1)->with('chat')->orderBy(
+            Chat::select('is_seen')->whereColumn('user_id', 'users.id')
+                ->orderBy('is_seen')->limit(1)
+        )->orderBy('name', 'ASC')->get();
 
         if (auth()->user()->role_id == 1) {
-            $chats = Chat::where('user_id', auth()->id())->orWhere('receiver', auth()->id())->orderBy('id', 'ASC')->get();
+            $chats = Chat::where('user_id', auth()->id())->orWhere('receiver', auth()->id())->orderBy('id', 'DESC')->get();
         } else {
-            $chats = Chat::where('user_id', $sender->id)->orWhere('receiver', $sender->id)->orderBy('id', 'ASC')->get();
+            $chats = Chat::where('user_id', $sender->id)->orWhere('receiver', $sender->id)->orderBy('id', 'DESC')->get();
         }
 
         return view('chatShow', [
