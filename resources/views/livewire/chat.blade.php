@@ -68,17 +68,17 @@
                                         @if (preg_match('/(\.jpg|\.png|\.bmp)$/', $chat->file))
                                             <div class="my-2">
                                                 <img class="rounded" loading="lazy" style="height: 250px"
-                                                    src="{{ $chat->file }}">
+                                                    src="{{ asset('/storage/' . $chat->file) }}">
                                             </div>
                                         @elseif (preg_match('/(\.mp4|\.avi|\.mov)$/', $chat->file))
                                             <div class="my-2">
                                                 <video style="height: 250px" class="rounded" controls>
-                                                    <source src="{{ $chat->file }}">
+                                                    <source src="{{ asset('/storage/' . $chat->file) }}">
                                                 </video>
                                             </div>
                                         @elseif ($chat->file)
                                             <div class="my-2">
-                                                <a href="{{ $chat->file }}"
+                                                <a href="{{ asset('/storage/' . $chat->file) }}"
                                                     class="p-2 rounded-pill flex bg-gray-50/40 hover:bg-gray-50/20 text-gray-800 rounded-full"
                                                     target="_blank" download><svg xmlns="http://www.w3.org/2000/svg"
                                                         fill="none" viewBox="0 0 24 24" stroke-width="1.5"

@@ -79,8 +79,7 @@ class ChatShow extends Component {
 
     public function uploadFile() {
         $file = $this->file->store('chats');
-        $path = url(Storage::url($file));
         $file_name = $this->file->getClientOriginalName();
-        return [$path, $file_name];
+        return [$file, $file_name];
     }
 }

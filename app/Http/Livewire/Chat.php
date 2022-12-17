@@ -63,8 +63,7 @@ class Chat extends Component {
         // Deal with the file if uploaded
         if ($this->file) {
             $file = $this->file->store('chats');
-            $path = url(Storage::url($file));
-            $new_message->file = $path;
+            $new_message->file = $file;
             $new_message->file_name = $this->file->getClientOriginalName();
         }
         $new_message->save();
