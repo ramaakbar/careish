@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Nurse;
 use App\Models\Transaction;
 use Livewire\Component;
 use App\Traits\WithSorting as TraitsWithSorting;
@@ -22,8 +23,12 @@ class TransactionConfirmationDashboardTable extends Component {
     }
 
     public function accept($id) {
-        Transaction::where('id', $id)->update([
+        $transUpdated = tap(DB::table('transactions')->where('id', $id))->update([
             'status_id' => 3
+        ])->first();
+
+        Nurse::where('id', $transUpdated->nurse_id)->update([
+            'availability_id' => 2
         ]);
         session()->flash('success', 'Transaction no ' . $id . ' has successfully been accepted');
         return redirect()->to('/dashboard/confirmations');
