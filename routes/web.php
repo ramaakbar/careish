@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\dashboard\DashboardConfirmationController;
 use App\Http\Controllers\dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
@@ -54,6 +55,14 @@ Route::controller(UserTransactionsController::class)->group(function () {
     });
 });
 
+// chat
+Route::controller(ChatController::class)->group(function () {
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/chats', 'index');
+        Route::get('/chats/{id}', 'show');
+    });
+});
+
 // Login and Register route
 // login
 Route::controller(LoginController::class)->group(function () {
@@ -90,7 +99,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 // dashboard route
 // Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']]
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/confirmations', [DashboardConfirmationController::class, 'index']);

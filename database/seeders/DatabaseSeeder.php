@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder {
             SavedNursesSeeder::class,
             PostCategorySeeder::class,
             PostSeeder::class,
-            CommentSeeder::class
+            CommentSeeder::class,
+            ChatSeeder::class
         ]);
     }
 }

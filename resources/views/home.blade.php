@@ -189,7 +189,10 @@
             </div>
         </div>
     </div>
+
+
     <x-footer />
+    <x-chat-button-floating />
 
     <x-sidebar-content />
 </x-layout>
