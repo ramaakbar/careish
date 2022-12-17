@@ -15,6 +15,7 @@
 <body class="font-sans antialiased bg-[#FDFDFD]">
     {{ $slot }}
 
+    <x-dialog />
     @include('sweetalert::alert')
     @livewireScripts
 </body>
