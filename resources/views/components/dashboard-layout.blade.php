@@ -29,37 +29,31 @@
                     </svg>
                 </a>
             </div>
-            <button data-dropdown-toggle="dropdownAvatarName"
-                class="flex items-center p-2 text-sm font-medium text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 md:mr-0 "
-                type="button">
-                <span class="sr-only">Open user menu</span>
-                {{-- Untuk sementara --}}
-                {{-- <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset(auth()->user()->picture) }}" alt="user photo"> --}}
-                <img class="w-8 h-8 mr-2 rounded-full" src="/assets/placeholder_man.jpeg" alt="user photo">
-                {{ Auth::user()->name ?? 'test' }}
-                <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44">
-                <ul class="py-1 text-sm text-gray-700 "
-                    aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                    <li>
-                        <a href="/" class="block px-4 py-2 hover:bg-gray-100">Home Page</a>
-                    </li>
-                    <li>
-                        <form action="/logout" method="POST" class="">
-                            @csrf
-                            <button type="submit" class="w-full px-4 py-2 text-left hover:bg-gray-100">Sign
-                                Out</button>
-                        </form>
-                    </li>
-            </div>
+            <x-dropdown>
+                <x-slot name="trigger">
+                    <div
+                        class="inline-flex items-center p-2 text-sm font-medium text-gray-600 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 md:mr-0">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset('/storage/' . Auth::user()->picture) }}"
+                            alt="user photo">
+                        {{ Auth::user()->name }}
+                        <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </x-slot>
+                <x-dropdown.item onclick="location.href='/';" label="Home Page" />
+                <x-dropdown.item>
+                    <form action="/logout" method="POST" class="">
+                        @csrf
+                        <button type="submit" class="">Sign
+                            Out</button>
+                    </form>
+                </x-dropdown.item>
+            </x-dropdown>
 
         </div>
     </div>
