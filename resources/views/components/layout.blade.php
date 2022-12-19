@@ -16,7 +16,28 @@
     {{ $slot }}
 
     <x-dialog />
-    @include('sweetalert::alert')
+    @if (session()->has('success'))
+        <script>
+            Wireui.hook('notifications:load', () => {
+                $wireui.notify({
+                    title: '{{ Session::get('success') }}',
+                    icon: 'success',
+                    timeout: 3000
+                })
+            })
+        </script>
+    @elseif(session()->has('error'))
+        <script>
+            Wireui.hook('notifications:load', () => {
+                $wireui.notify({
+                    title: '{{ Session::get('error') }}',
+                    icon: 'error',
+                    timeout: 3000
+                })
+            })
+        </script>
+    @endif
+    <x-notifications />
     @livewireScripts
 </body>
 

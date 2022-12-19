@@ -12,7 +12,6 @@
             </select>
         </div>
     </div>
-    <x-alert />
 
 
     <div class="space-y-5">
