@@ -7,26 +7,40 @@ use App\Models\Nurse;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Livewire\Component;
 use Livewire\WithPagination;
+use WireUi\Traits\Actions;
 
 class NursesDashboardTable extends Component {
     use WithPagination;
 
     use TraitsWithSorting;
 
+    use Actions;
+
     public $status = '';
 
     public $gender = '';
 
-    public $deleteId = '';
-
-    public function getDeleteId($id) {
-        $this->deleteId = $id;
+    public function delete($nurseId) {
+        Nurse::destroy($nurseId);
+        session()->flash('success', 'Nurse no ' . $nurseId . ' has successfully been deleted');
+        return redirect()->to('/dashboard/nurses');
     }
 
-    public function delete() {
-        Nurse::destroy($this->deleteId);
-        session()->flash('success', 'Nurse no ' . $this->deleteId . ' has successfully been deleted');
-        return redirect()->to('/dashboard/nurses');
+    public function deleteConfirm($nurseId) {
+        $this->dialog()->confirm([
+            'title'       => 'Confirmation',
+            'description' => 'Are you sure you want to delete this
+            nurse?',
+            'icon'        => 'question',
+            'accept'      => [
+                'label'  => 'Yes, Im sure',
+                'method' => 'delete',
+                'params' => $nurseId
+            ],
+            'reject' => [
+                'label'  => 'No, cancel',
+            ],
+        ]);
     }
 
     public function render() {
