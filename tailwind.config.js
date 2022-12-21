@@ -16,7 +16,9 @@ module.exports = {
         extend: {
             colors: {
                 danger: colors.rose,
-                primary: colors.blue,
+                primary: {
+                    500: "#504BE5",
+                },
                 success: colors.green,
                 warning: colors.yellow,
             },
@@ -28,18 +30,18 @@ module.exports = {
             sans: ["Inter", ...fontFamily.sans],
             serif: ["serif"],
         },
-        dropShadow:{
-            'xl': '0 15px 15px #00000040'
+        dropShadow: {
+            xl: "0 15px 15px #00000040",
         },
         screens: {
-            'xs': '400px',
-            'sm': '640px',
-            'md': '768px',
-            'mymd': '962px',
-            'lg': '1024px',
-            'xl': '1280px',
-            '2xl': '1536px',
-          }
+            xs: "400px",
+            sm: "640px",
+            md: "768px",
+            mymd: "962px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px",
+        },
     },
     plugins: [
         require("flowbite/plugin"),

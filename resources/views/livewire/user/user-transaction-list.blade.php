@@ -57,17 +57,22 @@
                         <p class="text-gray-600">Rp. {{ $transaction->nurse->price }}</p>
                     </div>
                     <div class="flex justify-end">
-                        <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('cardModal')"
+                        <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('detailModal')"
                             type="button"
                             class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2">
                             See Detail
                         </button>
                         @if ($transaction->status->status == 'On Going')
-                            <button wire:click="confirmEndTrans()"
+                            <button wire:click="confirmEndTrans({{ $transaction->id }})"
                                 class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">End
-                                Transaction WIREUI</button>
+                                Transaction</button>
                         @endif
 
+                        @if ($transaction->status->status == 'Done' && !$transaction->review)
+                            <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('reviewModal')"
+                                class="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Create
+                                review</button>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -179,9 +184,64 @@
             </div>
         @endif
 
-        <x-modal.card title="Transaction Detail {{ $transId }}" wire:model.defer="cardModal">
+        <x-modal.card title="Create review" wire:model.defer="reviewModal">
             @if ($show)
-                <div class="p-3 space-y-3">
+                <div class="px-2">
+                    <form id="reviewForm" wire:submit.prevent="submit">
+                        <div class="mb-4">
+                            <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
+                                    src="{{ asset('/storage/' . $trans->nurse->picture) }}"
+                                    alt="{{ $trans->nurse->name . ' picture' }}" alt="user photo">
+                                <span class="text-gray-600">{{ $trans->nurse->name }}</span>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="rating"
+                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Rating
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 ml-1 fill-yellow-400 stroke-transparent" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg></label>
+                            <select id="rating" name="rating" wire:model="rating"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option value="">Select Rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            @error('rating')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="review"
+                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Review
+                            </label>
+                            <x-textarea wire:model="review" placeholder="Review message here"
+                                class="focus:!ring-blue-500 focus:!border-blue-500" />
+                            @error('review')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button
+                            class="w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Create
+                            Review</button>
+                    </form>
+
+                </div>
+            @endif
+
+        </x-modal.card>
+
+        <x-modal.card title="Transaction Detail {{ $transId }}" wire:model.defer="detailModal">
+            @if ($show)
+                <div class="px-2 space-y-3">
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="font-medium w-36">Date</h4>
                         <p class="text-gray-600">{{ $trans->created_at }}
@@ -248,6 +308,7 @@
                         <h4 class="font-medium w-36">Price</h4>
                         <p class="text-gray-600">Rp. {{ $trans->total_price }}</p>
                     </div>
+                </div>
             @endif
         </x-modal.card>
 

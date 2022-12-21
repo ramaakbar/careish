@@ -27,7 +27,7 @@
                 <div class="flex items-center mb-4">
                     <input x-model="show" id="show-password" type="checkbox" value=""
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
-                    <label for="show-password" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show
+                    <label for="show-password" class="ml-2 text-sm font-medium text-gray-900">Show
                         Password</label>
                 </div>
 
