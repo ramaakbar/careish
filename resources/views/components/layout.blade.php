@@ -37,6 +37,11 @@
             })
         </script>
     @endif
+    <script>
+        function reset() {
+            document.getElementById('myForm').reset();
+        }
+    </script>
     <x-notifications />
     @livewireScripts
 </body>

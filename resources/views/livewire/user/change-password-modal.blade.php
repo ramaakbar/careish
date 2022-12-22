@@ -1,7 +1,7 @@
 <div>
-    <x-modal.card title="Change Password" wire:model.defer="cardModal">
+    <x-modal.card title="Change Password" wire:model.defer="cardModal" x-on:close="reset">
         <div class="p-5">
-            <form x-data="{ show: false }" wire:submit.prevent="submit">
+            <form x-data="{ show: false }" wire:submit.prevent="submit" id="myForm">
                 <div class="mb-4">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
                     <input :type="show ? 'text' : 'password'" wire:model="password" type="password" name="password"
@@ -38,4 +38,9 @@
 
         </div>
     </x-modal.card>
+    <script>
+        function reset() {
+            document.getElementById('myForm').reset();
+        }
+    </script>
 </div>

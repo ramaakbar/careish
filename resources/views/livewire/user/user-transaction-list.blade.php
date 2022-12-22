@@ -184,10 +184,10 @@
             </div>
         @endif
 
-        <x-modal.card title="Create review" wire:model.defer="reviewModal">
+        <x-modal.card title="Create review" wire:model.defer="reviewModal" x-on:close="reset">
             @if ($show)
                 <div class="px-2">
-                    <form id="reviewForm" wire:submit.prevent="submit">
+                    <form id="myForm" wire:submit.prevent="submit">
                         <div class="mb-4">
                             <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
                                     src="{{ asset('/storage/' . $trans->nurse->picture) }}"
