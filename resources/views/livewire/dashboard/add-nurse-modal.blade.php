@@ -118,7 +118,7 @@
                         @endforeach
                     </div>
                     <button wire:click.prevent="addMoreExperience"
-                        class="mt-2 hover:text-blue-500 hover:underline">Add more
+                        class="mt-2 text-sm hover:text-blue-500 hover:underline">Add more
                         experience</button>
                 </div>
 
