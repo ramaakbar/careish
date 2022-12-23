@@ -68,6 +68,61 @@
                         class="focus:!ring-blue-500 focus:!border-blue-500" />
                 </div>
 
+                <div class="w-full">
+                    <label for="skills" class="block mb-2 text-sm font-medium text-gray-900">Skills</label>
+                    <select multiple wire:model="skills" id="skills"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        @foreach ($skillsList as $skillList)
+                            <option value="{{ $skillList->skill }}">{{ $skillList->skill }}</option>
+                        @endforeach
+                    </select>
+                    <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500">Use shift to select multiple
+                        skills</p>
+                    @error('skills')
+                        <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                snapp!</span> {{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Experiences</label>
+                    <div class="grid grid-cols-7 gap-3">
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-900 ">Title</label>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-900 ">Description</label>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-sm font-medium text-gray-900 ">Date</label>
+                        </div>
+                        @foreach ($experiences as $index => $experience)
+                            <div class="col-span-2">
+                                <input wire:model="experiences.{{ $index }}.title" type="text"
+                                    name="experiences[{{ $index }}][title]"
+                                    class="bg-white border border-gray-300 @error('experiences.title') !border-red-500 @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            </div>
+                            <div class="col-span-2">
+                                <input wire:model="experiences.{{ $index }}.description" type="text"
+                                    name="experiences[{{ $index }}][description]"
+                                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            </div>
+                            <div class="col-span-2">
+                                <input wire:model="experiences.{{ $index }}.date" type="date"
+                                    name="experiences[{{ $index }}][date]"
+                                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                            </div>
+                            <button wire:click.prevent="removeExperience({{ $index }})"
+                                class="flex items-center text-red-600 hover:underline">delete
+                            </button>
+                        @endforeach
+                    </div>
+                    <button wire:click.prevent="addMoreExperience"
+                        class="mt-2 hover:text-blue-500 hover:underline">Add more
+                        experience</button>
+                </div>
+
+
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Upload
                         file</label>
