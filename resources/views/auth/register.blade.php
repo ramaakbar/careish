@@ -34,6 +34,17 @@
                         @enderror
                     </div>
                     <div class="mb-5">
+                        <label for="phone_number" class="block mb-2.5 text-base font-medium text-gray-900">Phone
+                            Number</label>
+                        <input id="phone_number" name="phone_number" type="number"
+                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            placeholder="Phone Number" value="{{ old('phone_number') }}" required>
+                        @error('phone_number')
+                            <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                    snapp!</span> {{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-5">
                         <label for="password" class="block mb-2.5 text-base font-medium text-gray-900">Password</label>
                         <div x-data="{ show: false }" class="relative w-full">
                             <input id="password" name="password" :type="show ? 'text' : 'password'"
