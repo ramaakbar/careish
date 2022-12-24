@@ -11,6 +11,8 @@ class NursesTable extends Component {
     public $city_id = '';
 
     public function render() {
+        $availabilityId = DB::table('availabilities')->select('id')->where('availability', '=', 'Available')->first();
+        // dd($availabilityId);
         return view('livewire.nurses-table', [
             'nurses' => DB::table('nurses')->leftJoin('transactions', 'transactions.nurse_id', '=', 'nurses.id')
                 ->leftJoin('reviews', 'reviews.transaction_id', '=', 'transactions.id')
@@ -19,6 +21,7 @@ class NursesTable extends Component {
                 ->join('provinces', 'provinces.id', '=', 'cities.province_id')
                 ->select(DB::raw('nurses.*, avg(reviews.rating) as rating, genders.gender, cities.name as cityName'))
                 ->where('nurses.gender_id', 'LIKE', '%' . $this->gender . '%')
+                ->where('nurses.availability_id', '=', $availabilityId->id)
                 ->when($this->province_id != '', function ($query) {
                     $query->where('provinces.id', '=', $this->province_id);
                 })
