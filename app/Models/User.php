@@ -52,10 +52,6 @@ class User extends Authenticatable {
         return $this->hasMany(Transaction::class);
     }
 
-    public function review() {
-        return $this->hasMany(Review::class);
-    }
-
     public function savedNurse() {
         return $this->hasMany(SavedNurse::class);
     }
