@@ -407,11 +407,10 @@
                             @foreach ($nursesPaginate as $trans)
                                 <div class="flex">
                                     <img class="w-20 h-20 mr-5 rounded-full"
-                                        src="{{ asset('/storage/' .$trans->review()->first()->user()->first()->picture) }}"
-                                        alt="">
+                                        src="{{ asset('/storage/' . $trans->user->picture) }}" alt="">
                                     <div class="">
                                         <p class="text-3xl font-medium">
-                                            {{ $trans->review()->first()->user()->first()->name }}</p>
+                                            {{ $trans->user->name }}</p>
                                         <p class="mt-1 text-xs text-gray-400">Using {{ strtok($nurse->name, ' ') }}'s
                                             service
                                         </p>
