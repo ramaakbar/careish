@@ -22,3 +22,7 @@ html {
 trix-editor {
     @apply prose max-w-none;
 }
+
+.fixed.inset-0.overflow-y-auto.z-50 > div:first-child {
+    @apply !bg-gray-900 bg-opacity-50;
+}

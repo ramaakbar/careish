@@ -3,7 +3,6 @@
         <div class="w-full lg:w-8/12">
             <div class="flex flex-col justify-center max-w-xl px-4 pt-8 mx-auto md:pt-0 md:h-screen">
                 <div>
-                    <x-alert />
                     <a href="/" class="block mb-4 text-3xl font-extrabold text-gray-900">
                         Careish.
                     </a>

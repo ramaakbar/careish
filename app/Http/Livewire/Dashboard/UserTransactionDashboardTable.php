@@ -7,25 +7,38 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Illuminate\Support\Facades\DB;
+use WireUi\Traits\Actions;
 
 class UserTransactionDashboardTable extends Component {
     use WithPagination;
     use TraitsWithSorting;
+    use Actions;
 
     public $status = '';
 
-    public $deleteId = '';
-
     public $user;
 
-    public function getDeleteId($id) {
-        $this->deleteId = $id;
+    public function delete($transId) {
+        Transaction::destroy($transId);
+        session()->flash('success', 'Transaction no ' . $transId . ' has successfully been deleted');
+        return redirect()->to('/dashboard/transactions');
     }
 
-    public function delete() {
-        Transaction::destroy($this->deleteId);
-        session()->flash('success', 'Transaction no ' . $this->deleteId . ' has successfully been deleted');
-        return redirect()->to('/dashboard/transactions');
+    public function deleteConfirm($transId) {
+        $this->dialog()->confirm([
+            'title'       => 'Confirmation',
+            'description' => 'Are you sure you want to delete this
+            transaction?',
+            'icon'        => 'question',
+            'accept'      => [
+                'label'  => 'Yes, Im sure',
+                'method' => 'delete',
+                'params' => $transId
+            ],
+            'reject' => [
+                'label'  => 'No, cancel',
+            ],
+        ]);
     }
 
     public function render() {

@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class ChangePasswordModal extends Component {
 
@@ -33,8 +32,7 @@ class ChangePasswordModal extends Component {
         ]);
 
         $this->clear();
-        Alert::toast('Successfully change password', 'success');
-        return redirect()->to('/user/profile-setting');
+        return redirect()->to('/user/profile-setting')->with('success', 'Successfully change password');
     }
 
     public function render() {

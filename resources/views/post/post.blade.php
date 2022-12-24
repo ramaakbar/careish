@@ -1,6 +1,5 @@
 <x-main-layout>
     <main class="px-4 pt-6 mx-auto">
-        <x-alert />
         <article class="mx-auto prose lg:prose-xl">
             <h2 class="text-center !mb-4">{{ $post->title }}</h2>
             <p class="text-center !my-0">{{ date_format($post->created_at, 'F d, Y') }} - {{ $post->view }} views</p>

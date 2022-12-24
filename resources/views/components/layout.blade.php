@@ -15,7 +15,34 @@
 <body class="font-sans antialiased bg-[#FDFDFD]">
     {{ $slot }}
 
-    @include('sweetalert::alert')
+    <x-dialog />
+    @if (session()->has('success'))
+        <script>
+            Wireui.hook('notifications:load', () => {
+                $wireui.notify({
+                    title: '{{ Session::get('success') }}',
+                    icon: 'success',
+                    timeout: 3000
+                })
+            })
+        </script>
+    @elseif(session()->has('error'))
+        <script>
+            Wireui.hook('notifications:load', () => {
+                $wireui.notify({
+                    title: '{{ Session::get('error') }}',
+                    icon: 'error',
+                    timeout: 3000
+                })
+            })
+        </script>
+    @endif
+    <script>
+        function reset() {
+            document.getElementById('myForm').reset();
+        }
+    </script>
+    <x-notifications />
     @livewireScripts
 </body>
 

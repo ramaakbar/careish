@@ -3,7 +3,7 @@
         <div class="flex flex-row items-center mb-8">
             <img class="mr-3 rounded-full w-14 h-14"src="{{ asset('/storage/' . Auth::user()->picture) }}"
                 alt="user photo">
-            <h3 class="text-base font-medium">Akbar Ramadhan Yusri</h3>
+            <h3 class="text-base font-medium">{{ Auth::user()->name }}</h3>
         </div>
         <nav class="flex flex-col space-y-2">
             @foreach ($sidebar as $name => $test)

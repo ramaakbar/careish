@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class UserProfileSettingController extends Controller {
     public function index() {
@@ -33,7 +32,6 @@ class UserProfileSettingController extends Controller {
         }
 
         User::where('id', $user->id)->update($validated);
-        Alert::toast('Successfully updated profile', 'success');
-        return back()->with('success', 'User has been updated');
+        return back()->with('success', 'Successfully updated profile');
     }
 }

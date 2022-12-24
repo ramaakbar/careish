@@ -7,7 +7,6 @@ use App\Models\SavedNurses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class NurseController extends Controller {
     public function viewNurse() {
@@ -68,13 +67,11 @@ class NurseController extends Controller {
             'user_id' => Auth::id(),
             'nurse_id' => $nurse->id
         ]);
-        Alert::toast('Nurse is successfuly saved', 'success');
-        return back();
+        return back()->with('success', 'Nurse is successfuly saved');
     }
 
     public function deleteSavedNurse(Nurse $nurse) {
         SavedNurses::where('nurse_id', $nurse->id)->where('user_id', auth()->user()->id)->delete();
-        Alert::toast('Nurse is successfuly deleted', 'success');
-        return back();
+        return back()->with('success', 'Nurse is successfuly deleted');
     }
 }

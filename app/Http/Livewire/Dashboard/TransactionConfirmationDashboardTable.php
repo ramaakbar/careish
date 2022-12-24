@@ -2,19 +2,20 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Nurse;
 use App\Models\Transaction;
 use Livewire\Component;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
+use WireUi\Traits\Actions;
 
 class TransactionConfirmationDashboardTable extends Component {
     use WithPagination;
     use TraitsWithSorting;
+    use Actions;
 
     public $status = '2';
-
-    public $cancelId = '';
 
     public function boot() {
         $this->sort = 'created_at';
@@ -22,24 +23,42 @@ class TransactionConfirmationDashboardTable extends Component {
     }
 
     public function accept($id) {
-        Transaction::where('id', $id)->update([
+        $transUpdated = tap(DB::table('transactions')->where('id', $id))->update([
             'status_id' => 3
+        ])->first();
+
+        Nurse::where('id', $transUpdated->nurse_id)->update([
+            'availability_id' => 2
         ]);
         session()->flash('success', 'Transaction no ' . $id . ' has successfully been accepted');
         return redirect()->to('/dashboard/confirmations');
     }
 
-    public function getCancelId($id) {
-        $this->cancelId = $id;
-    }
-
-    public function cancel() {
-        Transaction::where('id', $this->cancelId)->update([
+    public function reject($transId) {
+        Transaction::where('id', $transId)->update([
             'status_id' => 1
         ]);
-        session()->flash('success', 'Transaction no ' . $this->cancelId . ' has successfully been cancelled');
+        session()->flash('success', 'Transaction no ' . $transId . ' has successfully been rejected');
         return redirect()->to('/dashboard/confirmations');
     }
+
+    public function rejectConfirmation($transId) {
+        $this->dialog()->confirm([
+            'title'       => 'Confirmation',
+            'description' => 'Are you sure you want to reject this
+            transaction?',
+            'icon'        => 'question',
+            'accept'      => [
+                'label'  => 'Yes, Im sure',
+                'method' => 'reject',
+                'params' => $transId
+            ],
+            'reject' => [
+                'label'  => 'No, cancel',
+            ],
+        ]);
+    }
+
     public function render() {
 
         $transactions = empty($this->search) ? DB::table('transactions')

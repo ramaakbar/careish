@@ -57,7 +57,7 @@
                                 snapp!</span> {{ $message }}</p>
                     @enderror
                 </div>
-                <button data-modal-toggle="change-password-modal" type="button"
+                <button onclick="$openModal('cardModal')"type="button"
                     class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">Change
                     Password</button>
                 <button
@@ -67,6 +67,8 @@
                 </button>
 
             </form>
+
+
             <livewire:user.change-password-modal :user="$user" />
         </div>
     </x-user-layout>

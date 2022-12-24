@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Experience;
 use App\Models\Nurse;
+use App\Models\Skill;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -26,9 +28,32 @@ class AddNurseModal extends Component {
 
     public $photo;
 
+    public $skills = [];
+
+    public $skillsList;
+
+    public $experiences = [];
+
+
+    public function mount() {
+        $this->experiences = [
+            []
+        ];
+        $this->skillsList = Skill::all();
+    }
+
+    public function addMoreExperience() {
+        $this->experiences[] = [];
+    }
+
+    public function removeExperience($index) {
+        unset($this->experiences[$index]);
+        $this->experiences = array_values($this->experiences);
+    }
+
     public function clear() {
         $this->resetErrorBag();
-        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'price', 'description', 'photo']);
+        $this->reset();
     }
 
     protected $rules = [
@@ -39,6 +64,10 @@ class AddNurseModal extends Component {
         'price' => 'required',
         'description' => 'required',
         'photo' => 'required|image',
+        // 'experiences.title' => 'required',
+        // 'experiences.title' => 'sometimes',
+        // 'experiences.description' => 'required',
+        // 'experiences.date' => 'required',
     ];
 
     public function submit() {
@@ -46,7 +75,7 @@ class AddNurseModal extends Component {
 
         $storedImage = $this->photo->store('nurse-images');
 
-        Nurse::create([
+        $newNurse = Nurse::create([
             'name' => $this->name,
             'age' => $this->age,
             'gender_id' => $this->gender_id,
@@ -54,9 +83,21 @@ class AddNurseModal extends Component {
             'price' => $this->price,
             'description' => $this->description,
             'picture' => $storedImage,
+            'skills' => implode(';', $this->skills),
         ]);
 
-        $this->reset(['name', 'age', 'gender_id', 'city_id', 'province_id', 'price', 'description', 'photo']);
+        foreach ($this->experiences as $experience) {
+            if ($experience !== [] && $experience['title'] !== '' && $experience['description'] !== '') {
+                Experience::create([
+                    'nurse_id' => $newNurse->id,
+                    'title' => $experience['title'],
+                    'description' => $experience['description'],
+                    'date' => $experience['date']
+                ]);
+            }
+        }
+
+        $this->clear();
         session()->flash('success', 'Nurse has successfully been added');
         return redirect()->to('/dashboard/nurses');
     }

@@ -8,24 +8,40 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Traits\WithSorting as TraitsWithSorting;
 use Illuminate\Support\Facades\DB;
+use WireUi\Traits\Actions;
 
 class PostsDashboardTable extends Component {
     use WithPagination;
 
     use TraitsWithSorting;
 
+    use Actions;
+
     public $post_category_id = '';
 
     public $deleteId = '';
 
-    public function getDeleteId($id) {
-        $this->deleteId = $id;
+    public function delete($postId) {
+        Post::destroy($postId);
+        session()->flash('success', 'Post no ' . $postId . ' has successfully been deleted');
+        return redirect()->to('/dashboard/posts');
     }
 
-    public function delete() {
-        Post::destroy($this->deleteId);
-        session()->flash('success', 'Post no ' . $this->deleteId . ' has successfully been deleted');
-        return redirect()->to('/dashboard/posts');
+    public function deleteConfirm($postId) {
+        $this->dialog()->confirm([
+            'title'       => 'Confirmation',
+            'description' => 'Are you sure you want to delete this
+            post?',
+            'icon'        => 'question',
+            'accept'      => [
+                'label'  => 'Yes, Im sure',
+                'method' => 'delete',
+                'params' => $postId
+            ],
+            'reject' => [
+                'label'  => 'No, cancel',
+            ],
+        ]);
     }
 
     public function render() {

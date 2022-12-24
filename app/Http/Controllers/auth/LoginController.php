@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 
 
@@ -26,9 +25,7 @@ class LoginController extends Controller {
 
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
-            // Alert::success('Success Title', 'Success Message');
-            Alert::toast('You are now logged in!', 'success');
-            return redirect('/');
+            return redirect('/')->with('success', 'You are now logged in!');
         }
 
         return back()->withErrors([
@@ -64,8 +61,7 @@ class LoginController extends Controller {
         ]);
 
         Auth::login($user);
-        Alert::toast('You are now logged in!', 'success');
-        return redirect('/');
+        return redirect('/')->with('success', 'You are now logged in!');
     }
 
     public function logout(Request $request) {

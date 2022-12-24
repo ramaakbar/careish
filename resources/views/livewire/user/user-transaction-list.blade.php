@@ -1,20 +1,17 @@
 <div>
     <div class="flex items-center justify-between mb-5">
         <h1 class="text-2xl font-bold">Transaction List</h1>
-        @if ($transactions->count())
-            <div class="flex items-center space-x-3">
-                <label for="" class="block text-sm font-medium text-gray-900">Status</label>
-                <select wire:model="status" id="gender_id" name="gender_id"
-                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-32">
-                    <option value="" selected>All</option>
-                    @foreach ($statuses as $status)
-                        <option value={{ $status->id }}>{{ $status->status }}</option>
-                    @endforeach
-                </select>
-            </div>
-        @endif
+        <div class="flex items-center space-x-3">
+            <label for="" class="block text-sm font-medium text-gray-900">Status</label>
+            <select wire:model="status" id="gender_id" name="gender_id"
+                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 w-32">
+                <option value="" selected>All</option>
+                @foreach ($statuses as $status)
+                    <option value={{ $status->id }}>{{ $status->status }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
-    <x-alert />
 
 
     <div class="space-y-5">
@@ -60,17 +57,22 @@
                         <p class="text-gray-600">Rp. {{ $transaction->nurse->price }}</p>
                     </div>
                     <div class="flex justify-end">
-                        <button wire:click.prevent="getTransId({{ $transaction->id }})" data-modal-toggle="transDetail"
+                        <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('detailModal')"
                             type="button"
                             class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2">
                             See Detail
                         </button>
                         @if ($transaction->status->status == 'On Going')
-                            <button wire:click="getTransId({{ $transaction->id }})" data-modal-toggle="confirm-modal"
+                            <button wire:click="confirmEndTrans({{ $transaction->id }})"
                                 class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">End
                                 Transaction</button>
                         @endif
 
+                        @if ($transaction->status->status == 'Done' && !$transaction->review)
+                            <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('reviewModal')"
+                                class="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Create
+                                review</button>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -182,135 +184,133 @@
             </div>
         @endif
 
-        <!-- Detail Modal -->
-        <div wire:ignore.self id="transDetail" tabindex="-1"
-            class="fixed top-0 left-0 right-0 z-50 hidden w-full overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-            <div class="relative w-full h-full max-w-2xl p-4 md:h-auto">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow min-h-[450px]">
-                    <!-- Modal header -->
-                    <div class="flex items-start justify-between p-4 border-b rounded-t">
-                        <div class="flex flex-row items-center space-x-4">
-                            <h3 class="text-xl font-semibold text-gray-900">
-                                Transaction Detail {{ $transId }}
-                            </h3>
-                        </div>
-                        <button wire:click.prevent="close()" type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                            data-modal-toggle="transDetail">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                    </div>
-                    @if ($show)
-                        <!-- Modal body -->
-                        <div wire:loading.remove class="p-6 space-y-3">
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Date</h4>
-                                <p class="text-gray-600">{{ $trans->created_at }}
-                                </p>
-                            </div>
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Status</h4>
-                                <div>
-                                    @if ($trans->status->status == 'Cancelled')
-                                        <span
-                                            class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $trans->status->status }}</span>
-                                    @elseif($trans->status->status == 'On Going')
-                                        <span
-                                            class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $trans->status->status }}</span>
-                                    @else
-                                        <span
-                                            class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">{{ $trans->status->status }}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Nurse</h4>
-                                <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
-                                        src="{{ asset('/storage/' . $trans->nurse->picture) }}"
-                                        alt="{{ $trans->nurse->name . ' picture' }}" alt="user photo">
-                                    <span class="text-gray-600">{{ $trans->nurse->name }}</span>
-                                </div>
-                            </div>
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">City</h4>
-                                <div class="flex items-center">
-                                    <span class="text-gray-600">{{ $trans->city->name }}</span>
-                                </div>
-                            </div>
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Province</h4>
-                                <div class="flex items-center">
-                                    <span class="text-gray-600">{{ $trans->city->province->name }}</span>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Address</h4>
-                                <p class="text-gray-600">{{ $trans->address }}</p>
-                            </div>
-
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Date</h4>
-                                <p class="text-gray-600">{{ $trans->start_date }} -
-                                    {{ $trans->end_date }}
-                                </p>
-                            </div>
-
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Payment Method</h4>
-                                <p class="text-gray-600">{{ $trans->payment_type->type }}</p>
-                            </div>
-                            <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                                <h4 class="font-medium w-36">Price</h4>
-                                <p class="text-gray-600">Rp. {{ $trans->total_price }}</p>
+        <x-modal.card title="Create review" wire:model.defer="reviewModal" x-on:close="reset">
+            @if ($show)
+                <div class="px-2">
+                    <form id="myForm" wire:submit.prevent="submit">
+                        <div class="mb-4">
+                            <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
+                                    src="{{ asset('/storage/' . $trans->nurse->picture) }}"
+                                    alt="{{ $trans->nurse->name . ' picture' }}" alt="user photo">
+                                <span class="text-gray-600">{{ $trans->nurse->name }}</span>
                             </div>
                         </div>
-                    @endif
+                        <div class="mb-4">
+                            <label for="rating"
+                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Rating
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 ml-1 fill-yellow-400 stroke-transparent" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg></label>
+                            <select id="rating" name="rating" wire:model="rating"
+                                class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option value="">Select Rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            @error('rating')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label for="review"
+                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Review
+                            </label>
+                            <x-textarea wire:model="review" placeholder="Review message here"
+                                class="focus:!ring-blue-500 focus:!border-blue-500" />
+                            @error('review')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button
+                            class="w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Create
+                            Review</button>
+                    </form>
+
                 </div>
-            </div>
-        </div>
-        {{-- confirm modal --}}
-        <div wire:ignore.self id="confirm-modal" tabindex="-1"
-            class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-            <div class="relative w-full h-full max-w-md p-4 md:h-auto">
-                <div class="relative bg-white rounded-lg shadow">
-                    <button type="button"
-                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                        data-modal-toggle="confirm-modal">
-                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                    <div class="p-6 text-center">
-                        <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to cancel this
-                            transaction?</h3>
-                        <button wire:click.prevent="confirmTrans()" data-modal-toggle="confirm-modal" type="button"
-                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                            Yes, I'm sure
-                        </button>
-                        <button data-modal-toggle="confirm-modal" type="button"
-                            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
-                            cancel</button>
+            @endif
+
+        </x-modal.card>
+
+        <x-modal.card title="Transaction Detail {{ $transId }}" wire:model.defer="detailModal">
+            @if ($show)
+                <div class="px-2 space-y-3">
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Date</h4>
+                        <p class="text-gray-600">{{ $trans->created_at }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Status</h4>
+                        <div>
+                            @if ($trans->status->status == 'Cancelled')
+                                <span
+                                    class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
+                            @elseif($trans->status->status == 'Waiting')
+                                <span
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                            @elseif($trans->status->status == 'On Going')
+                                <span
+                                    class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                                    Going</span>
+                            @else
+                                <span
+                                    class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Done</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Nurse</h4>
+                        <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
+                                src="{{ asset('/storage/' . $trans->nurse->picture) }}"
+                                alt="{{ $trans->nurse->name . ' picture' }}" alt="user photo">
+                            <span class="text-gray-600">{{ $trans->nurse->name }}</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">City</h4>
+                        <div class="flex items-center">
+                            <span class="text-gray-600">{{ $trans->city->name }}</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Province</h4>
+                        <div class="flex items-center">
+                            <span class="text-gray-600">{{ $trans->city->province->name }}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Address</h4>
+                        <p class="text-gray-600">{{ $trans->address }}</p>
+                    </div>
+
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Date</h4>
+                        <p class="text-gray-600">{{ $trans->start_date }} -
+                            {{ $trans->end_date }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Payment Method</h4>
+                        <p class="text-gray-600">{{ $trans->payment_type->type }}</p>
+                    </div>
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Price</h4>
+                        <p class="text-gray-600">Rp. {{ $trans->total_price }}</p>
                     </div>
                 </div>
-            </div>
-        </div>
+            @endif
+        </x-modal.card>
+
     </div>
-
 </div>
