@@ -50,8 +50,7 @@
 
                             <div class="flex flex-col items-center justify-between xs:flex-row">
                                 <p class="text-sm font-medium sm:text-base md:text-lg ">Status</p>
-                                <p
-                                    class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                                <p class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
                                     {{ $transaction->status->status }} For Approval</p>
                             </div>
                             <div class="flex flex-col items-center justify-between xs:flex-row">
@@ -78,9 +77,8 @@
                     <h2 class="text-2xl font-medium">Nurse Detail</h2>
                     <div class="relative overflow-x-auto">
                         <hr class="mt-3">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <table class="w-full text-sm text-left text-gray-500 ">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
                                     <th scope="col" class="py-3 pr-6">
                                         Nama
@@ -122,6 +120,8 @@
                             </tbody>
                         </table>
                     </div>
+                    <p class="mt-4 text-sm text-red-400">*Gaji perawat langsung diberikan oleh pengguna jasa perawat
+                    </p>
                 </div>
                 <div class="flex justify-end">
                     <a class="transition duration-300 ease-in-out block w-full sm:w-24 py-3 mt-6 text-sm font-medium text-center text-white bg-[#504BE5] rounded-lg hover:bg-[#3a36a8] focus:ring-4 focus:outline-none focus:ring-blue-300"
