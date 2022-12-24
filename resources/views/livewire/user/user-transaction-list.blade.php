@@ -54,7 +54,7 @@
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="w-24 font-medium">Price</h4>
-                        <p class="text-gray-600">Rp. {{ $transaction->nurse->price }}</p>
+                        <p class="text-gray-600">Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}</p>
                     </div>
                     <div class="flex justify-end">
                         <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('detailModal')"
