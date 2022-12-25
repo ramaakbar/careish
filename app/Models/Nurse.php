@@ -17,7 +17,8 @@ class Nurse extends Model {
         'availability_id',
         'description',
         'skills',
-        'price'
+        'price',
+        'ethnicity'
     ];
 
     public function availability() {

@@ -27,7 +27,7 @@ class NurseController extends Controller {
             ->join('provinces', 'provinces.id', '=', 'cities.province_id')
             ->select(DB::raw('nurses.*, avg(reviews.rating) as rating, genders.gender, cities.name as cityName, count(reviews.review) as totalReview, nurses.description as description, provinces.name as province'))
             ->where('nurses.id', '=', $id)
-            ->groupBy(DB::raw('nurses.id, nurses.name, nurses.age, nurses.gender_id, nurses.city_id, nurses.picture, nurses.availability_id, nurses.created_at, nurses.updated_at, genders.gender, cities.name, nurses.description, provinces.name, nurses.price, nurses.skills'))
+            ->groupBy(DB::raw('nurses.id, nurses.name, nurses.age, nurses.gender_id, nurses.city_id, nurses.picture, nurses.availability_id, nurses.created_at, nurses.updated_at, genders.gender, cities.name, nurses.description, provinces.name, nurses.price, nurses.skills, nurses.ethnicity'))
             ->first();
         $totalReview = DB::select(DB::raw('SELECT (SELECT COUNT(rating) FROM reviews r join transactions t ON r.transaction_id = t.id 
             WHERE rating = 5 and nurse_id =:ids) as total5rating, 

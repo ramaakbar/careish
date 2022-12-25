@@ -14,6 +14,8 @@ class NurseFactory extends Factory {
      * @return array<string, mixed>
      */
     public function definition() {
+        $a = array("Jawa", "Sunda", "Banten", "NTT", "Lampung", "Madura", "Melayu");
+        $test = array_rand($a);
         return [
             'name' => fake()->name(),
             'age' => fake()->numberBetween(20, 40),
@@ -24,6 +26,7 @@ class NurseFactory extends Factory {
             'description' => fake()->realText(900),
             'skills' => fake()->word(1) . ';' . fake()->word(1) . ';' . fake()->word(1),
             'price' => fake()->numberBetween(2000000, 5000000),
+            'ethnicity' => $a[$test]
         ];
     }
 }
