@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Review;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -69,8 +70,14 @@ class UserReviewList extends Component {
     }
 
     public function render() {
+        $tempTrans = Transaction::where('user_id', Auth::id())->get();
+        $arrTransId = [];
+        foreach ($tempTrans as $trans) {
+            array_push($arrTransId, $trans->id);
+        }
+        // dd(Review::whereIn('transaction_id', $arrTransId)->get());
         return view('livewire.user.user-review-list', [
-            'reviews' => Review::where('user_id', Auth::id())->orderBy('created_at', 'DESC')->paginate(4),
+            'reviews' => Review::whereIn('transaction_id', $arrTransId)->orderBy('created_at', 'DESC')->paginate(4),
         ]);
     }
 }

@@ -88,6 +88,8 @@
                     </span>{{ $nurse->age }} years old</p>
                 <p class="mt-2"><span class="text-gray-600">Gender:
                     </span>{{ $nurse->gender }}</p>
+                <p class="mt-2"><span class="text-gray-600">Ethnicity:
+                    </span>{{ $nurse->ethnicity }}</p>
                 <p class="mt-2 md:min-h-[160px] lg:min-h-[240px]"><span class="text-gray-600">Description:
                     </span>{{ $nurse->description }}</p>
                 <div class="flex items-center justify-between mt-3 lg:mt-0">
@@ -403,25 +405,26 @@
                 <div
                     class="w-full md:w-3/5 border h-max shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white rounded-lg">
                     <div class="p-8 space-y-5">
-                        @if ($nurseElo->transaction()->get()->count() != 0)
-                            @foreach ($nursesPaginate as $trans)
+                        @if ($reviews->count() != 0)
+                            @foreach ($reviews as $review)
                                 <div class="flex">
                                     <img class="w-20 h-20 mr-5 rounded-full"
-                                        src="{{ asset('/storage/' . $trans->user->picture) }}" alt="">
+                                        src="{{ asset('/storage/' . $review->transaction->user->picture) }}"
+                                        alt="">
                                     <div class="">
                                         <p class="text-3xl font-medium">
-                                            {{ $trans->user->name }}</p>
+                                            {{ $review->transaction->user->name }}</p>
                                         <p class="mt-1 text-xs text-gray-400">Using {{ strtok($nurse->name, ' ') }}'s
                                             service
                                         </p>
                                         <p class="text-xs text-gray-400">Since
-                                            {{ $nurseElo->transaction()->where('user_id', '=', $trans->user_id)->first()->created_at->format('Y') }}
+                                            {{ $nurseElo->transaction()->where('user_id', '=', $review->transaction->user_id)->first()->created_at->format('Y') }}
                                         </p>
                                     </div>
                                 </div>
                                 <div class="flex items-center !mt-3 text-md">
                                     <svg aria-hidden="true"
-                                        class="w-5 h-5 {{ $trans->review()->first()->rating >= 1 ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        class="w-5 h-5 {{ $review->rating >= 1 ? 'text-yellow-400' : 'text-gray-300' }}"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>First star</title>
                                         <path
@@ -429,7 +432,7 @@
                                         </path>
                                     </svg>
                                     <svg aria-hidden="true"
-                                        class="w-5 h-5 {{ $trans->review()->first()->rating >= 1.5 ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        class="w-5 h-5 {{ $review->rating >= 1.5 ? 'text-yellow-400' : 'text-gray-300' }}"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>Second star</title>
                                         <path
@@ -437,7 +440,7 @@
                                         </path>
                                     </svg>
                                     <svg aria-hidden="true"
-                                        class="w-5 h-5 {{ $trans->review()->first()->rating >= 2.5 ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        class="w-5 h-5 {{ $review->rating >= 2.5 ? 'text-yellow-400' : 'text-gray-300' }}"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>Third star</title>
                                         <path
@@ -445,7 +448,7 @@
                                         </path>
                                     </svg>
                                     <svg aria-hidden="true"
-                                        class="w-5 h-5 {{ $trans->review()->first()->rating >= 3.5 ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        class="w-5 h-5 {{ $review->rating >= 3.5 ? 'text-yellow-400' : 'text-gray-300' }}"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>Fourth star</title>
                                         <path
@@ -453,7 +456,7 @@
                                         </path>
                                     </svg>
                                     <svg aria-hidden="true"
-                                        class="w-5 h-5 mr-3 {{ $trans->review()->first()->rating == 5 ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        class="w-5 h-5 mr-3 {{ $review->rating == 5 ? 'text-yellow-400' : 'text-gray-300' }}"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>Fifth star</title>
                                         <path
@@ -462,16 +465,14 @@
                                     </svg>
                                 </div>
                                 <div class="!mt-0 text-smt text-gray-400">
-                                    {{ Carbon\Carbon::parse($trans->review()->first()->created_at)->diffForHumans() }}
+                                    {{ Carbon\Carbon::parse($review->created_at)->diffForHumans() }}
                                 </div>
                                 <div class="!mt-2">
                                     <p>
-                                        {{ $trans->review()->first()->review }}
+                                        {{ $review->review }}
                                     </p>
                                 </div>
-                                @if ($nurseElo->transaction()->get()->count() -
-                                    1 !=
-                                    $loop->index)
+                                @if ($reviews->count() - 1 != $loop->index)
                                     <hr>
                                 @endif
                             @endforeach

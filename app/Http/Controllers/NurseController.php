@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nurse;
+use App\Models\Review;
 use App\Models\SavedNurses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,11 +55,14 @@ class NurseController extends Controller {
         // Log::info(print_r($totalReview, true));
         // Log::info(print_r($nurse, true));
         // Log::info(print_r($savedNurse, true));
+        $reviewTemp = DB::table('transactions')->rightJoin('reviews', 'reviews.transaction_id', '=', 'transactions.id')->where('nurse_id', '=', $id)->get();
+        $review = Review::hydrate($reviewTemp->all());
         return view('nursesDetail', [
             'nurse' => $nurse,
             'nurseElo' => $nurseElo,
             'totalReview' => $totalReview,
             'savedNurse' => $savedNurse,
+            'reviews' => $review
         ]);
     }
 
