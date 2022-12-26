@@ -22,7 +22,8 @@ class CustomerWithReviewAndTransSeeder extends Seeder {
             // $trans = Transaction::factory()->count(20)->make();
             // $user->transaction()->saveMany($trans);
             $review = Review::factory()->make(['transaction_id' => $trans]);
-            $user->review()->save($review);
+            $review->save();
+            // $user->review()->save($review);
         });
     }
 }

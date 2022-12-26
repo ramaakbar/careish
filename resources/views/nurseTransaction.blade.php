@@ -123,9 +123,9 @@
                     <div class="w-full p-8">
                         <h1 class="mb-4 text-2xl font-bold">Summary</h1>
                         <div class="">
-                            <div class="flex justify-between">
-                                <p class="text-gray-400">Price</p>
-                                <p class="font-medium">Rp{{ number_format($nurse->price, 2, ',', '.') }}</p>
+                            <div class="flex justify-between mt-3">
+                                <p class="text-gray-400">Service Fee</p>
+                                <p class="font-medium">Rp{{ number_format(300000, 2, ',', '.') }}</p>
                             </div>
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Admin Fee</p>
@@ -134,7 +134,7 @@
                             <hr class="mt-3">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Total Price</p>
-                                <p class="font-medium">Rp{{ number_format($nurse->price + 100000, 2, ',', '.') }}</p>
+                                <p class="font-medium">Rp{{ number_format(400000, 2, ',', '.') }}</p>
                             </div>
                         </div>
                         <button

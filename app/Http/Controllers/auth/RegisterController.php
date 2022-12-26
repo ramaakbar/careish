@@ -15,11 +15,11 @@ class RegisterController extends Controller {
     public function store(Request $request) {
         $validated = $request->validate([
             'name' => 'required|min:2|max:50',
+            'phone_number' => 'required|numeric',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:8|max:200|confirmed',
         ]);
 
-        $validated['phone_number'] = '';
         $validated['role_id'] = 1;
         $validated['password'] = Hash::make($validated['password']);
         $validated['picture'] = 'user-images/placeholder_profile.jpeg';

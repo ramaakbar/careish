@@ -1,19 +1,20 @@
 <div class="px-5 mx-auto scroll-m-16 max-w-7xl">
     <div class="flex justify-center md:justify-between">
-        <div class="flex flex-col sm:space-x-5 sm:flex-row">
-            <div class="w-1/3 mb-5 sm:mb-0">
-                <label for="" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
-                <select wire:model="gender"
-                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
-                    id="">
-                    <option value="" selected>All</option>
-                    <option value=1>Male</option>
-                    <option value=2>Female</option>
-                </select>
-            </div>
+        <div class="flex flex-col sm:space-x-4 sm:flex-row">
             <div class="flex w-full gap-5 mb-5">
-                <div class="w-3/6">
-                    <label for="province_id" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
+                <div class="w-2/12 mb-5 sm:mb-0">
+                    <label for="" class="block mb-2 text-xs font-medium text-gray-900 md:text-sm">Gender</label>
+                    <select wire:model="gender"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
+                        id="">
+                        <option value="" selected>All</option>
+                        <option value=1>Male</option>
+                        <option value=2>Female</option>
+                    </select>
+                </div>
+                <div class="w-4/12">
+                    <label for="province_id"
+                        class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Province</label>
                     <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')"
                         option-label="name" option-value="id" value="{{ $province_id }}" />
                     @error('province_id')
@@ -21,14 +22,70 @@
                                 snapp!</span> {{ $message }}</p>
                     @enderror
                 </div>
-                <div class="w-3/6">
-                    <label for="city_id" class="block mb-2 text-sm font-medium text-gray-900 ">City</label>
+                <div class="w-3/12">
+                    <label for="city_id" class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">City</label>
                     <x-select wire:model="city_id" placeholder="Select city" :async-data="route('cities', ['provinces_id' => $province_id])" option-label="name"
                         option-value="id" value="{{ $city_id }}" />
                     @error('city_id')
                         <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                 snapp!</span> {{ $message }}</p>
                     @enderror
+                </div>
+                <div class="w-3/12">
+                    <label for="min_age" class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Min
+                        Age</label>
+                    <select wire:model="min_age"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
+                        id="">
+                        <option value="" selected>All</option>
+                        @for ($i = 20; $i < 51; $i++)
+                            <option value={{ $i }}>{{ $i }} Years Old</option>
+                        @endfor
+                    </select>
+                </div>
+            </div>
+            <div class="flex w-full gap-5 mb-5">
+                <div class="w-4/12">
+                    <label for="max_age" class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Max
+                        Age</label>
+                    <select wire:model="max_age"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
+                        id="">
+                        <option value="" selected>All</option>
+                        @for ($i = 20; $i < 51; $i++)
+                            <option value={{ $i }}>{{ $i }} Years Old</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="w-4/12">
+                    <label for="experience"
+                        class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Experience</label>
+                    <select wire:model="experience"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
+                        id="">
+                        <option value="" selected>All</option>
+                        <option value='= 0'>0 Year</option>
+                        @for ($i = 1; $i < 5; $i++)
+                            <option value='={{ $i }}'>{{ $i }} Years</option>
+                        @endfor
+                        <option value='>= 5'>5 Years</option>
+                    </select>
+                </div>
+                <div class="w-4/12">
+                    <label for="ethnicity"
+                        class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Ethnicity</label>
+                    <select wire:model="ethnicity"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
+                        id="">
+                        <option value="" selected>All</option>
+                        <option value="Jawa">Jawa</option>
+                        <option value="Sunda">Sunda</option>
+                        <option value="Banten">Banten</option>
+                        <option value="NTT">NTT</option>
+                        <option value="Lampung">Lampung</option>
+                        <option value="Madura">Madura</option>
+                        <option value="Melayu">Melayu</option>
+                    </select>
                 </div>
             </div>
         </div>

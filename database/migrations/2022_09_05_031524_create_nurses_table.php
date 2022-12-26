@@ -25,6 +25,7 @@ return new class extends Migration {
             $table->text('description');
             $table->integer('price');
             $table->string('skills');
+            $table->string('ethnicity');
             $table->timestamps();
         });
     }

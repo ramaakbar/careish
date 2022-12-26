@@ -54,7 +54,7 @@
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="w-24 font-medium">Price</h4>
-                        <p class="text-gray-600">Rp. {{ $transaction->nurse->price }}</p>
+                        <p class="text-gray-600">Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}</p>
                     </div>
                     <div class="flex justify-end">
                         <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('detailModal')"
@@ -197,7 +197,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="rating"
-                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Rating
+                                class="flex items-center mb-2 text-sm font-medium text-gray-900">Rating
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="w-5 h-5 ml-1 fill-yellow-400 stroke-transparent" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor">
@@ -220,7 +220,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="review"
-                                class="mb-2 text-sm font-medium text-gray-900 flex items-center">Review
+                                class="flex items-center mb-2 text-sm font-medium text-gray-900">Review
                             </label>
                             <x-textarea wire:model="review" placeholder="Review message here"
                                 class="focus:!ring-blue-500 focus:!border-blue-500" />
@@ -306,7 +306,7 @@
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="font-medium w-36">Price</h4>
-                        <p class="text-gray-600">Rp. {{ $trans->total_price }}</p>
+                        <p class="text-gray-600">Rp{{ number_format($trans->nurse->price, 2, ',', '.') }}</p>
                     </div>
                 </div>
             @endif

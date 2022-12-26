@@ -2,7 +2,7 @@
     <h1 class="mb-5 text-2xl font-bold">Reviews</h1>
     <div class="space-y-5">
         @forelse ($reviews as $review)
-            <div class="flex justify-between w-full p-3 bg-white border rounded flex-row">
+            <div class="flex flex-row justify-between w-full p-3 bg-white border rounded">
                 <div>
                     <img class="w-16 h-16 mr-3 rounded"
                         src="{{ asset('/storage/' . $review->transaction->nurse->picture) }}" alt="user photo">
@@ -12,8 +12,8 @@
                             <p class="text-gray-600">{{ $review->created_at->format('d M Y') }}</p>
                         </div>
                         <div class="flex items-center">
-                            <p class="ml-2 text-sm font-medium text-gray-500 flex items-center">
-                                {{ $review->rating }} <svg aria-hidden="true" class="w-5 h-5 text-yellow-400 ml-2"
+                            <p class="flex items-center ml-2 text-sm font-medium text-gray-500">
+                                {{ $review->rating }} <svg aria-hidden="true" class="w-5 h-5 ml-2 text-yellow-400"
                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <title>First star</title>
                                     <path
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label for="rating" class="mb-2 text-sm font-medium text-gray-900 flex items-center">Rating
+                        <label for="rating" class="flex items-center mb-2 text-sm font-medium text-gray-900">Rating
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="w-5 h-5 ml-1 fill-yellow-400 stroke-transparent" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor">
@@ -193,7 +193,7 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="review" class="mb-2 text-sm font-medium text-gray-900 flex items-center">Review
+                        <label for="review" class="flex items-center mb-2 text-sm font-medium text-gray-900">Review
                         </label>
                         <x-textarea wire:model="review" placeholder="Review message here"
                             class="focus:!ring-blue-500 focus:!border-blue-500" />
