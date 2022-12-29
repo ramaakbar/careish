@@ -100,13 +100,32 @@
                 @enderror
             </div>
 
+            <div class="">
+                <label for="ethnicity" class="block mb-2 text-sm font-medium text-gray-900">Ethnicity</label>
+                <select wire:model="ethnicity" id="ethnicity"
+                    class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="">Choose Ethnicity</option>
+                    <option value="Jawa">Jawa</option>
+                    <option value="Sunda">Sunda</option>
+                    <option value="Banten">Banten</option>
+                    <option value="NTT">NTT</option>
+                    <option value="Lampung">Lampung</option>
+                    <option value="Madura">Madura</option>
+                    <option value="Melayu">Melayu</option>
+                </select>
+                @error('ethnicity')
+                    <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                            snapp!</span> {{ $message }}</p>
+                @enderror
+            </div>
+
         </div>
 
         <div class="flex w-full gap-5 mb-5">
             <div class="w-3/6">
                 <label for="province_id" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
-                <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')" option-label="name"
-                    option-value="id" />
+                <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')"
+                    option-label="name" option-value="id" />
                 @error('province_id')
                     <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                             snapp!</span> {{ $message }}</p>
