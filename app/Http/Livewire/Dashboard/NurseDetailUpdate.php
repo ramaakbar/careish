@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Dashboard;
 
-use App\Models\Availability;
 use App\Models\Experience;
 use App\Models\Nurse;
 use App\Models\Skill;
@@ -40,6 +39,8 @@ class NurseDetailUpdate extends Component {
 
     public $skillsList;
 
+    public $ethnicity;
+
     public $experiences = [];
 
     protected $rules = [
@@ -50,7 +51,8 @@ class NurseDetailUpdate extends Component {
         'price' => ['required', 'gte:1'],
         'description' => ['required', 'min:3'],
         'availability_id' => ['required', 'gte:1', 'lte:3'],
-        'picture' => ['image', 'nullable']
+        'picture' => ['image', 'nullable'],
+        'ethnicity' => ['required']
     ];
 
     public function mount() {
@@ -65,6 +67,7 @@ class NurseDetailUpdate extends Component {
         $this->province_id = $this->nurse->city->province_id;
         $this->skillsList = Skill::all();
         $this->skills = explode(';', $this->nurse->skills);
+        $this->ethnicity = $this->nurse->ethnicity;
         foreach (Experience::where('nurse_id', $this->nurse->id)->get() as $experience) {
             $this->experiences[] = $experience;
         }
@@ -111,7 +114,8 @@ class NurseDetailUpdate extends Component {
             'picture' => $storedImage,
             'description' => $this->description,
             'city_id' => $this->city_id,
-            'skills' => implode(';', $this->skills)
+            'skills' => implode(';', $this->skills),
+            'ethnicity' => $this->ethnicity
         ]);
         Experience::where('nurse_id', $this->nurse->id)->delete();
 

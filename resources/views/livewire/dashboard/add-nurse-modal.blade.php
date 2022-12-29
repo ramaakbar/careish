@@ -84,6 +84,25 @@
                     @enderror
                 </div>
 
+                <div class="w-full">
+                    <label for="ethnicity" class="block mb-2 text-sm font-medium text-gray-900">Ethnicity</label>
+                    <select wire:model="ethnicity" id="ethnicity"
+                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="">Choose Ethnicity</option>
+                        <option value="Jawa">Jawa</option>
+                        <option value="Sunda">Sunda</option>
+                        <option value="Banten">Banten</option>
+                        <option value="NTT">NTT</option>
+                        <option value="Lampung">Lampung</option>
+                        <option value="Madura">Madura</option>
+                        <option value="Melayu">Melayu</option>
+                    </select>
+                    @error('ethnicity')
+                        <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                snapp!</span> {{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900">Experiences</label>
                     <div class="grid grid-cols-7 gap-3">

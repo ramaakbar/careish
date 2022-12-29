@@ -32,6 +32,8 @@ class AddNurseModal extends Component {
 
     public $skillsList;
 
+    public $ethnicity;
+
     public $experiences = [];
 
 
@@ -64,6 +66,7 @@ class AddNurseModal extends Component {
         'price' => 'required',
         'description' => 'required',
         'photo' => 'required|image',
+        'ethnicity' => 'required',
         // 'experiences.title' => 'required',
         // 'experiences.title' => 'sometimes',
         // 'experiences.description' => 'required',
@@ -84,6 +87,7 @@ class AddNurseModal extends Component {
             'description' => $this->description,
             'picture' => $storedImage,
             'skills' => implode(';', $this->skills),
+            'ethnicity' => $this->ethnicity,
         ]);
 
         foreach ($this->experiences as $experience) {
