@@ -1,5 +1,5 @@
 {{-- untuk menu di atas kanan pas tampilan mobile --}}
-<div id="drawer-navigation" class="fixed z-40 hidden h-screen p-4 overflow-y-auto bg-white w-80" tabindex="-1"
+<div id="drawer-navigation" class="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80" tabindex="-1"
     aria-labelledby="drawer-navigation-label">
     <h5 id="drawer-navigation-label" class="pl-2 text-base font-semibold text-gray-500 uppercase">Menu
     </h5>
