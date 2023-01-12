@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <wireui:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
-    <script defer src="node_modules/flowbite/dist/flowbite.js"></script>
+    <script defer src="../../../node_modules/flowbite/dist/flowbite.js"></script>
     @livewireStyles
 </head>
 
