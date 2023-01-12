@@ -10,18 +10,6 @@
     <wireui:scripts />
     <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.1/flowbite.min.js"></script>
-    <script defer>
-        function domReady() {
-            let drawer = document.querySelector("#drawer-navigation");
-            drawer.classList.remove("hidden");
-        }
-
-        if (document.readyState == "loading") {
-            document.addEventListener("DOMContentLoaded", domReady);
-        } else {
-            domReady();
-        }
-    </script>
     @livewireStyles
 </head>
 
