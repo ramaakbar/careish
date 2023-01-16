@@ -57,7 +57,7 @@
                                         class="block mb-2.5 text-base font-medium text-gray-900">Address</label>
                                     <div x-data="{ show: false }" class="relative w-full">
                                         <input id="address" name="address" :type="show ? 'text' : 'address'"
-                                            class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                            class="bg-white border border-gray-300 text-gay-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             value="{{ old('address') }}" placeholder="Address" required>
                                     </div>
                                     @error('address')
@@ -68,12 +68,12 @@
                                 <div class="mb-5">
                                     <livewire:component.province-city-select>
                                 </div>
-                                <div class="grid grid-cols-2 gap-5 mb-5">
+                                <div class="grid grid-cols-2 gap-5 mb-5" x-data="{ min: '' }">
                                     <div class="">
                                         <label for="start_date"
                                             class="block mb-2 text-sm font-medium text-gray-900 ">Start
                                             Date</label>
-                                        <input name="start_date" type="date" id="start_date"
+                                        <input x-model="min" name="start_date" type="date" id="start_date"
                                             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                             value="{{ old('start_date') }} required">
                                         @error('start_date')
@@ -86,7 +86,7 @@
                                             Date</label>
                                         <input name="end_date" type="date" id="end_date"
                                             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                            value="{{ old('end_date') }} required">
+                                            value="{{ old('end_date') }} required" :min="min">
                                         @error('end_date')
                                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                                     snapp!</span> {{ $message }}</p>
