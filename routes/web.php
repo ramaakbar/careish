@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\dashboard\DashboardNurseController;
-use App\Http\Controllers\dashboard\DashboardTransactionController;
+use App\Http\Controllers\Dashboard\DashboardNurseController;
+use App\Http\Controllers\Dashboard\DashboardTransactionController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\ChatController;
-use App\Http\Controllers\dashboard\DashboardConfirmationController;
-use App\Http\Controllers\dashboard\DashboardPostController;
+use App\Http\Controllers\Dashboard\DashboardConfirmationController;
+use App\Http\Controllers\Dashboard\DashboardPostController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\user\UserFavoritesController;
