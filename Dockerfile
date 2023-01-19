@@ -19,6 +19,5 @@ RUN npm install && npm run build
 RUN php artisan config:cache
 RUN php artisan route:clear
 RUN php artisan view:clear
-RUN php artisan migrate:fresh
 CMD php artisan serve --host=0.0.0.0 --port=8181
 EXPOSE 8181
