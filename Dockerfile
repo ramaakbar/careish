@@ -16,6 +16,8 @@ RUN npm install && npm run build
 # RUN php artisan cache:clear
 # RUN php artisan view:clear
 
+FROM php:8.1 as php_deploy
+COPY --from=npm_build /app/ /app/
 RUN php artisan config:cache
 RUN php artisan route:clear
 RUN php artisan view:clear
