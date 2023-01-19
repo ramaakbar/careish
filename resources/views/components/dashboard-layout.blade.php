@@ -65,7 +65,7 @@
                 <a href="/" class="px-2 py-3 mb-5 text-2xl font-extrabold text-gray-900 lg:px-6">Careish</a>
                 <div class="flex-1 px-2 space-y-1 divide-y ">
                     <ul class="pb-2 space-y-2">
-                        @foreach ($sidebar as $name => $test)
+                        @foreach ($sidebarDash as $name => $test)
                             @if (request()->is('dashboard'))
                                 <li
                                     class="{{ request()->is(Str::lower($name)) ? 'bg-blue-100 rounded hover:bg-gray-100' : 'rounded hover:bg-gray-100' }}">
@@ -116,7 +116,7 @@
     </button>
     <div class="py-4 overflow-y-auto">
         <ul class="space-y-2">
-            @foreach ($sidebar as $name => $test)
+            @foreach ($sidebarDash as $name => $test)
                 <li>
                     <a href="{{ $test[0] }}"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
