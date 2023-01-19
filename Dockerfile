@@ -25,5 +25,6 @@ RUN docker-php-ext-install pdo pdo_mysql sockets
 RUN php artisan config:cache
 RUN php artisan route:clear
 RUN php artisan view:clear
+RUN php artisan storage:link
 CMD php artisan serve --host=0.0.0.0 --port=8181
 EXPOSE 8181
