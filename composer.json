@@ -17,6 +17,7 @@
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
+        "fakerphp/faker": "^1.9.1",
         "wireui/wireui": "^1.15"
     },
     "require-dev": {
