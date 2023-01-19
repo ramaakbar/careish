@@ -18,6 +18,7 @@ RUN npm install && npm run build
 
 FROM php:8.1 as php_deploy
 COPY --from=npm_build /app/ /app/
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --optimize-autoloader --no-dev
 RUN php artisan config:cache
 RUN php artisan route:clear
