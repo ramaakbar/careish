@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class DashboardLayout extends Component {
+class DashLayout extends Component {
     /**
      * Create a new component instance.
      *
@@ -28,6 +28,6 @@ class DashboardLayout extends Component {
             'Nurses' => ['/dashboard/nurses', 'heroicon-s-user-group'],
             'Posts' => ['/dashboard/posts', 'heroicon-s-newspaper']
         ];
-        return view('components.dashboard-layout', compact('sidebarDash'));
+        return view('components.dash-layout', compact('sidebarDash'));
     }
 }
