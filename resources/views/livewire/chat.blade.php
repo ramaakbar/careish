@@ -91,7 +91,8 @@
                                                 </a>
                                             </div>
                                         @endif
-                                        <p class="text-sm">{{ $chat->created_at }}</p>
+                                        <p class="text-sm">
+                                            {{ Carbon\Carbon::parse($chat->created_at)->format('d/m/Y H:i') }}</p>
                                     </div>
                                 @endforeach
                             @else

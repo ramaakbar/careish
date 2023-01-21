@@ -93,7 +93,8 @@
                     </div>
                 </div>
                 <div class="">
-                    <img class="rounded-xl drop-shadow-xl" src="{{ asset('assets/homePage_care.png') }}" alt="">
+                    <img class="rounded-xl drop-shadow-xl" src="https://d2ac3u20cbkyt7.cloudfront.net/homePage_care.png"
+                        alt="">
                 </div>
             </div>
         </div>
@@ -108,7 +109,7 @@
         <div class="flex flex-col items-center justify-between mt-10 space-y-5 lg:flex-row lg:space-y-0">
             <div class="border h-[470px] sm:w-[380px] shadow-md w-full">
                 <div class="flex flex-col items-center justify-center p-10 space-y-5">
-                    <img class="opacity-50" src="{{ asset('assets/easy_to_use.png') }}" alt="">
+                    <img class="opacity-50" src="https://d2ac3u20cbkyt7.cloudfront.net/easy_to_use.png" alt="">
                     <p class="text-xl font-bold sm:text-2xl">Easy To Use</p>
                     <p class="font-light text-center text-md sm:text-lg">By using our service, ordering a home care
                         service would
@@ -120,7 +121,8 @@
             </div>
             <div class="border w-full h-[470px] sm:w-[380px] shadow-md">
                 <div class="flex flex-col items-center justify-center p-10 space-y-5">
-                    <img class="opacity-50" src="{{ asset('assets/web_mobile_support.png') }}" alt="">
+                    <img class="opacity-50" src="https://d2ac3u20cbkyt7.cloudfront.net/web_mobile_support.png"
+                        alt="">
                     <p class="text-xl font-bold text-center sm:text-2xl">Web and Mobile Support</p>
                     <p class="font-light text-center text-md sm:text-lg">You can use our service <span
                             class="text-[#504BE5] font-bold">anywhere</span> with any devices you
@@ -129,7 +131,7 @@
             </div>
             <div class="border w-full h-[470px] sm:w-[380px] shadow-lg rounded-sm">
                 <div class="flex flex-col items-center justify-center p-10 space-y-5">
-                    <img class="opacity-50" src="{{ asset('assets/nurses.png') }}" alt="">
+                    <img class="opacity-50" src="https://d2ac3u20cbkyt7.cloudfront.net/nurses.png" alt="">
                     <p class="text-xl font-bold sm:text-2xl">High Quality Nurses</p>
                     <p class="font-light text-center text-md sm:text-lg">
                         We only provide the <span class="text-[#504BE5] font-bold">best nurses</span> that we have to
@@ -168,7 +170,7 @@
                 </div>
             </div>
             <div class="w-auto lg:w-3/6">
-                <img class="rounded-xl" src="{{ asset('assets/about_elder.png') }}" alt="">
+                <img class="rounded-xl" src="https://d2ac3u20cbkyt7.cloudfront.net/about_elder.png" alt="">
             </div>
         </div>
     </div>
