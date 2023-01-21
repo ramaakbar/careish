@@ -128,7 +128,8 @@
                 </form>
             </div>
         </div>
-        <div class="bg-cover lg:w-4/12" style="background-image: url('/assets/elder.png')">
+        <div class="bg-cover lg:w-4/12"
+            style="background-image: url('https://d2ac3u20cbkyt7.cloudfront.net/elder.png')">
             {{-- <img class="w-max h-max" src="/assets/elder.png" alt="" srcset=""> --}}
         </div>
     </div>
