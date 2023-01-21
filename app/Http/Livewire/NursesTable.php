@@ -16,9 +16,8 @@ class NursesTable extends Component {
 
     public function render() {
         $availabilityId = DB::table('availabilities')->select('id')->where('availability', '=', 'Available')->first();
-        // dd($availabilityId);
         return view('livewire.nurses-table', [
-            'nurses' => DB::table('nurses')->leftJoin('transactions', 'transactions.nurse_id', '=', 'nurses.id')
+            'nurses' => DB::table('nurses')->distinct()->leftJoin('transactions', 'transactions.nurse_id', '=', 'nurses.id')
                 ->leftJoin('reviews', 'reviews.transaction_id', '=', 'transactions.id')
                 ->leftJoin('genders', 'genders.id', '=', 'nurses.gender_id')
                 ->leftJoin('cities', 'cities.id', '=', 'nurses.city_id')

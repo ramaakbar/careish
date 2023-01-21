@@ -5,14 +5,14 @@
             <div class="flex flex-col justify-between w-full mt-5 space-y-7 md:flex-row md:space-y-0">
                 <div
                     class="w-full md:w-2/3 shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white h-max mr-5 rounded-lg ">
-                    <div class="py-10 px-14">
+                    <div class="p-8">
                         <div class="">
                             <h1 class="mb-8 text-2xl font-bold">Nurse Detail</h1>
                             <div class="grid w-full grid-cols-3 gap-20">
-                                <div class="">
+                                <div class="col-span-3 md:col-span-1">
                                     <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="" class="w-max">
                                 </div>
-                                <div class="flex flex-col justify-center col-span-2 text-lg font-medium">
+                                <div class="flex flex-col justify-center col-span-3 md:col-span-2 text-lg font-medium">
                                     <div class="flex justify-between">
                                         <p class="w-full text-gray-400">Name</p>
                                         <p class="w-full text-right">{{ $nurse->name }}</p>
@@ -125,16 +125,16 @@
                         <div class="">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Service Fee</p>
-                                <p class="font-medium">Rp{{ number_format(300000, 2, ',', '.') }}</p>
+                                <p class="font-medium">Rp{{ number_format(8000, 2, ',', '.') }}</p>
                             </div>
                             <div class="flex justify-between mt-3">
-                                <p class="text-gray-400">Admin Fee</p>
-                                <p class="font-medium">Rp{{ number_format(100000, 2, ',', '.') }}</p>
+                                <p class="text-gray-400">Tax</p>
+                                <p class="font-medium">Rp{{ number_format(15000, 2, ',', '.') }}</p>
                             </div>
                             <hr class="mt-3">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Total Price</p>
-                                <p class="font-medium">Rp{{ number_format(400000, 2, ',', '.') }}</p>
+                                <p class="font-medium">Rp{{ number_format(23000, 2, ',', '.') }}</p>
                             </div>
                         </div>
                         <button
