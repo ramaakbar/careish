@@ -17,6 +17,10 @@ class TransactionDashboardTable extends Component {
 
     public $status = '';
 
+    public function updating() {
+        $this->resetPage();
+    }
+
     public function delete($transId) {
         Transaction::destroy($transId);
         session()->flash('success', 'Transaction no ' . $transId . ' has successfully been deleted');

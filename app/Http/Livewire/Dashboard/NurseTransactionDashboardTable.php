@@ -20,6 +20,10 @@ class NurseTransactionDashboardTable extends Component {
 
     public $nurse;
 
+    public function updating() {
+        $this->resetPage();
+    }
+
     public function getDeleteId($id) {
         $this->deleteId = $id;
     }
