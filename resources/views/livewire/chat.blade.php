@@ -143,18 +143,15 @@
                                 Uploading file . . .
                             </div>
                             @if ($file)
-                                <div class="mb-2">
-                                    You have an uploaded file <button type="button" wire:click="resetFile"
-                                        class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Remove
-                                        {{ $file->getClientOriginalName() }}</button>
+                                <div class="mb-2 space-x-3">
+                                    {{ $file->getClientOriginalName() }}
+                                    <button type="button"
+                                        wire:click="resetFile"class="focus:outline-none text-red-600 font-medium rounded-lg text-sm">Cancel
+                                    </button>
                                 </div>
-                            @else
-                                No file is uploaded.
                             @endif
                         </form>
                     @endif
-
-
                 </div>
             </div>
         </div>
