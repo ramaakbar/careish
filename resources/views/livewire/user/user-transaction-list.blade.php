@@ -19,7 +19,8 @@
             <div class="w-full p-3 bg-white border rounded">
                 <div class="flex flex-wrap items-center mb-5 space-x-5">
                     <h3 class="text-xl font-semibold">T{{ $transaction->id }}</h3>
-                    <p class="text-gray-600">{{ $transaction->created_at }}</p>
+                    <p class="text-gray-600">{{ Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}
+                    </p>
                     @if ($transaction->status->status == 'Cancelled')
                         <span
                             class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
@@ -44,8 +45,8 @@
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="w-24 font-medium">Date</h4>
-                        <p class="text-gray-600">{{ $transaction->start_date }} -
-                            {{ $transaction->end_date }}
+                        <p class="text-gray-600">{{ Carbon\Carbon::parse($transaction->start_date)->format('d M Y') }} -
+                            {{ Carbon\Carbon::parse($transaction->end_date)->format('d M Y') }}
                         </p>
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
@@ -244,7 +245,7 @@
                 <div class="px-2 space-y-3">
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="font-medium w-36">Date</h4>
-                        <p class="text-gray-600">{{ $trans->created_at }}
+                        <p class="text-gray-600">{{ Carbon\Carbon::parse($trans->created_at)->format('d M Y H:i') }}
                         </p>
                     </div>
 
@@ -295,8 +296,8 @@
 
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="font-medium w-36">Date</h4>
-                        <p class="text-gray-600">{{ $trans->start_date }} -
-                            {{ $trans->end_date }}
+                        <p class="text-gray-600">{{ Carbon\Carbon::parse($trans->start_date)->format('d M Y H:i') }} -
+                            {{ Carbon\Carbon::parse($trans->end_date)->format('d M Y H:i') }}
                         </p>
                     </div>
 

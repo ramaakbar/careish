@@ -41,7 +41,10 @@ class NursesTable extends Component {
                     $query->where('nurses.city_id', '=', $this->city_id);
                 })
                 ->when($this->min_age != '', function ($query) {
-                    $query->where('nurses.age', '>', $this->min_age);
+                    $query->where('nurses.age', '>=', $this->min_age);
+                })
+                ->when($this->max_age != '', function ($query) {
+                    $query->where('nurses.age', '<=', $this->max_age);
                 })
                 ->when($this->min_age != '' && $this->max_age != '', function ($query) {
                     $query->whereBetween('nurses.age', [$this->min_age, $this->max_age]);
