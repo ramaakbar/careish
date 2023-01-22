@@ -53,6 +53,7 @@ class UserTransactionsController extends Controller {
             'nurse_id' => $nurse->id,
             'status_id' => $statusId,
             'city_id' => $validated['city_id'],
+            'price' => 23000,
             'payment_type_id' => $validated['payment_method'],
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],

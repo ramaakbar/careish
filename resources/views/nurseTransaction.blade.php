@@ -30,7 +30,7 @@
                                         <p class="w-full text-right">{{ $nurse->gender->gender }}</p>
                                     </div>
                                     <div class="flex justify-between mt-2">
-                                        <p class="w-full text-gray-400">Price</p>
+                                        <p class="w-full text-gray-400">Wage</p>
                                         <p class="w-full text-right">Rp{{ number_format($nurse->price, 2, ',', '.') }}
                                         </p>
                                     </div>

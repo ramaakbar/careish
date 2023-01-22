@@ -93,7 +93,7 @@
                 <p class="mt-2 md:min-h-[160px] lg:min-h-[240px]"><span class="text-gray-600">Description:
                     </span>{{ $nurse->description }}</p>
                 <div class="flex items-center justify-between mt-3 lg:mt-0">
-                    <p><span class="text-gray-600">Price:
+                    <p><span class="text-gray-600">Wage:
                         </span><br><span
                             class="text-xl font-semibold">Rp{{ number_format($nurseElo->price, 2, ',', '.') }}</span>
                     </p>

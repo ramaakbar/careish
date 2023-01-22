@@ -69,6 +69,18 @@
                         </div>
 
                         <div class="xl:col-span-2">
+                            <label for="total_price" class="block mb-2 text-sm font-medium text-gray-900 ">Nurse
+                                Wage</label>
+                            <input name="total_price" type="text" id="total_price"
+                                class="bg-white cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                value="{{ $transaction->nurse->price }}" disabled>
+                            @error('total_price')
+                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                        snapp!</span> {{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="xl:col-span-2">
                             <label for="payment_type_id" class="block mb-2 text-sm font-medium text-gray-900 ">Payment
                                 Type</label>
                             <select type="payment_type_id" name="payment_type_id" id="payment_type_id"
@@ -95,7 +107,7 @@
                                 Price</label>
                             <input name="total_price" type="text" id="total_price"
                                 class="bg-white cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                value="{{ $transaction->nurse->price }}" disabled>
+                                value="{{ $transaction->price }}" disabled>
                             @error('total_price')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -135,8 +147,6 @@
                         </div>
                     </div>
                     <livewire:component.province-city-select :province_id="$transaction->city->province_id" :city_id="$transaction->city_id">
-
-
                         <div class="flex space-x-4">
                             <button
                                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
