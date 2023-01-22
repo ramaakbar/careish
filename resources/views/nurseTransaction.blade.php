@@ -75,7 +75,7 @@
                                             Date</label>
                                         <input x-model="min" name="start_date" type="date" id="start_date"
                                             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                            value="{{ old('start_date') }} required">
+                                            value="{{ old('start_date') }}" required>
                                         @error('start_date')
                                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                                     snapp!</span> {{ $message }}</p>
@@ -86,7 +86,7 @@
                                             Date</label>
                                         <input name="end_date" type="date" id="end_date"
                                             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                            value="{{ old('end_date') }} required" :min="min">
+                                            value="{{ old('end_date') }}" required :min="min">
                                         @error('end_date')
                                             <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                                     snapp!</span> {{ $message }}</p>
