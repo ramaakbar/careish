@@ -4,8 +4,11 @@ namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class NursesTable extends Component {
+    use WithPagination;
+
     public $gender = '';
     public $province_id = '';
     public $city_id = '';
@@ -13,6 +16,11 @@ class NursesTable extends Component {
     public $max_age = '';
     public $experience = '';
     public $ethnicity = '';
+
+    public function updating() {
+        $this->resetPage();
+    }
+
 
     public function render() {
         $availabilityId = DB::table('availabilities')->select('id')->where('availability', '=', 'Available')->first();
@@ -31,6 +39,9 @@ class NursesTable extends Component {
                 })
                 ->when($this->city_id != '', function ($query) {
                     $query->where('nurses.city_id', '=', $this->city_id);
+                })
+                ->when($this->min_age != '', function ($query) {
+                    $query->where('nurses.age', '>', $this->min_age);
                 })
                 ->when($this->min_age != '' && $this->max_age != '', function ($query) {
                     $query->whereBetween('nurses.age', [$this->min_age, $this->max_age]);

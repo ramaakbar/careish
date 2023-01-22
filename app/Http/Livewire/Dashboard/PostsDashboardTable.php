@@ -21,6 +21,10 @@ class PostsDashboardTable extends Component {
 
     public $deleteId = '';
 
+    public function updating() {
+        $this->resetPage();
+    }
+
     public function delete($postId) {
         Post::destroy($postId);
         session()->flash('success', 'Post no ' . $postId . ' has successfully been deleted');

@@ -182,7 +182,7 @@
                         </th>
                     </tr>
                     @forelse ($transactions as $transaction)
-                        <tr class="bg-white border-b">
+                        <tr wire:loading.remove class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 T{{ $transaction->id }}
                             </th>

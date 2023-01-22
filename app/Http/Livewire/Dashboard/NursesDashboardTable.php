@@ -20,6 +20,10 @@ class NursesDashboardTable extends Component {
 
     public $gender = '';
 
+    public function updating() {
+        $this->resetPage();
+    }
+
     public function delete($nurseId) {
         Nurse::destroy($nurseId);
         session()->flash('success', 'Nurse no ' . $nurseId . ' has successfully been deleted');
