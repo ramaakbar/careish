@@ -24,6 +24,7 @@ return new class extends Migration {
             $table->foreignIdFor(Status::class)->constrained();
             $table->foreignIdFor(City::class)->constrained();
             $table->foreignIdFor(PaymentType::class)->constrained();
+            $table->integer('price');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('address');

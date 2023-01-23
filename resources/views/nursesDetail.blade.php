@@ -12,7 +12,7 @@
                             <form action="/nurses/detail/{{ $nurse->id }}" method="POST" class="flex items-center">
                                 @csrf
                                 @method('DELETE')
-                                <button>
+                                <button data-tooltip-target="tooltip-remove-nurse">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-6 h-6">
                                         <path fill-rule="evenodd"
@@ -20,19 +20,30 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </button>
+                                <div id="tooltip-remove-nurse" role="tooltip-remove-nurse"
+                                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                                    Click to remove nurse from favorites
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                </div>
                             </form>
                         @else
                             <form action="/nurses/detail/{{ $nurse->id }}" method="POST" class="flex items-center">
                                 @csrf
-                                <button>
+                                <button data-tooltip-target="tooltip-add-nurse">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
                                     </svg>
                                 </button>
+                                <div id="tooltip-add-nurse" role="tooltip-add-nurse"
+                                    class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                                    Click to add nurse to favorites
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                </div>
                             </form>
                         @endif
+
                     @endauth
                 </div>
                 <div class="flex items-center mt-3 text-md">
@@ -93,14 +104,29 @@
                 <p class="mt-2 md:min-h-[160px] lg:min-h-[240px]"><span class="text-gray-600">Description:
                     </span>{{ $nurse->description }}</p>
                 <div class="flex items-center justify-between mt-3 lg:mt-0">
-                    <p><span class="text-gray-600">Price:
+                    <p><span class="text-gray-600">Wage:
                         </span><br><span
                             class="text-xl font-semibold">Rp{{ number_format($nurseElo->price, 2, ',', '.') }}</span>
                     </p>
-                    <a href="/trans/{{ $nurseElo->id }}"><button
-                            class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3">
-                            Order
-                            Now</button></a>
+                    @if ($nurse->availability_id !== 3)
+                        <div>
+                            <button
+                                class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3 cursor-not-allowed"
+                                data-tooltip-target="tooltip-nurse">
+                                Order
+                                Now</button>
+                            <div id="tooltip-nurse" role="tooltip"
+                                class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip">
+                                Nurse is not available
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="/trans/{{ $nurseElo->id }}"><button
+                                class="rounded-[6px] bg-gray-800 py-[9px] px-[18px] hover:bg-gray-900 transition ease-in-out duration-300 text-white hover:text-gray-200 mt-3">
+                                Order
+                                Now</button></a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -114,7 +140,8 @@
                             <div class="mt-3 lg:grid lg:grid-flow-col lg:grid-rows-6">
                                 @foreach (explode(';', $nurseElo->skills) as $skills)
                                     <div class="flex items-center">
-                                        <img src="{{ asset('assets/checklist.png') }}" alt="" class="mr-3 w-7">
+                                        <img src="{{ asset('assets/checklist.png') }}" alt=""
+                                            class="mr-3 w-7">
                                         <p class="text-[17px]">{{ $skills }}</p>
                                     </div>
                                     {{-- @if (count(explode(';', $nurseElo->skills)) - 1 != $loop->index)

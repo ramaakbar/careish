@@ -66,9 +66,14 @@
                                 </p>
                             </div>
                             <div class="flex flex-col items-center justify-between xs:flex-row">
-                                <p class="text-sm font-medium sm:text-base md:text-lg ">Price</p>
+                                <p class="text-sm font-medium sm:text-base md:text-lg ">Nurse Wage</p>
                                 <p class="text-sm font-medium sm:text-base md:text-lg">
                                     Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}</p>
+                            </div>
+                            <div class="flex flex-col items-center justify-between xs:flex-row">
+                                <p class="text-sm font-medium sm:text-base md:text-lg ">Total Price</p>
+                                <p class="text-sm font-medium sm:text-base md:text-lg">
+                                    Rp{{ number_format($transaction->price, 2, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>

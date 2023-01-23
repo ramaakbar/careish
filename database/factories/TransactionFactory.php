@@ -25,6 +25,7 @@ class TransactionFactory extends Factory {
             'status_id' => fake()->numberBetween(1, 4),
             'city_id' => fake()->numberBetween(1, 300),
             'payment_type_id' => fake()->numberBetween(1, 5),
+            'price' => 23000,
             'start_date' => $startDate,
             'end_date' => $endDate, // start_date + durasi duration_id
             'address' => fake()->streetAddress(),

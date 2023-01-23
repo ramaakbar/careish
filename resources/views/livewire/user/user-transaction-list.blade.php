@@ -54,7 +54,7 @@
                         <p class="text-gray-600">{{ $transaction->address }}</p>
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                        <h4 class="w-24 font-medium">Price</h4>
+                        <h4 class="w-24 font-medium">Wage</h4>
                         <p class="text-gray-600">Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}</p>
                     </div>
                     <div class="flex justify-end">
@@ -300,14 +300,17 @@
                             {{ Carbon\Carbon::parse($trans->end_date)->format('d M Y H:i') }}
                         </p>
                     </div>
-
+                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                        <h4 class="font-medium w-36">Nurse Wage</h4>
+                        <p class="text-gray-600">Rp{{ number_format($trans->nurse->price, 2, ',', '.') }}</p>
+                    </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
                         <h4 class="font-medium w-36">Payment Method</h4>
                         <p class="text-gray-600">{{ $trans->payment_type->type }}</p>
                     </div>
                     <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                        <h4 class="font-medium w-36">Price</h4>
-                        <p class="text-gray-600">Rp{{ number_format($trans->nurse->price, 2, ',', '.') }}</p>
+                        <h4 class="font-medium w-36">Total Price</h4>
+                        <p class="text-gray-600">Rp{{ number_format($trans->price, 2, ',', '.') }}</p>
                     </div>
                 </div>
             @endif

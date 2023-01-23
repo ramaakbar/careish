@@ -47,9 +47,7 @@ class LoginController extends Controller {
     public function googleRedirect() {
         $googleUser = Socialite::driver('google')->stateless()->user();
 
-        $image = $this->getSocialAvatar($googleUser->getAvatar(), '/storage/user-images/');
-
-        $user = User::updateOrCreate([
+        $user = User::firstOrCreate([
             'email' => $googleUser->email,
         ], [
             'name' => $googleUser->name,
@@ -57,7 +55,7 @@ class LoginController extends Controller {
             'password' => Hash::make(fake()->uuid()),
             'phone_number' => '',
             'role_id' => 1,
-            'picture' => $image ?? 'user-images/placeholder_profile.jpeg',
+            'picture' => $this->getSocialAvatar($googleUser->getAvatar(), '/storage/user-images/') ?? 'user-images/placeholder_profile.jpeg',
         ]);
 
         Auth::login($user);
