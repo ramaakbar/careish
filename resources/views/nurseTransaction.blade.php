@@ -12,7 +12,7 @@
                                 <div class="col-span-3 md:col-span-1">
                                     <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="" class="w-max">
                                 </div>
-                                <div class="flex flex-col justify-center col-span-3 md:col-span-2 text-lg font-medium">
+                                <div class="flex flex-col justify-center col-span-3 text-lg font-medium md:col-span-2">
                                     <div class="flex justify-between">
                                         <p class="w-full text-gray-400">Name</p>
                                         <p class="w-full text-right">{{ $nurse->name }}</p>
@@ -125,16 +125,18 @@
                         <div class="">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Service Fee</p>
-                                <p class="font-medium">Rp{{ number_format(8000, 2, ',', '.') }}</p>
+                                <p class="font-medium">Rp{{ number_format($serviceFee, 2, ',', '.') }}</p>
                             </div>
                             <div class="flex justify-between mt-3">
-                                <p class="text-gray-400">Tax</p>
-                                <p class="font-medium">Rp{{ number_format(15000, 2, ',', '.') }}</p>
+                                <p class="text-gray-400">Tax 2%</p>
+                                <p class="font-medium">Rp{{ number_format($taxFee, 2, ',', '.') }}
+                                </p>
                             </div>
                             <hr class="mt-3">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Total Price</p>
-                                <p class="font-medium">Rp{{ number_format(23000, 2, ',', '.') }}</p>
+                                <p class="font-medium">
+                                    Rp{{ number_format($totalPrice, 2, ',', '.') }}</p>
                             </div>
                         </div>
                         <button

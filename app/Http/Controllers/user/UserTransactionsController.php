@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserTransactionsController extends Controller {
+    public $serviceFee = 8000;
+
     public function index() {
         return view('user.transactions');
     }
@@ -18,9 +20,14 @@ class UserTransactionsController extends Controller {
     public function doTrans($id) {
         $nurse = Nurse::find($id);
         $method = PaymentType::get();
+        $taxFee = ($nurse->price * 2) / 100;
+        $totalPrice = ($nurse->price * 2) / 100 + $this->serviceFee;
         return view('nurseTransaction', [
             'nurse' => $nurse,
-            'paymentMethod' => $method
+            'paymentMethod' => $method,
+            'serviceFee' => $this->serviceFee,
+            'taxFee' => $taxFee,
+            'totalPrice' => $totalPrice
         ]);
     }
 
@@ -45,15 +52,15 @@ class UserTransactionsController extends Controller {
             'end_date',
             'address',
         */
-        // dd($request->start_date);
+        $totalPrice = ($nurse->price * 2) / 100 + $this->serviceFee;
         $statusId = DB::table('statuses')->select('id')->where('status', '=', 'Waiting')->first()->id;
-        // dd("tes");
+
         $transaction = Transaction::create([
             'user_id' => auth()->id(),
             'nurse_id' => $nurse->id,
             'status_id' => $statusId,
             'city_id' => $validated['city_id'],
-            'price' => 23000,
+            'price' => $totalPrice,
             'payment_type_id' => $validated['payment_method'],
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],
