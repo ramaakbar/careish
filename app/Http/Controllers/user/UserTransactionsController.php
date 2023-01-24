@@ -46,6 +46,7 @@ class UserTransactionsController extends Controller {
             'address',
         */
         // dd($request->start_date);
+        $totPrice = ($nurse->price * 2) / 100 + 8000;
         $statusId = DB::table('statuses')->select('id')->where('status', '=', 'Waiting')->first()->id;
         // dd("tes");
         $transaction = Transaction::create([
@@ -53,7 +54,7 @@ class UserTransactionsController extends Controller {
             'nurse_id' => $nurse->id,
             'status_id' => $statusId,
             'city_id' => $validated['city_id'],
-            'price' => 23000,
+            'price' => $totPrice,
             'payment_type_id' => $validated['payment_method'],
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],
