@@ -125,18 +125,18 @@
                         <div class="">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Service Fee</p>
-                                <p class="font-medium">Rp{{ number_format(8000, 2, ',', '.') }}</p>
+                                <p class="font-medium">Rp{{ number_format($serviceFee, 2, ',', '.') }}</p>
                             </div>
                             <div class="flex justify-between mt-3">
-                                <p class="text-gray-400">Tax</p>
-                                <p class="font-medium">Rp{{ number_format(($nurse->price * 2) / 100, 2, ',', '.') }}
+                                <p class="text-gray-400">Tax 2%</p>
+                                <p class="font-medium">Rp{{ number_format($taxFee, 2, ',', '.') }}
                                 </p>
                             </div>
                             <hr class="mt-3">
                             <div class="flex justify-between mt-3">
                                 <p class="text-gray-400">Total Price</p>
                                 <p class="font-medium">
-                                    Rp{{ number_format(($nurse->price * 2) / 100 + 8000, 2, ',', '.') }}</p>
+                                    Rp{{ number_format($totalPrice, 2, ',', '.') }}</p>
                             </div>
                         </div>
                         <button
