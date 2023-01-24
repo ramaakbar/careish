@@ -65,7 +65,7 @@ class UserTransactionDashboardTable extends Component {
                     $query->where('transactions.id', 'like', '%' . $this->search . '%')
                         ->orWhere('users.name', 'like', '%' . $this->search . '%')
                         ->orWhere('nurses.name', 'like', '%' . $this->search . '%')
-                        ->orWhere('price', 'like', '%' . $this->search . '%')
+                        ->orWhere('transactions.price', 'like', '%' . $this->search . '%')
                         ->orWhere('start_date', 'like', '%' . $this->search . '%')
                         ->orWhere('end_date', 'like', '%' . $this->search . '%');
                 })
@@ -92,7 +92,7 @@ class UserTransactionDashboardTable extends Component {
                     $query->where('transactions.id', 'like', '%' . $this->search . '%')
                         ->orWhere('users.name', 'like', '%' . $this->search . '%')
                         ->orWhere('nurses.name', 'like', '%' . $this->search . '%')
-                        ->orWhere('price', 'like', '%' . $this->search . '%')
+                        ->orWhere('transactions.price', 'like', '%' . $this->search . '%')
                         ->orWhere('start_date', 'like', '%' . $this->search . '%')
                         ->orWhere('end_date', 'like', '%' . $this->search . '%');
                 })
