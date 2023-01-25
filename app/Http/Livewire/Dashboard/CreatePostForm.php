@@ -42,7 +42,8 @@ class CreatePostForm extends Component {
             'title' => $this->title,
             'post_category_id' => $this->category,
             'thumbnail' => $storedImage,
-            'body' => $this->body
+            'body' => $this->body,
+            'view' => 0
         ]);
         $this->clear();
         session()->flash('success', 'Post successfully created');
