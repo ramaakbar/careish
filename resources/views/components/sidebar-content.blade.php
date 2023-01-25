@@ -17,7 +17,7 @@
     <div class="py-4 overflow-y-auto">
         <ul class="space-y-2">
             <li>
-                <a href="#feature"
+                <a href="/#feature"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100"
                     data-drawer-hide="drawer-navigation">
                     {{-- <svg aria-hidden="true"
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="#aboutUs"
+                <a href="/#aboutUs"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100"
                     data-drawer-hide="drawer-navigation">
                     {{-- <svg aria-hidden="true"
@@ -73,7 +73,7 @@
             </li>
             @guest
                 <li>
-                    <a href="#"
+                    <a href="/login"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
                         {{-- <svg aria-hidden="true"
                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="/register"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">
                         {{-- <svg aria-hidden="true"
                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
@@ -132,9 +132,19 @@
                             <a href="/user/reviews"
                                 class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Reviews</a>
                         </li>
+                        @if (Auth::user()->role_id == 2)
+                            <li>
+                                <a href="/dashboard"
+                                    class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Dashboard</a>
+                            </li>
+                        @endif
                         <li>
-                            <a href="#"
-                                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Logout</a>
+                            <form action="/logout" method="POST" class="">
+                                @csrf
+                                <button type="submit"
+                                    class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Sign
+                                    Out</button>
+                            </form>
                         </li>
                     </ul>
                 </li>
