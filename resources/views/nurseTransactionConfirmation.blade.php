@@ -126,6 +126,7 @@
                         </table>
                     </div>
                     <p class="mt-4 text-sm text-red-400">*Gaji perawat langsung diberikan oleh pengguna jasa perawat
+                        setiap bulannya.
                     </p>
                 </div>
                 <div class="flex justify-end">
