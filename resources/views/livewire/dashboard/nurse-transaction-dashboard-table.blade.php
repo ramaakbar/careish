@@ -244,6 +244,10 @@
                                     class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="deleteConfirm({{ $transaction->id }})"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>
+                                @if ($transaction->status == 'On Going')
+                                    <button wire:click="confirmEndTrans({{ $transaction->id }})"
+                                        class="px-3 font-medium text-black hover:underline">End</button>
+                                @endif
                             </td>
                         </tr>
                     @empty

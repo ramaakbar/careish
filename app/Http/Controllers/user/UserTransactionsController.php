@@ -53,7 +53,7 @@ class UserTransactionsController extends Controller {
             'address',
         */
         $totalPrice = ($nurse->price * 2) / 100 + $this->serviceFee;
-        $statusId = DB::table('statuses')->select('id')->where('status', '=', 'Waiting')->first()->id;
+        $statusId = DB::table('statuses')->select('id')->where('status', '=', 'Waiting For Approval')->first()->id;
 
         $transaction = Transaction::create([
             'user_id' => auth()->id(),

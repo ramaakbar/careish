@@ -13,6 +13,28 @@
         </div>
     </div>
 
+    <div class="flex p-4 mb-4 text-sm text-gray-700 rounded-lg bg-gray-50" role="alert">
+        <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+            <span class="font-medium">Transaction Status Meanings:</span>
+            <ul class="mt-1.5 space-y-2">
+                <li> <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
+                        For Approval</span>: Waiting for admin approval before nurse can be assigned to you
+                </li>
+                <li> <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">On
+                        Going</span>: Nurse is assigned to you and start working for you</li>
+                <li> <span
+                        class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Done</span>:
+                    The order is done after exceeding the end date</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="space-y-5">
         @forelse ($transactions as $transaction)
@@ -24,9 +46,9 @@
                     @if ($transaction->status->status == 'Cancelled')
                         <span
                             class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                    @elseif($transaction->status->status == 'Waiting')
-                        <span
-                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                    @elseif($transaction->status->status == 'Waiting For Approval')
+                        <span class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
+                            For Approval</span>
                     @elseif($transaction->status->status == 'On Going')
                         <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
                             Going</span>
@@ -36,24 +58,24 @@
                     @endif
                 </div>
                 <div class="space-y-3">
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="w-24 font-medium">Nurse</h4>
                         <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
                                 src="{{ asset('/storage/' . $transaction->nurse->picture) }}" alt="user photo">
                             <span class="text-gray-600">{{ $transaction->nurse->name }}</span>
                         </div>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="w-24 font-medium">Date</h4>
                         <p class="text-gray-600">{{ Carbon\Carbon::parse($transaction->start_date)->format('d M Y') }} -
                             {{ Carbon\Carbon::parse($transaction->end_date)->format('d M Y') }}
                         </p>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="w-24 font-medium">Address</h4>
                         <p class="text-gray-600">{{ $transaction->address }}</p>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="w-24 font-medium">Wage</h4>
                         <p class="text-gray-600">Rp{{ number_format($transaction->nurse->price, 2, ',', '.') }}</p>
                     </div>
@@ -63,12 +85,6 @@
                             class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2">
                             See Detail
                         </button>
-                        @if ($transaction->status->status == 'On Going')
-                            <button wire:click="confirmEndTrans({{ $transaction->id }})"
-                                class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">End
-                                Transaction</button>
-                        @endif
-
                         @if ($transaction->status->status == 'Done' && !$transaction->review)
                             <button wire:click="getTransId({{ $transaction->id }})" onclick="$openModal('reviewModal')"
                                 class="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 ">Create
@@ -242,22 +258,23 @@
 
         <x-modal.card title="Transaction Detail {{ $transId }}" wire:model.defer="detailModal">
             @if ($show)
-                <div class="px-2 space-y-3">
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
-                        <h4 class="font-medium w-36">Date</h4>
+                <div class="px-2 space-y-3 ">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
+                        <h4 class="font-medium w-36">Transaction Date</h4>
                         <p class="text-gray-600">{{ Carbon\Carbon::parse($trans->created_at)->format('d M Y H:i') }}
                         </p>
                     </div>
 
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Status</h4>
                         <div>
                             @if ($trans->status->status == 'Cancelled')
                                 <span
                                     class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                            @elseif($trans->status->status == 'Waiting')
+                            @elseif($trans->status->status == 'Waiting For Approval')
                                 <span
-                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
+                                    For Approval</span>
                             @elseif($trans->status->status == 'On Going')
                                 <span
                                     class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
@@ -268,7 +285,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Nurse</h4>
                         <div class="flex items-center"><img class="w-8 h-8 mr-2 rounded-full"
                                 src="{{ asset('/storage/' . $trans->nurse->picture) }}"
@@ -276,39 +293,39 @@
                             <span class="text-gray-600">{{ $trans->nurse->name }}</span>
                         </div>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">City</h4>
                         <div class="flex items-center">
                             <span class="text-gray-600">{{ $trans->city->name }}</span>
                         </div>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Province</h4>
                         <div class="flex items-center">
                             <span class="text-gray-600">{{ $trans->city->province->name }}</span>
                         </div>
                     </div>
 
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Address</h4>
                         <p class="text-gray-600">{{ $trans->address }}</p>
                     </div>
 
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Date</h4>
                         <p class="text-gray-600">{{ Carbon\Carbon::parse($trans->start_date)->format('d M Y H:i') }} -
                             {{ Carbon\Carbon::parse($trans->end_date)->format('d M Y H:i') }}
                         </p>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Nurse Wage</h4>
                         <p class="text-gray-600">Rp{{ number_format($trans->nurse->price, 2, ',', '.') }}</p>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Payment Method</h4>
                         <p class="text-gray-600">{{ $trans->payment_type->type }}</p>
                     </div>
-                    <div class="flex flex-col space-y-2 md:items-center sm:flex-row md:space-y-0">
+                    <div class="flex flex-col space-y-2 sm:items-center sm:flex-row sm:space-y-0">
                         <h4 class="font-medium w-36">Total Price</h4>
                         <p class="text-gray-600">Rp{{ number_format($trans->price, 2, ',', '.') }}</p>
                     </div>
