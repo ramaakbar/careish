@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Nurse;
 use App\Models\PaymentType;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,7 @@ class UserTransactionsController extends Controller {
             'name' => ['required'],
             'address' => ['required'],
             'start_date' => ['required'],
-            'end_date' => ['required'],
+            'duration' => ['required'],
             'payment_method' => ['required'],
             'province_id' => ['required'],
             'city_id' => ['required']
@@ -55,6 +56,8 @@ class UserTransactionsController extends Controller {
         $totalPrice = ($nurse->price * 2) / 100 + $this->serviceFee;
         $statusId = DB::table('statuses')->select('id')->where('status', '=', 'Waiting For Approval')->first()->id;
 
+        $end_date = Carbon::parse($validated['start_date'])->addMonths($validated['duration']);
+
         $transaction = Transaction::create([
             'user_id' => auth()->id(),
             'nurse_id' => $nurse->id,
@@ -63,7 +66,7 @@ class UserTransactionsController extends Controller {
             'price' => $totalPrice,
             'payment_type_id' => $validated['payment_method'],
             'start_date' => $validated['start_date'],
-            'end_date' => $validated['end_date'],
+            'end_date' => $end_date,
             'address' => $validated['address'],
         ]);
 

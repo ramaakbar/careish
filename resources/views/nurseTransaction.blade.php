@@ -68,7 +68,7 @@
                                 <div class="mb-5">
                                     <livewire:component.province-city-select>
                                 </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5" x-data="{ min: '' }">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                                     <div class="">
                                         <label for="start_date"
                                             class="block mb-2 text-sm font-medium text-gray-900 ">Start
@@ -82,15 +82,20 @@
                                         @enderror
                                     </div>
                                     <div class="">
-                                        <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 ">End
-                                            Date</label>
-                                        <input name="end_date" type="date" id="end_date"
+                                        <label for="end_date"
+                                            class="block mb-2 text-sm font-medium text-gray-900 ">Duration</label>
+                                        <select
                                             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                            value="{{ old('end_date') }}" required :min="min">
-                                        @error('end_date')
-                                            <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
-                                                    snapp!</span> {{ $message }}</p>
-                                        @enderror
+                                            id="duration" name="duration">
+                                            @for ($i = 1; $i <= 60; $i++)
+                                                <option value='{{ $i }}'>{{ $i }} Months
+                                                </option>
+                                            @endfor
+                                            @error('duration')
+                                                <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                                        snapp!</span> {{ $message }}</p>
+                                            @enderror
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="">
