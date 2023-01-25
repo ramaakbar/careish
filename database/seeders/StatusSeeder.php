@@ -18,7 +18,7 @@ class StatusSeeder extends Seeder {
         ]);
 
         Status::create([
-            'status' => 'Waiting'
+            'status' => 'Waiting For Approval'
         ]);
 
         Status::create([
