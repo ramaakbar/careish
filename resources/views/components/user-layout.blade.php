@@ -14,7 +14,7 @@
 
         </nav>
     </aside>
-    <section class="flex flex-col w-full lg:w-3/4">
+    <section class=" w-full lg:w-3/4">
         {{ $slot }}
 
     </section>

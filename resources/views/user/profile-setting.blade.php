@@ -3,7 +3,7 @@
         <h1 class="mb-5 text-2xl font-bold">Profile Setting</h1>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div class="">
-                <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas" class="rounded">
+                <img src="{{ asset('/storage/' . $user->picture) }}" alt="asdas" class="rounded w-full">
             </div>
 
             <form class="md:col-span-2" action="/user/profile-setting" method="POST" enctype="multipart/form-data">

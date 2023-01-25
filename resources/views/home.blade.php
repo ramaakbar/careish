@@ -17,53 +17,39 @@
                                 class="rounded-[6px] bg-gray-800 pt-[9px] pb-[9px] pr-[18px] pl-[18px] hover:bg-gray-900 transition ease-in-out duration-300">Register</button></a>
                     @endguest
                     @auth
-                        <button data-dropdown-toggle="dropdownAvatarName"
-                            class="inline-flex items-center p-2 text-sm font-medium rounded cursor-pointer md:mr-0 "
-                            type="button">
-                            <span class="sr-only">Open user menu</span>
-                            {{-- Untuk sementara --}}
-                            {{-- <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset(auth()->user()->picture) }}" alt="user photo"> --}}
-                            <img class="w-8 h-8 mr-2 rounded-full" src="{{ asset('/storage/' . Auth::user()->picture) }}"
-                                alt="user photo">
-                            {{ Auth::user()->name }}
-                            <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="dropdownAvatarName"
-                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 ">
-                            <ul class="py-1 text-sm text-gray-700 "
-                                aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
-                                <li>
-                                    <a href="/user/transaction-list" class="block px-4 py-2 hover:bg-gray-100">Transaction
-                                        Lists</a>
-                                </li>
-                                <li>
-                                    <a href="/user/profile-setting" class="block px-4 py-2 hover:bg-gray-100">Profile
-                                        Setting</a>
-                                </li>
-                                <li>
-                                    <a href="/user/favorites" class="block px-4 py-2 hover:bg-gray-100">Favorites</a>
-                                </li>
-                                <li>
-                                    <a href="/user/reviews" class="block px-4 py-2 hover:bg-gray-100">Reviews</a>
-                                </li>
-                            </ul>
-                            <div class="py-1 text-sm text-gray-700">
-                                @if (Auth::user()->role_id == 2)
-                                    <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-                                @endif
+                        <x-dropdown>
+                            <x-slot name="trigger">
+                                <div
+                                    class="inline-flex items-center p-2 text-sm font-medium rounded cursor-pointer md:mr-0 transition duration-300 ease-in-out hover:text-gray-200">
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="w-8 h-8 mr-2 rounded-full"
+                                        src="{{ asset('/storage/' . Auth::user()->picture) }}" alt="user photo">
+                                    {{ Auth::user()->name }}
+                                    <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </x-slot>
+                            <x-dropdown.item onclick="location.href='/user/transaction-list';" icon="shopping-bag"
+                                label="Transaction Lists" />
+                            <x-dropdown.item onclick="location.href='/user/profile-setting';" icon="user"
+                                label="Profile Setting" />
+                            <x-dropdown.item onclick="location.href='/user/favorites';" icon="bookmark" label="Favorites" />
+                            <x-dropdown.item onclick="location.href='/user/reviews';" icon="star" label="Reviews" />
+                            @if (Auth::user()->role_id == 2)
+                                <x-dropdown.item onclick="location.href='/dashboard';" separator label="Dashboard" />
+                            @endif
+                            <x-dropdown.item>
                                 <form action="/logout" method="POST" class="">
                                     @csrf
-                                    <button type="submit" class="w-full px-4 py-2 text-left hover:bg-gray-100 ">Sign
+                                    <button type="submit" class="">Sign
                                         Out</button>
                                 </form>
-                            </div>
-                        </div>
+                            </x-dropdown.item>
+                        </x-dropdown>
                     @endauth
                 </div>
                 <button class="navbar sm:hidden" data-drawer-target="drawer-navigation"

@@ -46,7 +46,7 @@
             </div>
         @empty
             <div class="grid items-center justify-center mt-10 space-y-5">
-                <div class="w-56">
+                <div class="w-full">
                     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 801.95277 537"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <path
