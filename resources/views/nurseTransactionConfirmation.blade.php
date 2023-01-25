@@ -1,8 +1,8 @@
 <x-main-layout>
-    <div class="px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
-        <h1 class="text-3xl font-bold text-center sm:text-left">Transaction Status</h1>
+    <div class="md:px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
+        <h1 class="text-3xl font-bold px-5 text-left">Transaction Status</h1>
         <div class="mt-8 w-full shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white h-max rounded-lg ">
-            <div class="px-8 py-10 sm:px-14">
+            <div class="px-5 md:px-8 py-10">
                 <div class="flex flex-col justify-between lg:flex-row">
                     <div class="flex flex-col items-center sm:flex-row sm:items-start">
                         <img class="w-20 h-20 rounded-full sm:mr-7" src="{{ asset('/storage/' . Auth::user()->picture) }}"
@@ -13,10 +13,10 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center justify-center sm:items-start lg:items-end">
-                        <div class="flex justify-center mt-2 sm:justify-start lg:justify-end w-80 lg:mt-0">
+                        <div class="text-gray-500 text-center md:text-left lg:text-right w-full">
                             <p class="text-gray-500">{{ $transaction->address }}</p>
                         </div class="">
-                        <p class="text-gray-500 lg:text-right">
+                        <p class="text-gray-500 text-center md:text-left lg:text-right w-full">
                             {{ $transaction->city->name }}, {{ $transaction->city->province->name }}
                         </p>
                     </div>
@@ -51,7 +51,7 @@
                             <div class="flex flex-col items-center justify-between xs:flex-row">
                                 <p class="text-sm font-medium sm:text-base md:text-lg ">Status</p>
                                 <p class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
-                                    {{ $transaction->status->status }} For Approval</p>
+                                    {{ $transaction->status->status }}</p>
                             </div>
                             <div class="flex flex-col items-center justify-between xs:flex-row">
                                 <p class="text-sm font-medium sm:text-base md:text-lg ">Start Date</p>

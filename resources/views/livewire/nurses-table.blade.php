@@ -1,5 +1,5 @@
 <div class="px-5 mx-auto scroll-m-16 max-w-7xl">
-    <div class="grid grid-cols-6 md:grid-cols-9 lg:grid-cols-12 gap-4 mb-8">
+    <div class="grid grid-cols-6 gap-4 mb-8 md:grid-cols-9 lg:grid-cols-12">
         <div class="col-span-3">
             <label for="province_id" class="block mb-2 text-xs font-medium text-gray-900 md:text-sm ">Province</label>
             <x-select wire:model="province_id" placeholder="Select province" :async-data="route('provinces')" option-label="name"
@@ -58,9 +58,8 @@
                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 h-auto"
                 id="">
                 <option value="" selected>All</option>
-                <option value='= 0'>0 Year</option>
                 @for ($i = 1; $i < 5; $i++)
-                    <option value='={{ $i }}'>{{ $i }} Years</option>
+                    <option value='>= {{ $i }}'>{{ $i }} Years</option>
                 @endfor
                 <option value='>= 5'>5 Years</option>
             </select>

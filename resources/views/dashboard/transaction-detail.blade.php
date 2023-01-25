@@ -17,9 +17,14 @@
                         <p>{{ Carbon\Carbon::parse($transaction->updated_at)->format('d M Y') }}</p>
                     </div>
                 </div>
-                <livewire:component.delete-dashboard-detail :transaction="$transaction" />
+                <div class="flex">
+                    <livewire:component.end-transaction-btn :transaction="$transaction" />
+                    <livewire:component.delete-dashboard-detail :transaction="$transaction" />
+                </div>
             </div>
-            <div class="w-full p-5 mb-8 bg-white border rounded">
+            <div class="w-full p-5 mb-8 bg-white border rounded" x-data="{
+                min: '{{ $transaction->start_date->format('Y-m-d') }}'
+            }">
                 <form action="/dashboard/transactions/{{ $transaction->id }}" method="POST">
                     @method('put')
                     @csrf
@@ -49,7 +54,7 @@
                         <div class="xl:col-span-2">
                             <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 ">Start
                                 Date</label>
-                            <input name="start_date" type="date" id="start_date"
+                            <input x-model="min" name="start_date" type="date" id="start_date"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->start_date->format('Y-m-d') }}">
                             @error('start_date')
@@ -61,7 +66,7 @@
                             <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 ">End Date</label>
                             <input name="end_date" type="date" id="end_date"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                value="{{ $transaction->end_date->format('Y-m-d') }}">
+                                value="{{ $transaction->end_date->format('Y-m-d') }}" :min="min">
                             @error('end_date')
                                 <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                         snapp!</span> {{ $message }}</p>
@@ -136,7 +141,8 @@
                         </div>
 
                         <div class="xl:col-span-6">
-                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
+                            <label for="address"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Address</label>
                             <input name="address" type="text" id="address"
                                 class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 value="{{ $transaction->address }}">

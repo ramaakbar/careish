@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\Nurse;
 use App\Models\Transaction;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -25,7 +26,36 @@ class UserTransactionDashboardTable extends Component {
     public function delete($transId) {
         Transaction::destroy($transId);
         session()->flash('success', 'Transaction no ' . $transId . ' has successfully been deleted');
-        return redirect()->to('/dashboard/transactions');
+        return redirect()->to('/dashboard/users/' . $this->user->id);
+    }
+
+    public function confirmEndTrans($transId) {
+        $this->dialog()->confirm([
+            'title'       => 'Confirmation',
+            'description' => 'Are you sure you want to end this
+            transaction and mark the transaction as done?',
+            'icon'        => 'question',
+            'accept'      => [
+                'label'  => 'Yes, Im sure',
+                'method' => 'confirmTrans',
+                'params' => $transId
+            ],
+            'reject' => [
+                'label'  => 'No, cancel',
+            ],
+        ]);
+    }
+
+    public function confirmTrans($transId) {
+        $transUpdated = tap(DB::table('transactions')->where('id', $transId))->update([
+            'status_id' => 4
+        ])->first();
+
+        Nurse::where('id', $transUpdated->nurse_id)->update([
+            'availability_id' => 3
+        ]);
+        session()->flash('success', 'Transaction no ' . $transId . ' has been done');
+        return redirect()->to('/dashboard/users/' . $this->user->id);
     }
 
     public function deleteConfirm($transId) {

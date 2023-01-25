@@ -1,11 +1,11 @@
 <x-main-layout>
-    <div class="px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
-        <h1 class="text-3xl font-bold">Confirm Order</h1>
+    <div class="md:px-5 mx-auto mb-8 scroll-m-16 max-w-7xl">
+        <h1 class="px-5 text-3xl font-bold">Confirm Order</h1>
         <form action="/trans/{{ $nurse->id }}/confirmation" method="POST">
             <div class="flex flex-col justify-between w-full mt-5 space-y-7 md:flex-row md:space-y-0">
                 <div
                     class="w-full md:w-2/3 shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white h-max mr-5 rounded-lg ">
-                    <div class="p-8">
+                    <div class="p-5 md:p-8">
                         <div class="">
                             <h1 class="mb-8 text-2xl font-bold">Nurse Detail</h1>
                             <div class="grid w-full grid-cols-3 gap-20">
@@ -68,7 +68,7 @@
                                 <div class="mb-5">
                                     <livewire:component.province-city-select>
                                 </div>
-                                <div class="grid grid-cols-2 gap-5 mb-5" x-data="{ min: '' }">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5" x-data="{ min: '' }">
                                     <div class="">
                                         <label for="start_date"
                                             class="block mb-2 text-sm font-medium text-gray-900 ">Start
@@ -120,7 +120,7 @@
                 </div>
                 <div
                     class="w-full md:w-1/3 border h-max shadow-[0_0_16px_-8px_rgba(107,114,128,1.000)] border-white rounded-lg">
-                    <div class="w-full p-8">
+                    <div class="w-full p-5 md:p-8">
                         <h1 class="mb-4 text-2xl font-bold">Summary</h1>
                         <div class="">
                             <div class="flex justify-between mt-3">

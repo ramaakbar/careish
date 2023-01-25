@@ -226,9 +226,10 @@
                                 @if ($transaction->status == 'Cancelled')
                                     <span
                                         class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                                @elseif($transaction->status == 'Waiting')
+                                @elseif($transaction->status == 'Waiting For Approval')
                                     <span
-                                        class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                                        class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
+                                        For Approval</span>
                                 @elseif($transaction->status == 'On Going')
                                     <span
                                         class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
@@ -243,6 +244,10 @@
                                     class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="deleteConfirm({{ $transaction->id }})"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>
+                                @if ($transaction->status == 'On Going')
+                                    <button wire:click="confirmEndTrans({{ $transaction->id }})"
+                                        class="px-3 font-medium text-black hover:underline">End</button>
+                                @endif
                             </td>
                         </tr>
                     @empty

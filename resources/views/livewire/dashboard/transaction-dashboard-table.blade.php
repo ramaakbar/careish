@@ -131,7 +131,7 @@
                         <th scope="col" class="px-6 py-3">
                             <div href="" class="flex items-center cursor-pointer"
                                 wire:click="SetClicked('created_at')">
-                                Date
+                                Transaction Date
                                 @if ($sort == 'created_at' && $sortOrder == 'asc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-3 h-3 ml-1">
@@ -140,6 +140,27 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 @elseif($sort == 'created_at' && $sortOrder == 'desc')
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-3 h-3 ml-1">
+                                        <path fill-rule="evenodd"
+                                            d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                            </div>
+                            @endif
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <div href="" class="flex items-center cursor-pointer"
+                                wire:click="SetClicked('end_date')">
+                                End Date
+                                @if ($sort == 'end_date' && $sortOrder == 'asc')
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-3 h-3 ml-1">
+                                        <path fill-rule="evenodd"
+                                            d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                @elseif($sort == 'end_date' && $sortOrder == 'desc')
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                         class="w-3 h-3 ml-1">
                                         <path fill-rule="evenodd"
@@ -199,12 +220,16 @@
                                 {{ Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ Carbon\Carbon::parse($transaction->end_date)->format('d M Y') }}
+                            </td>
+                            <td class="px-6 py-4">
                                 @if ($transaction->status == 'Cancelled')
                                     <span
                                         class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">Cancelled</span>
-                                @elseif($transaction->status == 'Waiting')
+                                @elseif($transaction->status == 'Waiting For Approval')
                                     <span
-                                        class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting</span>
+                                        class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
+                                        For Approval</span>
                                 @elseif($transaction->status == 'On Going')
                                     <span
                                         class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
@@ -219,6 +244,10 @@
                                     class="px-3 font-medium text-blue-600 hover:underline">Edit</a>
                                 <button wire:click="deleteConfirm({{ $transaction->id }})"
                                     class="px-3 font-medium text-red-600 hover:underline">Delete</button>
+                                @if ($transaction->status == 'On Going')
+                                    <button wire:click="confirmEndTrans({{ $transaction->id }})"
+                                        class="px-3 font-medium text-black hover:underline">End</button>
+                                @endif
                             </td>
                         </tr>
                     @empty
