@@ -94,7 +94,7 @@
                                             @elseif($transaction->status_id == '2')
                                                 <span
                                                     class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">Waiting
-                                                    For Approval</span>
+                                                </span>
                                             @elseif($transaction->status_id == '3')
                                                 <span
                                                     class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ">On
