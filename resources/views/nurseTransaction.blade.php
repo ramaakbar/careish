@@ -10,7 +10,7 @@
                             <h1 class="mb-8 text-2xl font-bold">Nurse Detail</h1>
                             <div class="grid w-full grid-cols-3 gap-20">
                                 <div class="col-span-3 md:col-span-1">
-                                    <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="" class="w-max">
+                                    <img src="{{ asset('/storage/' . $nurse->picture) }}" alt="" class="w-full">
                                 </div>
                                 <div class="flex flex-col justify-center col-span-3 text-lg font-medium md:col-span-2">
                                     <div class="flex justify-between">
@@ -48,6 +48,17 @@
                                         class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         placeholder="Name" value="{{ Auth::user()->name }}" required>
                                     @error('name')
+                                        <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
+                                                snapp!</span> {{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="mb-5">
+                                    <label for="email"
+                                        class="block mb-2.5 text-base font-medium text-gray-900">Email</label>
+                                    <input id="email" name="email" type="email"
+                                        class="bg-white border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        placeholder="Email" value="{{ Auth::user()->email }}" required>
+                                    @error('email')
                                         <p class="mt-2 text-sm text-red-600"><span class="font-medium">Oh,
                                                 snapp!</span> {{ $message }}</p>
                                     @enderror
