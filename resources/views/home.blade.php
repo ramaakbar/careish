@@ -42,13 +42,13 @@
                             @if (Auth::user()->role_id == 2)
                                 <x-dropdown.item onclick="location.href='/dashboard';" separator label="Dashboard" />
                             @endif
-                            <x-dropdown.item>
-                                <form action="/logout" method="POST" class="">
-                                    @csrf
-                                    <button type="submit" class="">Sign
+                            <form action="/logout" method="POST" class="">
+                                @csrf
+                                <x-dropdown.item>
+                                    <button type="submit" class="w-full text-left">Sign
                                         Out</button>
-                                </form>
-                            </x-dropdown.item>
+                                </x-dropdown.item>
+                            </form>
                         </x-dropdown>
                     @endauth
                 </div>
