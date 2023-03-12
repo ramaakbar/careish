@@ -52,13 +52,13 @@ The result of the research that has been conducted is a website based elderly nu
 ## Screenshots
 
 -   Home Page
-    ![Home Page](public/assets/screenshot/home.png)
+    ![Home Page](public/assets/screenshot/home.webp)
 
 -   Nurses Page
-    ![Nurses Page](public/assets/screenshot/nurses.png)
+    ![Nurses Page](public/assets/screenshot/nurses.webp)
 
 -   Dashboard Page
-    ![Dashboard Page](public/assets/screenshot/dashboard.png)
+    ![Dashboard Page](public/assets/screenshot/dashboard.webp)
 
 ## Requirement
 
