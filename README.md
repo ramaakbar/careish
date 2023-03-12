@@ -60,6 +60,10 @@ The result of the research that has been conducted is a website based elderly nu
 -   Dashboard Page
     ![Dashboard Page](public/assets/screenshot/dashboard.webp)
 
+## Demo Video
+
+https://minio.ramaakbar.xyz/rmitiio/video%20demo%20CareIsh.mp4
+
 ## Requirement
 
 The following tools are required in order to start the installation.
