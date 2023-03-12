@@ -1,14 +1,64 @@
-# Careish
+# CareIsh
 
-Careish adalah aplikasi penyedia jasa perawat lansia berbasis website. **WIP**
+**CareIsh** is a website-based application that can make the ordering and management of elderly nurse services easier for users and providers.
+
+## Introduction
+
+These days, the ordering process of elderly nurse services are done with traditional ways such as contacting the elderly service providers by phone or visiting the service directly. In order to make the ordering process and management of elderly nurse services easier for users and providers, a website-based application is developed to help. The development of this application used Laravel as its framework. Questionnaire, Interview, and literature study are used as the data collection method in this research.
+
+The result of the research that has been conducted is a website based elderly nurse service providers app named **CareIsh**. With this application, the ordering process and management of elderly nurse services are much easier. It can be proved from the result of the interview of the elderly nurse service providers and questionnaire which states that 95.6% of respondent agree that the ordering process of elderly nurse services through website app is much easier.
+
+## Team
+
+-   [Akbar Ramadhan](https://github.com/ramaakbar)
+-   [Patrick Thelysander](https://github.com/Osiris181)
 
 ## Tech Stack
 
--   Laravel
--   TailwindCSS with Flowbite
--   Livewire
--   AlpineJS
+-   [Laravel](https://laravel.com/)
+-   [TailwindCSS](https://tailwindcss.com/) with [Flowbite](https://flowbite.com/)
+-   [Livewire](https://laravel-livewire.com/)
+-   [WireUi](https://livewire-wireui.com/)
+-   [AlpineJS](https://alpinejs.dev/)
 -   MySQL
+
+## Features
+
+### User / Customer
+
+-   Users can choose and book nursing services.
+-   Users can filter their search for nurses.
+-   Users can view detailed information about nurses.
+-   Users can make transactions.
+-   Users can give ratings and reviews for nurses they have previously booked.
+-   Users can edit or delete their reviews.
+-   Users can view all transactions they have made.
+-   Users can change their name, email, password, and profile picture in the settings.
+-   Users can add nurses to their favorites list and remove them.
+-   Users can chat directly with the admin through the chat page.
+-   Users can read and comment on articles.
+-   Users can filter articles.
+
+### Admin / Foundation
+
+-   Admin can access Dashboard
+-   Admin can add, edit, and delete nurses.
+-   Admin can add, edit, and delete users.
+-   Admin can edit and delete transactions.
+-   Admin can add, edit, and delete articles.
+-   Admin can accept, confirm, and complete nurse orders from users.
+-   Admin can chat with multiple users directly through the chat page.
+
+## Screenshots
+
+-   Home Page
+    ![Home Page](public/assets/screenshot/home.png)
+
+-   Nurses Page
+    ![Nurses Page](public/assets/screenshot/nurses.png)
+
+-   Dashboard Page
+    ![Dashboard Page](public/assets/screenshot/dashboard.png)
 
 ## Requirement
 
@@ -69,21 +119,3 @@ The following tools are required in order to start the installation.
 ```
 
 Project will be running on http://127.0.0.1:8000. You can login in as admin with test@example.com & password.
-
-## Contributing
-
-1. Make new branch (contoh nama branchnya `dev`)
-
-```bash
-  git branch -b dev
-```
-
-2. Melakukan perubahan di branch `dev`
-
-3. Push branch ke origin
-
-```bash
-git push origin dev
-```
-
-4. Go to Careish Github repo, and open pull request
