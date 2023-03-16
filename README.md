@@ -21,6 +21,7 @@ The result of the research that has been conducted is a website based elderly nu
 -   [WireUi](https://livewire-wireui.com/)
 -   [AlpineJS](https://alpinejs.dev/)
 -   MySQL
+-   Docker (see [coolify branch](https://github.com/ramaakbar/careish/tree/coolify) for dockerfile)
 
 ## Features
 
@@ -64,16 +65,20 @@ The result of the research that has been conducted is a website based elderly nu
 
 https://minio.ramaakbar.xyz/rmitiio/video%20demo%20CareIsh.mp4
 
-## Requirement
+## Deployment
 
-The following tools are required in order to start the installation.
+Application deployed using docker and hosted on vps using [coolify](https://docs.coollabs.io/coolify/) for automatic redeployment on code push.
+
+## Development Setup
+
+The following tools are required in order for development setup.
 
 -   PHP >=8.0
 -   Composer
 -   Node package manager (NPM, Yarn)
 -   MySql Database
 
-## Development Setup
+Steps to setup the app:
 
 1. Clone the project
 
