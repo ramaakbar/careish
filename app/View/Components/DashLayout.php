@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class dashboardLayout extends Component {
+class DashLayout extends Component {
     /**
      * Create a new component instance.
      *
@@ -20,7 +20,7 @@ class dashboardLayout extends Component {
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render() {
-        $sidebar = [
+        $sidebarDash = [
             'Dashboard' => ['/dashboard', 'heroicon-s-home'],
             'Confirmations' => ['/dashboard/confirmations', 'heroicon-s-clipboard-document-check'],
             'Users' => ['/dashboard/users', 'heroicon-s-user'],
@@ -28,6 +28,6 @@ class dashboardLayout extends Component {
             'Nurses' => ['/dashboard/nurses', 'heroicon-s-user-group'],
             'Posts' => ['/dashboard/posts', 'heroicon-s-newspaper']
         ];
-        return view('components.dashboard-layout', compact('sidebar'));
+        return view('components.dash-layout', compact('sidebarDash'));
     }
 }

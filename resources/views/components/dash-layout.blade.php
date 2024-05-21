@@ -65,7 +65,7 @@
                 <a href="/" class="px-2 py-3 mb-5 text-2xl font-extrabold text-gray-900 lg:px-6">Careish</a>
                 <div class="flex-1 px-2 space-y-1 divide-y ">
                     <ul class="pb-2 space-y-2">
-                        @foreach ($sidebar as $name => $test)
+                        @foreach ($sidebarDash as $name => $test)
                             @if (request()->is('dashboard'))
                                 <li
                                     class="{{ request()->is(Str::lower($name)) ? 'bg-blue-100 rounded hover:bg-gray-100' : 'rounded hover:bg-gray-100' }}">
@@ -104,7 +104,7 @@
     class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80"
     tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
     <h5 id="drawer-label" class="inline-flex items-center text-base font-semibold text-gray-500">Menu</h5>
-    <button type="button" data-drawer-dismiss="drawer-navigation" aria-controls="drawer-navigation"
+    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation"
         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center">
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@
     </button>
     <div class="py-4 overflow-y-auto">
         <ul class="space-y-2">
-            @foreach ($sidebar as $name => $test)
+            @foreach ($sidebarDash as $name => $test)
                 <li>
                     <a href="{{ $test[0] }}"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg hover:bg-gray-100">

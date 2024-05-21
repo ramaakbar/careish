@@ -1,5 +1,5 @@
 <x-layout>
-    <x-dashboard-layout>
+    <x-dash-layout>
         <main class="min-h-[70vh] px-4 pt-6 max-w-[90rem] mx-auto">
             <h1 class="mb-5 text-3xl font-bold">Dashboard</h1>
             <div class="flex flex-col items-center mb-10 space-y-5 md:space-x-5 lg:space-x-10 md:space-y-0 md:flex-row">
@@ -201,5 +201,5 @@
                 </div>
             </div>
         </main>
-    </x-dashboard-layout>
+    </x-dash-layout>
 </x-layout>
