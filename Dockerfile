@@ -16,7 +16,7 @@ RUN npm install && npm run build
 # RUN php artisan cache:clear
 # RUN php artisan view:clear
 
-FROM php:8.1 as php_deploy
+FROM php:8.2 as php_deploy
 COPY --from=npm_build /app/ /app/
 WORKDIR /app/
 RUN apt-get update -y && apt-get install -y openssl zip unzip git
