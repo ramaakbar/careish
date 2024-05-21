@@ -27,7 +27,7 @@ Route::get('/provinces', Provinces::class)->name('provinces');
 Route::get('/cities/{provinces_id?}', [Cities::class, 'getCities'])->name('cities');
 
 Route::get('/ig/{username}', function (string $username) {
-    $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../cache');
+    $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../storage/apicache');
     $api = new Api($cachePool);
     $api->login(env('INSTAGRAM_EMAIL'), env('INSTAGRAM_PASSWORD'));
     $profile = $api->getProfile($username);
