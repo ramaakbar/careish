@@ -19,7 +19,8 @@ RUN npm install && npm run build
 FROM php:8.2 as php_deploy
 COPY --from=npm_build /app/ /app/
 WORKDIR /app/
-RUN apt-get update -y && apt-get install -y openssl zip unzip git
+RUN apt-get update -y && apt-get install -y openssl zip unzip git php8.2-mbstring php8.2-mcrypt php8.2-imap
+RUN phpenmod imap
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN docker-php-ext-install pdo pdo_mysql sockets
 RUN php artisan config:cache
