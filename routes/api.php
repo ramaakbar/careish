@@ -5,6 +5,9 @@ use App\Http\Controllers\api\Provinces;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Instagram\Api;
+use Instagram\Auth\Checkpoint\ImapClient;
+use Instagram\Exception\InstagramException;
+use Psr\Cache\CacheException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 /*
@@ -28,8 +31,16 @@ Route::get('/cities/{provinces_id?}', [Cities::class, 'getCities'])->name('citie
 
 Route::get('/ig/{username}', function (string $username) {
     $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../storage/apicache');
-    $api = new Api($cachePool);
-    $api->login(env('INSTAGRAM_EMAIL'), env('INSTAGRAM_PASSWORD'));
-    $profile = $api->getProfile($username);
-    return $api->getMoreMedias($profile)->toArray();
+    try {
+        $api = new Api($cachePool);
+        $imapClient = new ImapClient('imap.gmail.com:993', env('IMAP_LOGIN'), env('IMAP_PASSWORD'));
+        $api->login(env('INSTAGRAM_EMAIL'), env('INSTAGRAM_PASSWORD'), $imapClient);
+        $profile = $api->getProfile($username);
+
+        return $api->getMoreMedias($profile)->toArray();
+    } catch (InstagramException $e) {
+        return $e->getMessage();
+    } catch (CacheException $e) {
+        return $e->getMessage();
+    }
 });
