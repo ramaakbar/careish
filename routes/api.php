@@ -29,7 +29,7 @@ Route::get('/provinces', Provinces::class)->name('provinces');
 
 Route::get('/cities/{provinces_id?}', [Cities::class, 'getCities'])->name('cities');
 
-function encodeimg($url)
+function encodeImgToBase64($url)
 {
     $r = get_headers($url, 1);
     if (isset($r['Content-Type'])) {
@@ -51,7 +51,7 @@ Route::get('/ig/{username}', function (string $username) {
         $medias = array_slice($api->getMoreMedias($profile)->toArray()['medias'], 0, 6);
 
         foreach ($medias as &$media) {
-            $media['thumbnailSrc'] = encodeimg($media['thumbnailSrc']);
+            $media['thumbnailSrc'] = encodeImgToBase64($media['thumbnailSrc']);
         }
 
         return ['medias' => $medias];
