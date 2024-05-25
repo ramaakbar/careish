@@ -29,18 +29,6 @@ Route::get('/provinces', Provinces::class)->name('provinces');
 
 Route::get('/cities/{provinces_id?}', [Cities::class, 'getCities'])->name('cities');
 
-function encodeImgToBase64($url)
-{
-    $r = get_headers($url, 1);
-    if (isset($r['Content-Type'])) {
-        $imageData = base64_encode(file_get_contents($url));
-        $src = 'data: ' . $r['Content-Type'] . ';base64,' . $imageData;
-    } else {
-        $src = $url;
-    }
-    return $src;
-}
-
 Route::get('/ig/{username}', function (string $username) {
     $cachePool = new FilesystemAdapter('Instagram', 0, __DIR__ . '/../storage/apicache');
     try {
@@ -51,7 +39,14 @@ Route::get('/ig/{username}', function (string $username) {
         $medias = array_slice($api->getMoreMedias($profile)->toArray()['medias'], 0, 6);
 
         foreach ($medias as &$media) {
-            $media['thumbnailSrc'] = encodeImgToBase64($media['thumbnailSrc']);
+            $r = get_headers($media['thumbnailSrc'], 1);
+            if (isset($r['Content-Type'])) {
+                $imageData = base64_encode(file_get_contents($media['thumbnailSrc']));
+                $src = 'data: ' . $r['Content-Type'] . ';base64,' . $imageData;
+            } else {
+                $src = $media['thumbnailSrc'];
+            }
+            $media['thumbnailSrc'] = $src;
         }
 
         return ['medias' => $medias];
