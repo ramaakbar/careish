@@ -36,11 +36,28 @@ Route::get('/ig/{username}', function (string $username) {
         $imapClient = new ImapClient('imap.gmail.com:993', env('IMAP_LOGIN'), env('IMAP_PASSWORD'));
         $api->login(env('INSTAGRAM_EMAIL'), env('INSTAGRAM_PASSWORD'), $imapClient);
         $profile = $api->getProfile($username);
+        $medias = array_slice($api->getMoreMedias($profile)->toArray()['medias'], 0, 6);
 
-        return $api->getMoreMedias($profile)->toArray();
+        foreach ($medias as &$media) {
+            $media['thumbnailSrc'] = encodeimg($media['thumbnailSrc']);
+        }
+
+        return ['medias' => $medias];
     } catch (InstagramException $e) {
-        return $e->getMessage();
+        return ['igerror' => $e->getMessage()];
     } catch (CacheException $e) {
-        return $e->getMessage();
+        return ['cacheerror' => $e->getMessage()];
     }
 });
+
+function encodeimg($url)
+{
+    $r = get_headers($url, 1);
+    if (isset($r['Content-Type'])) {
+        $imageData = base64_encode(file_get_contents($url));
+        $src = 'data: ' . $r['Content-Type'] . ';base64,' . $imageData;
+    } else {
+        $src = $url;
+    }
+    return $src;
+}
