@@ -63,7 +63,7 @@ The result of the research that has been conducted is a website based elderly nu
 
 ## Demo Video
 
-https://minio.ramaakbar.xyz/rmitiio/video%20demo%20CareIsh.mp4
+[https://youtu.be/rfEpo5CQCd](https://youtu.be/rfEpo5CQCdg)
 
 ## Deployment
 
